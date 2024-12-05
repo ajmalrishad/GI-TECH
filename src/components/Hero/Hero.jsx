@@ -1,7 +1,7 @@
 // import React from "react";
 import { motion } from "framer-motion";
 import ScrollPng from "../../assets/scroll.png";
-import video from "../../assets/video1.mov";
+import video from "../../assets/video1.mp4";
 
 const textVariants = {
   initial: {
