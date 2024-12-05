@@ -1,54 +1,50 @@
 import { useState, useEffect } from "react";
-import Logo from "../../assets/gitechlogo1.jpg";
 import { motion, AnimatePresence } from "framer-motion";
+import Logo from "../../assets/gitechlogo1.jpg";
 
 const Menu = [
   { id: 1, name: "Home", link: "/" },
   {
-    id: 2, name: "Automation", link: "/automation", subItems: [
-      "Industrial automation Panels",
+    id: 2,
+    name: "Automation",
+    link: "/automation",
+    subItems: [
+      "Industrial Automation Panels",
       "SCADA",
-      "PLC programming",
+      "PLC Programming",
       "Telemetry and Remote Monitoring",
       "IoT",
-      "Home Automation"
-    ]
+      "Home Automation",
+    ],
   },
   {
-    id: 3, name: "Service", link: "/service", subItems: [
-      "Commissioning of Control panels",
-      "VFD and servo drives repairing",
-      "PLC and Control Panel troubleshooting",
-      "Earth Leakage Test/Meggering of motor",
-      "Harmonic Study and Analysis"
-    ]
+    id: 3,
+    name: "Service",
+    link: "/service",
+    subItems: [
+      "Commissioning of Control Panels",
+      "VFD and Servo Drives Repairing",
+      "PLC and Control Panel Troubleshooting",
+      "Earth Leakage Test/Meggering of Motor",
+      "Harmonic Study and Analysis",
+    ],
   },
   {
-    id: 4, name: "Projects", link: "/projects", subItems: [
-      "Motor control centers",
+    id: 4,
+    name: "Projects",
+    link: "/projects",
+    subItems: [
+      "Motor Control Centers",
       "HVAC Panels",
-      "Sewage treatment Plants"
-    ]
+      "Sewage Treatment Plants",
+    ],
   },
   { id: 5, name: "Contact", link: "/contact" },
-  { id: 6, name: "About", link: "/about" }
+  { id: 6, name: "About", link: "/about" },
 ];
 
 const Subnavbar = () => {
-  const [navBackground, setNavBackground] = useState("transparent"); // Light gray background
-  const [navTextColor, setNavTextColor] = useState("black");
   const [selectedMenu, setSelectedMenu] = useState(null);
-
-  const handleScroll = () => {
-    if (window.scrollY > window.innerHeight * 0.9) {
-      setNavBackground("rgba(211, 211, 211, 0.95)"); // Slightly more opaque on scroll
-      setNavTextColor("black");
-    } else {
-    //   setNavBackground("rgba(211, 211, 211, 0.8)");
-      setNavBackground("transparent"); // Initial light gray background
-      setNavTextColor("black");
-    }
-  };
 
   const handleMouseEnter = (id) => {
     setSelectedMenu(id);
@@ -58,181 +54,109 @@ const Subnavbar = () => {
     setSelectedMenu(null);
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <div
-      // style={{
-      //   height: "100px",
-      //   backgroundColor: navBackground,
-      //   position: "fixed",
-      //   top: 0,
-      //   width: "100%",
-      //   zIndex: 1000,
-      //   transition: "background-color 0.3s ease",
-      // }}
       style={{
-        height: "100px",
-        backgroundColor: navBackground,
         position: "fixed",
         top: 0,
         width: "100%",
+        backgroundColor: "rgba(255, 255, 255, 0.95)",
+        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
         zIndex: 1000,
-        transition: "background-color 0.3s ease",
       }}
     >
       <div
-        // style={{
-        //   maxWidth: "1366px",
-        //   margin: "auto",
-        //   display: "flex",
-        //   alignItems: "center",
-        //   justifyContent: "space-between",
-        //   height: "100%",
-        // }}
         style={{
           maxWidth: "1366px",
           margin: "auto",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          height: "100%",
+          padding: "0 20px",
+          height: "80px",
         }}
       >
-        {/* Logo section */}
-        <div data-aos="fade-down" data-aos-once="true">
-          <a
-            href="/"
-            style={{
-              fontWeight: "bold",
-              fontSize: "2xl",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "0.5rem",
-              textDecoration: "none",
-              color: navTextColor,
-            }}
-          >
-            <img src={Logo} alt="Logo" style={{ width: "180px", height: "auto" }} />
-          </a>
-        </div>
+        {/* Logo Section */}
+        <a href="/" style={{ display: "flex", alignItems: "center" }}>
+          <img src={Logo} alt="Logo" style={{ width: "150px" }} />
+        </a>
 
-        {/* Link section */}
-        <div
-          data-aos="fade-down"
-          data-aos-once="true"
-          data-aos-delay="300"
-          style={{
-            display: "flex",
-            gap: "20px",
-            position: "relative"
-          }}
-        >
+        {/* Menu Section */}
+        <div style={{ display: "flex", gap: "20px" }}>
           {Menu.map((menu) => (
             <div
               key={menu.id}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
               onMouseEnter={() => handleMouseEnter(menu.id)}
               onMouseLeave={handleMouseLeave}
+              style={{ position: "relative" }}
             >
               <a
                 href={menu.link}
                 style={{
                   textDecoration: "none",
-                  color: navTextColor,  // This will dynamically change based on scroll
+                  color: "black",
                   fontWeight: "bold",
-                  fontSize: "20px",  // Increased font size
-                  padding: "10px 20px",
-                  borderRadius: "5px",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  transition: "color 0.3s ease",
-                  position: "relative",
-                }}
-                onMouseOver={(e) => {
-                  e.currentTarget.style.color = "blue";  // Set to blue on hover
-                  e.currentTarget.querySelector(".loader").style.width = "100%";
-                }}
-                onMouseOut={(e) => {
-                  e.currentTarget.style.color = navTextColor;  // Revert to the dynamic color (black or white)
-                  e.currentTarget.querySelector(".loader").style.width = "0";
+                  fontSize: "16px",
+                  padding: "10px 15px",
+                  display: "block",
                 }}
               >
                 {menu.name}
-                <div
-                  className="loader"
-                  style={{
-                    position: "absolute",
-                    bottom: 0,
-                    left: 0,
-                    height: "2px",
-                    width: "0",
-                    backgroundColor: "blue",
-                    transition: "width 0.3s ease",
-                  }}
-                ></div>
               </a>
+              {menu.subItems && selectedMenu === menu.id && (
+                <AnimatePresence>
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    style={{
+                      position: "absolute",
+                      top: "100%",
+                      right: "50%",
+                      transform: "translateX(-50%)",
+                      backgroundColor: "white",
+                      borderRadius: "8px",
+                      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+                      padding: "15px 20px",
+                      zIndex: 1000,
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: "15px",
+                      justifyContent: "center",
+                      width: "80vw",
+                      maxWidth: "600px",
+                      textAlign: "center",
+                    }}
+                  >
+                    {menu.subItems.map((subItem, index) => (
+                      <a
+                        key={index}
+                        href="#"
+                        style={{
+                          textDecoration: "none",
+                          color: "#333",
+                          fontSize: "14px",
+                          fontWeight: "500",
+                          padding: "5px 10px",
+                          transition: "color 0.3s ease",
+                        }}
+                        onMouseOver={(e) =>
+                          (e.currentTarget.style.color = "#007bff")
+                        }
+                        onMouseOut={(e) =>
+                          (e.currentTarget.style.color = "#333")
+                        }
+                      >
+                        {subItem}
+                      </a>
+                    ))}
+                  </motion.div>
+                </AnimatePresence>
+              )}
             </div>
           ))}
         </div>
       </div>
-      <AnimatePresence>
-        {selectedMenu && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            style={{
-              position: "absolute",
-              top: "100%",
-              left: 0,
-              width: "100%",
-              backgroundColor: "rgba(255, 255, 255, 0.9)", // Keep dropdown background light with some transparency
-              borderRadius: "5px",
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-              zIndex: 1000,
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            <div style={{ display: "flex", justifyContent: "space-around", width: "100%" }}>
-              {Menu.filter(menu => menu.id === selectedMenu && menu.subItems).map(menu => (
-                <div key={menu.id} style={{ padding: "10px 20px" }}>
-                  <h5 style={{ color: "black", fontWeight: "bold", marginBottom: "10px" }}>{menu.name}</h5>
-                  {menu.subItems.map((subItem, index) => (
-                    <a
-                      key={index}
-                      href="#"
-                      style={{
-                        display: "block",
-                        padding: "5px 0",
-                        color: "black",
-                        textDecoration: "none",
-                        transition: "background-color 0.3s ease",
-                      }}
-                      onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "rgba(0, 0, 0, 0.1)")}
-                      onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
-                    >
-                      {subItem}
-                    </a>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 };
