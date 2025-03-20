@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 // import Img2 from "../../assets/circuit.png";
-import service1 from "../../assets/sales.PNG";
+import service1 from "../../assets/sales.png";
 import service2 from "../../assets/light.png";
 import service3 from "../../assets/energy.png";
 import service4 from "../../assets/projects.png";
