@@ -1,5 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaShoppingCart } from "react-icons/fa";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import Logo from "../../assets/gitechlogo1.jpg";
 
 const Menu = [
@@ -33,11 +35,7 @@ const Menu = [
     id: 4,
     name: "Projects",
     link: "/projects",
-    subItems: [
-      "Motor Control Centers",
-      "HVAC Panels",
-      "Sewage Treatment Plants",
-    ],
+    subItems: ["Motor Control Centers", "HVAC Panels", "Sewage Treatment Plants"],
   },
   { id: 5, name: "Contact", link: "/contact" },
   { id: 6, name: "About", link: "/about" },
@@ -45,6 +43,8 @@ const Menu = [
 
 const Subnavbar = () => {
   const [selectedMenu, setSelectedMenu] = useState(null);
+  const [cartItems, setCartItems] = useState(); // Example: 3 items in cart
+  const navigate = useNavigate(); // Navigation function
 
   const handleMouseEnter = (id) => {
     setSelectedMenu(id);
@@ -82,7 +82,7 @@ const Subnavbar = () => {
         </a>
 
         {/* Menu Section */}
-        <div style={{ display: "flex", gap: "20px" }}>
+        <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
           {Menu.map((menu) => (
             <div
               key={menu.id}
@@ -140,12 +140,8 @@ const Subnavbar = () => {
                           padding: "5px 10px",
                           transition: "color 0.3s ease",
                         }}
-                        onMouseOver={(e) =>
-                          (e.currentTarget.style.color = "#007bff")
-                        }
-                        onMouseOut={(e) =>
-                          (e.currentTarget.style.color = "#333")
-                        }
+                        onMouseOver={(e) => (e.currentTarget.style.color = "#007bff")}
+                        onMouseOut={(e) => (e.currentTarget.style.color = "#333")}
                       >
                         {subItem}
                       </a>
@@ -155,6 +151,27 @@ const Subnavbar = () => {
               )}
             </div>
           ))}
+
+          {/* Cart Icon */}
+          <div className="cart-icon" style={{ position: "relative", cursor: "pointer" }} onClick={() => navigate("/cart")}>
+            <FaShoppingCart size={24} color="black" />
+            {cartItems > 0 && (
+              <span
+                style={{
+                  background: "red",
+                  color: "white",
+                  fontSize: "12px",
+                  padding: "2px 6px",
+                  borderRadius: "50%",
+                  position: "absolute",
+                  top: "-5px",
+                  right: "-10px",
+                }}
+              >
+                {cartItems}
+              </span>
+            )}
+          </div>
         </div>
       </div>
     </div>
