@@ -72,9 +72,10 @@ const Hero = () => {
     },
     subheading: {
       display: 'inline-block',
-      fontSize: '4rem',
+      fontSize: '5rem',
       color: '#ffcc00',
       animation: 'bounce 2s infinite',
+      marginRight: '1rem',
     },
     subtext: {
       fontSize: '2rem',
@@ -133,12 +134,11 @@ const Hero = () => {
           animate="animate"
         >
           <div style={styles.subheading}>
-            360
-            <sup className="text-3xl sm:text-4xl lg:text-5xl">°</sup>
+            15
           </div>
-          Engineering Solutions<br></br>
+          Years of experience<br />
           <motion.span style={styles.subtext}>
-            Your trusted partner for advanced technology solutions
+            Your trusted partner for advanced technology automation solutions
           </motion.span>
           <span
             style={styles.underline}
