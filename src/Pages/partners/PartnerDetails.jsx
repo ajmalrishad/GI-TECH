@@ -13,11 +13,55 @@ const partners = [
   // Add other partners...
 ];
 
+const sectionTitleStyles = {
+  paddingBottom: '60px',
+  position: 'relative',
+  marginLeft: '7rem',
+};
+
+const h2Styles = {
+  fontSize: '14px',
+  fontWeight: 500,
+  padding: 0,
+  lineHeight: '1px',
+  margin: 0,
+  letterSpacing: '1.5px',
+  textTransform: 'uppercase',
+  color: 'color-mix(in srgb, var(--default-color), transparent 50%)',
+  position: 'relative',
+};
+
+const h2AfterStyles = {
+  content: '""',
+  width: '160px',
+  height: '3px',
+  display: 'inline-block',
+  background: '#006',
+  margin: '4px 10px',
+};
+
+const pStyles = {
+  color: 'var(--heading-color)',
+  margin: 0,
+  fontSize: '36px',
+  fontWeight: 700,
+  textTransform: 'uppercase',
+};
+
+
 const PartnerDetails = () => {
   return (
-    <div className="bg-gradient-to-r from-blue-200 to-blue-500 min-h-screen margin-top-6rem text-gray-800 p-10">
+    <div className="bg-white min-h-screen text-gray-800 p-10" style={{ marginTop: '8rem' }}>
       <div className="container mx-auto">
-        <h1 className="text-4xl font-bold  mb-10"style={{ marginTop: '3rem' }}>Our Partners</h1>
+        {/* Section title block added (same as Portfolio) */}
+        <div className="section-title" style={sectionTitleStyles} data-aos="fade-up">
+          <div className='flex'>
+            <h2 style={h2Styles}>Partners</h2>
+            <span className="h2AfterStyles" style={h2AfterStyles}></span>
+          </div>
+          <p style={pStyles}>Our Trusted Partners</p>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
           {partners.map((partner, index) => (
             <motion.div
@@ -32,14 +76,6 @@ const PartnerDetails = () => {
             </motion.div>
           ))}
         </div>
-        {/* <div className="mt-10 text-center">
-          <Link
-            to="/"
-            className="inline-block px-6 py-3 bg-blue-800 text-white font-bold rounded hover:bg-blue-700 transition duration-300"
-          >
-            Back to Home
-          </Link>
-        </div> */}
       </div>
     </div>
   );
