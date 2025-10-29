@@ -18,6 +18,7 @@ import Loader from "./components/Loader/Loader";
 import Contact from "./Pages/Contact/ContactUs";
 import AutomationServices from "./Pages/Automation/Automation";
 import Cart from "./Pages/Cart/Cart"; // ✅ Import Cart Page
+import ProductSection from "./Pages/Products/Products"; // Import Product Section
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -37,7 +38,7 @@ const App = () => {
     <Router>
       <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 overflow-x-hidden">
         <Routes>
-          <Route path="/" element={<Layout><Hero /><GlobalPartners /><Services /><Banner /><StatsSection /><Moto /><Testimonials /><Portfolio /><ContactUs /></Layout>} />
+          <Route path="/" element={<Layout><Hero /><GlobalPartners /><ProductSection /><Services /><Banner /><StatsSection /><Moto /><Testimonials /><Portfolio /><ContactUs /></Layout>} />
           <Route path="/about" element={<Layout><AboutUs /></Layout>} />
           <Route path="/contact" element={<Layout><Contact /></Layout>} />
           <Route path="/service" element={<Layout><Service /></Layout>} />
