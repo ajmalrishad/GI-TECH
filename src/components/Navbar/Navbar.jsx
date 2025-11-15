@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import Logo from "../../assets/gitechlogo1.jpg";
+import Logo from "../../assets/gitechlogo1.png";
 
 const Navbar = () => {
   const navigate = useNavigate();

@@ -36,6 +36,7 @@ const Hero = () => {
       alignItems: 'center',
       zIndex: 10,
       color: 'white',
+      overflow: 'hidden',
     },
     videoBackground: {
       position: 'absolute',
@@ -44,6 +45,7 @@ const Hero = () => {
       width: '100%',
       height: '100%',
       objectFit: 'cover',
+      objectPosition: 'center',
       zIndex: -1,
     },
     gradientOverlay: {

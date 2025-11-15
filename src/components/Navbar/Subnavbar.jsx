@@ -3,13 +3,21 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-import Logo from "../../assets/gitechlogo1.jpg";
+import Logo from "../../assets/gitechlogo1.png";
 import "./subnavbar.css";
 
 const Menu = [
   { id: 1, name: "Home", link: "/" },
   {
     id: 2,
+    name: "Products",
+    link: "/products",
+    subItems: [
+      "products",
+    ],
+  },
+  {
+    id: 3,
     name: "Automation",
     link: "/automation",
     subItems: [
@@ -22,7 +30,7 @@ const Menu = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     name: "Service",
     link: "/service",
     subItems: [
@@ -34,13 +42,13 @@ const Menu = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     name: "Projects",
     link: "/projects",
     subItems: [ "HVAC Panels", "Motor Control Centers", "Sewage Treatment Plants" ],
   },
-  { id: 5, name: "Contact", link: "/contact" },
-  { id: 6, name: "About", link: "/about" },
+  { id: 6, name: "Contact", link: "/contact" },
+  { id: 7, name: "About", link: "/about" },
 ];
 
 const Subnavbar = () => {

@@ -9,14 +9,6 @@ import partner1 from "../../assets/partner1.png";
 import partner2 from "../../assets/partner2.png";
 import partner3 from "../../assets/partner3.png";
 import partner4 from "../../assets/partner4.png";
-import partner5 from "../../assets/partner1.png";
-import partner6 from "../../assets/partner2.png";
-import partner7 from "../../assets/partner3.png";
-import partner8 from "../../assets/partner4.png";
-import partner9 from "../../assets/partner1.png";
-import partner10 from "../../assets/partner2.png";
-import partner11 from "../../assets/partner3.png";
-import partner12 from "../../assets/partner4.png";
 
 const sectionTitleStyles = {
   paddingBottom: "60px",
@@ -55,22 +47,22 @@ const pStyles = {
 
 const GlobalPartners = () => {
   const navigate = useNavigate();
+  const [hovered, setHovered] = useState(Array(12).fill(false));
+
   const partners = [
     { src: partner1, alt: "Partner 1" },
     { src: partner2, alt: "Partner 2" },
     { src: partner3, alt: "Partner 3" },
     { src: partner4, alt: "Partner 4" },
-    { src: partner5, alt: "Partner 5" },
-    { src: partner6, alt: "Partner 6" },
-    { src: partner7, alt: "Partner 7" },
-    { src: partner8, alt: "Partner 8" },
-    { src: partner9, alt: "Partner 9" },
-    { src: partner10, alt: "Partner 10" },
-    { src: partner11, alt: "Partner 11" },
-    { src: partner12, alt: "Partner 12" },
+    { src: partner1, alt: "Partner 5" },
+    { src: partner2, alt: "Partner 6" },
+    { src: partner3, alt: "Partner 7" },
+    { src: partner4, alt: "Partner 8" },
+    { src: partner1, alt: "Partner 9" },
+    { src: partner2, alt: "Partner 10" },
+    { src: partner3, alt: "Partner 11" },
+    { src: partner4, alt: "Partner 12" },
   ];
-
-  const [hovered, setHovered] = useState(Array(partners.length).fill(false));
 
   useEffect(() => {
     AOS.init({
@@ -108,7 +100,7 @@ const GlobalPartners = () => {
   };
 
   return (
-    <section id="partners" className="py-10 bg-white">
+    <section id="partners" className="py-16 bg-white">
       <div className="container mx-auto">
         <div className="section-title" style={sectionTitleStyles} data-aos="fade-up">
           <div className="flex items-center justify-start">
@@ -123,24 +115,28 @@ const GlobalPartners = () => {
             {partners.map((partner, index) => (
               <div
                 key={index}
-                className="partner px-4"
+                className="partner px-4 flex justify-center items-center"
                 onMouseEnter={() => handleHover(index)}
                 onMouseLeave={() => handleLeave(index)}
                 data-aos="fade-up"
                 data-aos-delay={index * 80}
               >
-                <img
-                  src={partner.src}
-                  alt={partner.alt}
-                  className="mx-auto h-20 transition duration-300"
-                  style={{ filter: hovered[index] ? "none" : "grayscale(100%)" }}
-                />
+                <div className="w-full h-32 flex justify-center items-center bg-gray-50 rounded-lg overflow-hidden">
+                  <img
+                    src={partner.src}
+                    alt={partner.alt}
+                    className="w-32 h-32 object-contain transition-all duration-300"
+                    style={{ 
+                      filter: hovered[index] ? "grayscale(0%)" : "grayscale(100%)",
+                      transform: hovered[index] ? "scale(1.1)" : "scale(1)",
+                    }}
+                  />
+                </div>
               </div>
             ))}
           </Slider>
 
-          {/* Center "See All" under the slider (same as old) */}
-          <div className="flex justify-center mt-20">
+          <div className="flex justify-center mt-8">
             <Link
               to="/partner"
               className="inline-flex items-center gap-2 text-grey font-bold cursor-pointer hover:text-blue-800 transition duration-300"

@@ -8,7 +8,7 @@ import projectImg4 from "../../assets/project1.png";
 import projectImg5 from "../../assets/project2.png";
 import projectImg6 from "../../assets/project3.png";
 import background1 from "../../assets/office3.jpg";
-import logo from "../../assets/gitechlogo1.jpg";
+import logo from "../../assets/gitechlogo1.png";
 import Subnavbar from "../../components/Navbar/Subnavbar";
 import Footer from "../../components/Footer/Footer";
 
