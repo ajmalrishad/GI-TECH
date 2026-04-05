@@ -141,7 +141,7 @@ const Cart = () => {
             </button>
           </div>
         ) : (
-          <div style={{ display: "flex", gap: "20px", flexDirection: windowWidth < 768 ? "column" : "row" }}>
+          <div style={{ display: "flex", gap: "20px", flexDirection: window.innerWidth < 768 ? "column" : "row" }}>
             {/* Cart Items */}
             <div style={{ flex: 1 }}>
               {cartItems.map((item, index) => (
@@ -286,7 +286,7 @@ const Cart = () => {
             </div>
 
             {/* Order Summary */}
-            <div style={{ width: windowWidth < 768 ? "100%" : "300px", flexShrink: 0 }}>
+            <div style={{ width: window.innerWidth < 768 ? "100%" : "300px", flexShrink: 0 }}>
               <div style={{ 
                 backgroundColor: "white", 
                 borderRadius: "8px", 
