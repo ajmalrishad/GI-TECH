@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaShoppingCart, FaEye } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -47,8 +47,9 @@ const pStyles = {
 };
 
 const ProductSection = () => {
-  const [cart, setCart] = useState([]);
   const [hoveredId, setHoveredId] = useState(null);
+  const [toast, setToast] = useState(null);
+  const navigate = useNavigate();
 
   const products = [
     {
@@ -93,13 +94,62 @@ const ProductSection = () => {
   }, []);
 
   const handleAddToCart = (product) => {
-    setCart(prevCart => [...prevCart, product]);
-    alert(`${product.title} added to cart!`);
+    try {
+      // Get existing cart from localStorage
+      const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
+      
+      // Check if product already exists in cart
+      const existingProduct = existingCart.find(item => item.id === product.id);
+      
+      if (existingProduct) {
+        // Increase quantity if product exists
+        existingProduct.quantity = (existingProduct.quantity || 1) + 1;
+      } else {
+        // Add new product to cart with all required fields
+        existingCart.push({
+          id: product.id,
+          title: product.title,
+          brand: product.brand,
+          price: product.price,
+          image: product.image,
+          description: product.description,
+          quantity: 1
+        });
+      }
+      
+      // Save updated cart to localStorage
+      localStorage.setItem('cart', JSON.stringify(existingCart));
+      console.log('Product added to cart:', existingCart);
+      
+      // Show toast notification
+      setToast(product.title);
+      setTimeout(() => setToast(null), 2500);
+      
+      // Redirect to cart page after a better delay
+      setTimeout(() => {
+        navigate('/cart');
+      }, 800);
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+    }
   };
 
   return (
     <section id="products" className="py-16 bg-white">
       <div className="container mx-auto px-4">
+        {/* Toast Notification */}
+        {toast && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed top-6 right-6 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg flex items-center gap-2 z-50"
+          >
+            <FaShoppingCart size={18} />
+            <span className="font-semibold">{toast} added to cart!</span>
+          </motion.div>
+        )}
+
         <div className="section-title" style={sectionTitleStyles} data-aos="fade-up">
           <div className="flex items-center justify-start">
             <h2 style={h2Styles}>Our Products</h2>
@@ -108,57 +158,74 @@ const ProductSection = () => {
           <p style={pStyles}>Featured Industrial Solutions</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {products.map((product) => (
             <motion.div
               key={product.id}
-              whileHover={{ y: -10 }}
-              transition={{ duration: 0.3 }}
-              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
-              style={{ minHeight: '300px' }}
+              whileHover={{ boxShadow: "0 4px 20px rgba(0, 0, 0, 0.15)" }}
+              transition={{ duration: 0.2 }}
+              className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col border border-gray-200"
               data-aos="fade-up"
               data-aos-delay={product.id * 100}
             >
+              {/* Image Section */}
               <div 
-                className="relative overflow-hidden" 
-                style={{ height: '300px' }}
+                className="relative overflow-hidden bg-gray-100" 
+                style={{ height: '280px' }}
                 onMouseEnter={() => setHoveredId(product.id)}
                 onMouseLeave={() => setHoveredId(null)}
               >
                 <img
                   src={product.image}
                   alt={product.title}
-                  className="w-full h-full object-cover transition-transform duration-500"
+                  className="w-full h-full object-scale-down transition-transform duration-500"
                   style={{
-                    transform: hoveredId === product.id ? 'scale(1.1)' : 'scale(1)',
+                    transform: hoveredId === product.id ? 'scale(1.08)' : 'scale(1)',
                   }}
                 />
               </div>
 
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3">{product.title}</h3>
-                <p className="text-gray-600 text-lg mb-2">Brand: {product.brand}</p>
-                <p className="text-gray-700 mb-3">{product.description}</p>
-                <p className="text-blue-600 font-bold text-xl mb-4">
-                  ${product.price.toFixed(2)}
+              {/* Content Section */}
+              <div className="p-5 flex flex-col flex-grow">
+                {/* Brand */}
+                <p className="text-gray-500 text-xs mb-1 uppercase tracking-wide">{product.brand}</p>
+                
+                {/* Title */}
+                <h3 className="text-sm font-semibold mb-2 line-clamp-2 text-gray-800 leading-tight">
+                  {product.title}
+                </h3>
+                
+                {/* Description */}
+                <p className="text-gray-600 text-xs mb-2 line-clamp-1">
+                  {product.description}
                 </p>
                 
-                <div className="flex justify-between items-center mt-6">
+                {/* Price */}
+                <div className="mb-4">
+                  <p className="text-xl font-bold text-gray-900">
+                    ${product.price.toFixed(2)}
+                  </p>
+                </div>
+
+                {/* Buttons - Horizontal Layout */}
+                <div className="flex gap-2 mt-auto">
+                  <Link 
+                    to={`/products/${product.brand}`}
+                    className="flex-1 bg-transparent border-2 border-blue-500 text-blue-500 py-2 px-3 rounded-md text-xs font-bold hover:bg-blue-500 hover:text-white transition-colors duration-300 flex items-center justify-center gap-1.5"
+                  >
+                    <FaEye size={14} />
+                    View
+                  </Link>
+                  
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="bg-blue-500 text-white py-3 px-8 rounded-lg text-lg font-semibold hover:bg-blue-600 transition-colors duration-300"
+                    className="flex-1 bg-green-500 text-white py-2 px-3 rounded-md text-xs font-bold hover:bg-green-600 transition-colors duration-300 flex items-center justify-center gap-1.5"
                     onClick={() => handleAddToCart(product)}
                   >
-                    Add to Cart
+                    <FaShoppingCart size={14} />
+                    Cart
                   </motion.button>
-                  
-                  <Link 
-                    to={`/products/${product.brand}`}
-                    className="text-blue-500 hover:text-blue-700 text-lg font-semibold transition-colors duration-300 hover:underline"
-                  >
-                    View Details
-                  </Link>
                 </div>
               </div>
             </motion.div>

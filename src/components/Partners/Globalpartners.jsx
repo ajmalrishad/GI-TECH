@@ -11,6 +11,7 @@ import partner3 from "../../assets/partner3.png";
 import partner4 from "../../assets/partner4.png";
 
 const sectionTitleStyles = {
+  paddingTop: '60px',
   paddingBottom: "60px",
   position: "relative",
   marginLeft: 0,
@@ -121,11 +122,11 @@ const GlobalPartners = () => {
                 data-aos="fade-up"
                 data-aos-delay={index * 80}
               >
-                <div className="w-full h-32 flex justify-center items-center bg-gray-50 rounded-lg overflow-hidden">
+                <div className="w-full h-20 flex justify-center items-center bg-gray-50 rounded-lg overflow-hidden">
                   <img
                     src={partner.src}
                     alt={partner.alt}
-                    className="w-32 h-32 object-contain transition-all duration-300"
+                    className="w-38 h-38 object-contain transition-all duration-300"
                     style={{ 
                       filter: hovered[index] ? "grayscale(0%)" : "grayscale(100%)",
                       transform: hovered[index] ? "scale(1.1)" : "scale(1)",

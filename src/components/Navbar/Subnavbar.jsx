@@ -12,9 +12,6 @@ const Menu = [
     id: 2,
     name: "Products",
     link: "/products",
-    subItems: [
-      "products",
-    ],
   },
   {
     id: 3,
@@ -57,11 +54,18 @@ const Subnavbar = () => {
   const [cartItems] = useState(0);
   const navigate = useNavigate();
 
-  const handleMenuClick = (id) => {
-    if (selectedMenu === id) {
-      setSelectedMenu(null);
-    } else {
-      setSelectedMenu(id);
+  const handleMenuLinkClick = (menu, e) => {
+    if (menu.name === "Products") {
+      e.preventDefault();
+      navigate("/");
+      setTimeout(() => {
+        const element = document.getElementById("products");
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else if (menu.subItems && menuOpen) {
+      handleMenuClick(menu.id);
     }
   };
 
@@ -91,7 +95,7 @@ const Subnavbar = () => {
             >
               <div
                 className="menu-link"
-                onClick={() => menu.subItems && menuOpen && handleMenuClick(menu.id)}
+                onClick={(e) => handleMenuLinkClick(menu, e)}
               >
                 <a href={menu.link}>{menu.name}</a>
                 {menu.subItems && <IoIosArrowDown className={`arrow ${selectedMenu === menu.id ? "open" : ""}`} />}
