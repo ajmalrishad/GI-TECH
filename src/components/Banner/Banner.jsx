@@ -1,8 +1,6 @@
 import  { useEffect } from "react";
 import { motion } from "framer-motion";
-import { GrSecure } from "react-icons/gr";
-import { IoFastFood } from "react-icons/io5";
-import { GiFoodTruck } from "react-icons/gi";
+import { FaHeadset, FaShoppingBag, FaCogs, FaAward } from "react-icons/fa";
 import BgImg from "../../assets/website/coffee-texture.jpg";
 import Img2 from "../../assets/features.png";
 
@@ -19,7 +17,7 @@ const Banner = () => {
       overflow: 'hidden',
     },
     image: {
-      position: 'fixed',
+      position: 'absolute',
       top: 0,
       left: 0,
       display: 'block',
@@ -30,7 +28,7 @@ const Banner = () => {
     },
     overlay: {
       content: '""',
-      background: 'color-mix(in srgb, var(--background-color), transparent 50%)',
+      background: 'rgba(15, 23, 42, 0.85)', // Premium dark slate overlay
       position: 'absolute',
       inset: 0,
       zIndex: 2,
@@ -52,100 +50,106 @@ const Banner = () => {
 
   return (
     <>
-      <span id="about"></span>
+      <span id="why-gitech"></span>
       <div style={{ ...styles.bgImage, ...styles.callToAction }} className="relative">
-        <img src={BgImg} alt="" style={styles.image} />
         <div style={styles.overlay}></div>
         <div className="min-h-[550px] flex justify-center items-center py-12 sm:py-0 relative z-10">
-          <div className="container">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               {/* Image section */}
               <motion.div
-                initial={{ scale: 0.9 }}
-                animate={{ scale: 1 }}
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.8 }}
                 data-aos="zoom-in"
                 className="relative"
               >
                 <img
                   src={Img2}
-                  alt="biryani img"
-                  className="max-w-[430px] w-full mx-auto drop-shadow-lg transition-transform transform hover:scale-105 duration-500"
+                  alt="Industrial Automation"
+                  className="max-w-[430px] w-full mx-auto drop-shadow-2xl transition-transform transform hover:scale-105 duration-500"
                 />
               </motion.div>
               {/* Text content section */}
-              <div className="flex flex-col justify-center gap-6 sm:pt-0">
+              <div className="flex flex-col justify-center text-left gap-6 sm:pt-0">
                 <motion.h1
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
                   data-aos="fade-up"
-                  className="text-4xl sm:text-5xl font-bold font-cursive text-white drop-shadow-lg"
+                  className="text-4xl sm:text-5xl font-extrabold text-white drop-shadow-lg"
                 >
-                  Premium Features
+                  Why GiTech?
                 </motion.h1>
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1 }}
                   data-aos="fade-up"
-                  className="text-lg text-gray-700 tracking-wide leading-6"
+                  className="text-lg text-gray-300 tracking-wide leading-relaxed"
                 >
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Eaque reiciendis inventore iste ratione ex alias quis magni at
-                  optio.
+                  GiTech is your trusted partner in industrial automation. We combine end-to-end support with global brand integrations to deliver systems of unparalleled reliability.
                 </motion.p>
 
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="space-y-5">
-                    <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6 }}
-                      data-aos="fade-up"
-                      className="flex items-center gap-3 hover:text-blue-300 transition duration-300"
-                    >
-                      <GrSecure className="text-3xl h-12 w-12 shadow-sm p-3 rounded-full bg-red-200 transform hover:scale-110 transition duration-300" />
-                      <span className="text-white font-medium">Premium</span>
-                    </motion.div>
-                    <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.8 }}
-                      data-aos="fade-up"
-                      data-aos-delay="300"
-                      className="flex items-center gap-3 hover:text-orange-300 transition duration-300"
-                    >
-                      <IoFastFood className="text-3xl h-12 w-12 shadow-sm p-3 rounded-full bg-orange-200 transform hover:scale-110 transition duration-300" />
-                      <span className="text-white font-medium">Hot</span>
-                    </motion.div>
-                    <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 1 }}
-                      data-aos="fade-up"
-                      data-aos-delay="500"
-                      className="flex items-center gap-3 hover:text-yellow-300 transition duration-300"
-                    >
-                      <GiFoodTruck className="text-3xl h-12 w-12 shadow-sm p-3 rounded-full bg-yellow-200 transform hover:scale-110 transition duration-300" />
-                      <span className="text-white font-medium">Cold</span>
-                    </motion.div>
-                  </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
                   <motion.div
-                    initial={{ opacity: 0, x: 20 }}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="flex items-start gap-4"
+                  >
+                    <div className="p-3 bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-lg shrink-0">
+                      <FaHeadset className="text-2xl" />
+                    </div>
+                    <div>
+                      <h4 className="text-white font-semibold text-base mb-1">End-to-End Support</h4>
+                      <p className="text-gray-400 text-sm">Full engineering assistance from configuration to deployment.</p>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
-                    data-aos="slide-left"
-                    className="border-l-4 border-primary/50 pl-6 space-y-2"
+                    className="flex items-start gap-4"
                   >
-                    <h1 className="text-2xl font-semibold font-cursive text-white">
-                      Lover
-                    </h1>
-                    <p className="text-sm text-gray-300">
-                      Much like writing code, brewing the perfect cup of tea
-                      requires patience, precision, and a dash of passion to
-                      create a comforting blend of flavors.
-                    </p>
+                    <div className="p-3 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 rounded-lg shrink-0">
+                      <FaShoppingBag className="text-2xl" />
+                    </div>
+                    <div>
+                      <h4 className="text-white font-semibold text-base mb-1">Sourcing & Procurement</h4>
+                      <p className="text-gray-400 text-sm">Competitive direct sourcing of leading global automation brands.</p>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1 }}
+                    className="flex items-start gap-4"
+                  >
+                    <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded-lg shrink-0">
+                      <FaCogs className="text-2xl" />
+                    </div>
+                    <div>
+                      <h4 className="text-white font-semibold text-base mb-1">Custom Integration</h4>
+                      <p className="text-gray-400 text-sm">Tailored panels and system commissioning for your processes.</p>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1.2 }}
+                    className="flex items-start gap-4"
+                  >
+                    <div className="p-3 bg-amber-500/10 border border-amber-500/20 text-amber-400 rounded-lg shrink-0">
+                      <FaAward className="text-2xl" />
+                    </div>
+                    <div>
+                      <h4 className="text-white font-semibold text-base mb-1">Proven Reliability</h4>
+                      <p className="text-gray-400 text-sm">A verified track record of high-performance deployments.</p>
+                    </div>
                   </motion.div>
                 </div>
               </div>

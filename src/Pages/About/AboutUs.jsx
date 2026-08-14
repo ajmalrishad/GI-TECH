@@ -40,15 +40,10 @@ const AboutUs = () => {
 
   const companyProfiles = [
     {
-      name: "Company One",
-      description: "Description of Company One.",
+      name: "GiTech",
+      description: "GiTech is your trusted partner in Industrial and Building Automation. We are a total solution provider specializing in automation technologies for industrial and commercial environments. With deep expertise across multiple verticals, we offer tailored systems that drive efficiency, safety, and sustainability. Started in 2011, we deliver precision-engineered solutions backed by global brands and expert support.",
       image: logo,
-    },
-    {
-      name: "Company Two",
-      description: "Description of Company Two.",
-      image: logo,
-    },
+    }
   ];
 
   const galleryImages = [

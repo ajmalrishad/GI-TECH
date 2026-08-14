@@ -1,128 +1,101 @@
 import Subnavbar from "../../components/Navbar/Subnavbar";
-
+import Footer from "../../components/Footer/Footer";
+import serviceImg1 from "../../assets/air.png";
+import serviceImg2 from "../../assets/mobility.png";
+import serviceImg3 from "../../assets/manufacturing.png";
+import serviceImg4 from "../../assets/building.png";
+import serviceImg5 from "../../assets/wastewatertreatment.png";
+import { useNavigate } from "react-router-dom";
 
 const Services = () => {
+  const navigate = useNavigate();
+
   const services = [
     {
-      title: 'Web Development',
-      description: 'Full stack web development services using the latest technologies.',
-      image: '/images/web-development.jpg',
-      demo: 'Web development demo link or content',
+      title: 'Harmonic Study and Analysis',
+      description: 'Comprehensive evaluation of electrical power quality, identifying harmonic distortions, and implementing custom filters to protect sensitive equipment and reduce energy costs.',
+      image: serviceImg1,
     },
     {
-      title: 'Graphic Design',
-      description: 'Creative graphic design solutions for your business.',
-      image: '/images/graphic-design.jpg',
-      demo: 'Graphic design demo link or content',
+      title: 'VFD and Servo Drives Repairing',
+      description: 'Component-level repair and diagnostic testing of Variable Frequency Drives (VFDs) and servo systems from leading global brands, restoring them to original factory specifications.',
+      image: serviceImg2,
     },
     {
-      title: 'SEO Optimization',
-      description: 'Improve your site ranking with our SEO services.',
-      image: '/images/seo-optimization.jpg',
-      demo: 'SEO demo link or content',
+      title: 'Commissioning of Control Panels',
+      description: 'On-site installation, field cabling, testing, and startup support for industrial automation control panels, ensuring safe and optimal performance.',
+      image: serviceImg3,
+    },
+    {
+      title: 'PLC and Control Panel Troubleshooting',
+      description: 'Swift diagnostic services and code troubleshooting for PLC systems, field sensors, and panels to minimize equipment downtime and restore production.',
+      image: serviceImg4,
+    },
+    {
+      title: 'Earth Leakage Test / Meggering of Motor',
+      description: 'Complete insulation resistance diagnostics and earth leakage testing to identify motor winding degradation and prevent electrical failures.',
+      image: serviceImg5,
     },
   ];
 
-  const styles = {
-    container: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      gap: '40px',
-      padding: '40px',
-      backgroundColor: '#f0f2f5',
-      marginTop:"4rem",
-    },
-    card: {
-      position: 'relative',
-      width: '100%',
-      maxWidth: '1000px',
-      borderRadius: '15px',
-      overflow: 'hidden',
-      boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
-      transition: 'transform 0.3s ease-in-out',
-    },
-    cardHover: {
-      transform: 'scale(1.05)',
-    },
-    image: {
-      width: '50%',
-      height: '100%',
-      objectFit: 'cover',
-      borderRadius: '15px 0 0 15px',
-    },
-    content: {
-      padding: '40px',
-      backgroundColor: '#fff',
-      borderRadius: '0 15px 15px 0',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      gap: '15px',
-    },
-    title: {
-      fontSize: '2rem',
-      marginBottom: '10px',
-      color: '#333',
-    },
-    description: {
-      fontSize: '1.1rem',
-      color: '#666',
-      lineHeight: '1.5',
-    },
-    button: {
-      alignSelf: 'flex-start',
-      backgroundColor: '#007bff',
-      color: '#fff',
-      border: 'none',
-      padding: '12px 25px',
-      borderRadius: '50px',
-      cursor: 'pointer',
-      transition: 'background-color 0.3s ease-in-out',
-    },
-    buttonHover: {
-      backgroundColor: '#0056b3',
-    },
-    overlay: {
-      position: 'absolute',
-      top: '0',
-      left: '50%',
-      width: '50%',
-      height: '100%',
-      backgroundColor: 'rgba(0, 0, 0, 0.5)',
-      borderRadius: '0 15px 15px 0',
-    },
-  };
-
   return (
     <>
-    <Subnavbar/>
-    <div style={styles.container}>
-      {services.map((service, index) => (
-        <div
-          key={index}
-          style={{ ...styles.card }}
-          onMouseEnter={(e) => e.currentTarget.style.transform = styles.cardHover.transform}
-          onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}
-        >
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <img src={service.image} alt={service.title} style={styles.image} />
-            <div style={styles.content}>
-              <h3 style={styles.title}>{service.title}</h3>
-              <p style={styles.description}>{service.description}</p>
-              <button
-                style={styles.button}
-                onMouseEnter={(e) => e.target.style.backgroundColor = styles.buttonHover.backgroundColor}
-                onMouseLeave={(e) => e.target.style.backgroundColor = styles.button.backgroundColor}
-                onClick={() => alert(service.demo)}
+      <Subnavbar />
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pt-28 pb-16">
+        <div className="container mx-auto px-4 max-w-6xl">
+          {/* Header Section */}
+          <div className="text-center mb-16">
+            <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-blue-600 uppercase bg-blue-100 rounded-full mb-3 dark:bg-blue-900/30 dark:text-blue-400">
+              Technical Services
+            </span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+              Our Professional After-Sales Services
+            </h1>
+            <div className="w-24 h-1.5 bg-blue-600 mx-auto mt-4 rounded-full"></div>
+            <p className="text-gray-600 dark:text-gray-300 mt-6 max-w-2xl mx-auto text-base sm:text-lg">
+              GiTech provides dedicated engineering support and specialized testing services to keep your automation infrastructure operating at peak performance.
+            </p>
+          </div>
+
+          {/* Services Stack */}
+          <div className="flex flex-col gap-12">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className={`flex flex-col lg:flex-row items-center gap-8 bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-350 border border-gray-100 dark:border-gray-700 overflow-hidden ${
+                  index % 2 === 1 ? 'lg:flex-row-reverse' : ''
+                }`}
               >
-                See Demo
-              </button>
-            </div>
+                {/* Image Wrap */}
+                <div className="w-full lg:w-1/2 flex items-center justify-center bg-gray-50 dark:bg-gray-900/50 p-6 rounded-xl aspect-[16/10]">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="max-h-52 sm:max-h-64 w-auto object-contain hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+
+                {/* Content Wrap */}
+                <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-4">
+                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white leading-tight">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base">
+                    {service.description}
+                  </p>
+                  <button
+                    onClick={() => navigate("/contact")}
+                    className="self-start px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition duration-300 text-sm"
+                  >
+                    Inquire Service
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
+      </div>
+      <Footer />
     </>
   );
 };
