@@ -1,228 +1,146 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import projectImg1 from "../../assets/project1.png";
 import projectImg2 from "../../assets/project2.png";
 import projectImg3 from "../../assets/project3.png";
-import projectImg4 from "../../assets/project3.png";
 
 const portfolioItems = [
   {
+    id: 1,
     imgSrc: projectImg1,
-    title: "App 1",
-    description: "Lorem ipsum, dolor sit",
-    filter: "filter-app",
+    title: "Multi-Motor Control Center (MCC)",
+    category: "panels",
+    categoryLabel: "Control Panels",
+    description: "Custom floor-standing MCC panel for heavy manufacturing with soft starters and drive bays.",
   },
   {
+    id: 2,
+    imgSrc: projectImg2,
+    title: "Pumping Station VFD Retrofit",
+    category: "drives",
+    categoryLabel: "VFD & Drives",
+    description: "Invertek IP66 variable frequency drive installation for high-pressure municipal booster pumps.",
+  },
+  {
+    id: 3,
     imgSrc: projectImg3,
-    title: "App 1",
-    description: "Lorem ipsum, dolor sit",
-    filter: "filter-app",
+    title: "Wastewater Treatment SCADA",
+    category: "scada",
+    categoryLabel: "BMS & SCADA",
+    description: "Telemetry and central SCADA supervisory monitoring for automated effluent aeration basins.",
   },
   {
-    imgSrc: projectImg4,
-    title: "App 1",
-    description: "Lorem ipsum, dolor sit",
-    filter: "filter-app",
+    id: 4,
+    imgSrc: projectImg1,
+    title: "Automated Packaging Conveyor System",
+    category: "panels",
+    categoryLabel: "Control Panels",
+    description: "Integrated PLC and servo motion controller for high-throughput end-of-line packaging lines.",
   },
- 
- 
   {
+    id: 5,
     imgSrc: projectImg2,
-    title: "Product 1",
-    description: "Lorem ipsum, dolor sit",
-    filter: "filter-product",
+    title: "Commercial Building BMS Optimization",
+    category: "scada",
+    categoryLabel: "BMS & SCADA",
+    description: "Smart chiller plant automation and VAV airflow controls reducing overall facility kWh by 24%.",
   },
   {
-    imgSrc: projectImg2,
-    title: "Product 1",
-    description: "Lorem ipsum, dolor sit",
-    filter: "filter-product",
+    id: 6,
+    imgSrc: projectImg3,
+    title: "Emergency Hoist Brake Automation",
+    category: "drives",
+    categoryLabel: "VFD & Drives",
+    description: "Kendrion Intorq spring-applied electromagnetic brakes for safety-critical industrial cranes.",
   },
-  {
-    imgSrc: projectImg2,
-    title: "Product 1",
-    description: "Lorem ipsum, dolor sit",
-    filter: "filter-product",
-  },
-  {
-    imgSrc: projectImg2,
-    title: "Product 1",
-    description: "Lorem ipsum, dolor sit",
-    filter: "filter-product",
-  },
-
-  // Add more items as needed
 ];
 
-const filterButtons = [
-  { name: "All", filter: "*" },
-  { name: "App", filter: "filter-app" },
-  { name: "Card", filter: "filter-product" },
-  { name: "Web", filter: "filter-branding" },
+const filters = [
+  { name: "All Projects", key: "all" },
+  { name: "Control Panels", key: "panels" },
+  { name: "VFD & Drives", key: "drives" },
+  { name: "BMS & SCADA", key: "scada" },
 ];
 
 const Portfolio = () => {
-  const [filter, setFilter] = useState("*");
+  const [activeFilter, setActiveFilter] = useState("all");
 
-  useEffect(() => {
-    AOS.init({
-      offset: 100,
-      duration: 500,
-      easing: "ease-in-out",
-      once: true,
-    });
-    AOS.refresh();
-  }, []);
-
-   const sectionTitleStyles = {
-    paddingBottom: '60px',
-    position: 'relative',
-    marginLeft:'7rem',
-  };
-
-  const h2Styles = {
-    fontSize: '14px',
-    fontWeight: 500,
-    padding: 0,
-    lineHeight: '1px',
-    margin: 0,
-    letterSpacing: '1.5px',
-    textTransform: 'uppercase',
-    color: 'color-mix(in srgb, var(--default-color), transparent 50%)',
-    position: 'relative',
-  };
-
-  const h2AfterStyles = {
-    content: '""',
-    width: '160px',
-    height: '3px',
-    display: 'inline-block',
-    background: '#006',
-    margin: '4px 10px',
-  };
-
-  const pStyles = {
-    color: 'var(--heading-color)',
-    margin: 0,
-    fontSize: '36px',
-    fontWeight: 700,
-    textTransform: 'uppercase',
-  };
-
-  const filteredItems = filter === "*" ? portfolioItems : portfolioItems.filter(item => item.filter === filter);
+  const filteredItems =
+    activeFilter === "all"
+      ? portfolioItems
+      : portfolioItems.filter((item) => item.category === activeFilter);
 
   return (
-    <section style={{ padding: "60px 0", backgroundColor: "#0000" }}>
-      {/* <div style={{ textAlign: "center", marginBottom: "40px" }} data-aos="fade-up">
+    <section id="projects-section" className="py-20 bg-white border-t border-slate-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="inline-block text-xs uppercase tracking-widest font-bold text-primary mb-2">
+            Engineering Portfolio
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Our Work & Installations
+          </h2>
+          <div className="w-16 h-1 bg-primary mx-auto my-3 rounded-full"></div>
+          <p className="text-sm sm:text-base text-slate-600">
+            A glimpse into custom panels, drive retrofits, and smart building
+            systems engineered and commissioned by GiTech.
+          </p>
 
-        <h2 style={{ fontSize: "2.5rem", fontWeight: "bold", color: "#333" }}>Portfolio</h2>
-        <p style={{ fontSize: "1.2rem", color: "#777" }}>Check our Portfolio</p>
-      </div> */}
-      <div className="section-title" style={sectionTitleStyles} data-aos="fade-up">
-            <div className='flex'><h2 style={h2Styles}>Portfolio</h2><span className="h2AfterStyles" style={h2AfterStyles} ></span></div>
-            <p style={pStyles}>Check our Portfolio</p>
+          {/* Filter Buttons */}
+          <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
+            {filters.map((f) => (
+              <button
+                key={f.key}
+                onClick={() => setActiveFilter(f.key)}
+                className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+                  activeFilter === f.key
+                    ? "bg-primary text-white shadow-sm"
+                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                }`}
+              >
+                {f.name}
+              </button>
+            ))}
           </div>
+        </div>
 
-      <div style={{ textAlign: "center", marginBottom: "40px" }}>
-        {filterButtons.map(button => (
-          <motion.button
-            key={button.name}
-            onClick={() => setFilter(button.filter)}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            style={{
-              margin: "0 10px",
-              padding: "12px 25px",
-              border: "none",
-              backgroundColor: filter === button.filter ? "#007bff" : "#e0e0e0",
-              color: filter === button.filter ? "#fff" : "#000",
-              cursor: "pointer",
-              borderRadius: "25px",
-              fontSize: "16px",
-              transition: "all 0.3s ease",
-            }}
-            data-aos="zoom-in"
-          >
-            {button.name}
-          </motion.button>
-        ))}
-      </div>
-
-      <div className="grid-container" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "20px",marginLeft:"6rem" ,marginRight:"6rem"}}>
-        {filteredItems.map((item, index) => (
-          <motion.div
-            key={index}
-            className="grid-item"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            data-aos="fade-up"
-            style={{
-              position: "relative",
-              overflow: "hidden",
-              borderRadius: "8px",
-              boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
-              cursor: "pointer",
-              background: "#fff",
-            }}
-          >
-            <motion.img
-              src={item.imgSrc}
-              alt={item.title}
-              style={{
-                width: "100%",
-                height: "auto",
-                display: "block",
-              }}
-              whileHover={{ scale: 1.05 }}
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {filteredItems.map((item) => (
+            <motion.div
+              key={item.id}
+              layout
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3 }}
-            />
-            <div
-              className="color-overlay"
-              style={{
-                position: "absolute",
-                top: "0",
-                left: "0",
-                width: "100%",
-                height: "100%",
-                backgroundColor: "rgba(0, 123, 255, 0.8)",
-                transform: "scaleX(0) scaleY(0)",
-                transformOrigin: "bottom right",
-                transition: "transform 0.3s ease",
-                zIndex: "1",
-              }}
-            ></div>
-            <div
-              style={{
-                position: "absolute",
-                bottom: "0",
-                left: "0",
-                right: "0",
-                backgroundColor: "rgba(0, 0, 0, 0.7)",
-                color: "white",
-                padding: "20px",
-                textAlign: "center",
-                opacity: "0",
-                transition: "opacity 0.3s",
-                zIndex: "2",
-              }}
-              className="portfolio-info"
-              onMouseEnter={(e) => {
-                e.currentTarget.style.opacity = "1";
-                e.currentTarget.previousSibling.style.transform = "scaleX(1) scaleY(1)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.opacity = "0";
-                e.currentTarget.previousSibling.style.transform = "scaleX(0) scaleY(0)";
-              }}
+              className="bg-white rounded-2xl border border-slate-200/80 shadow-2xs hover:shadow-xl hover:border-slate-300 transition-all duration-300 overflow-hidden group flex flex-col justify-between"
             >
-              <h4 style={{ margin: "0 0 10px 0", fontSize: "1.5rem" }}>{item.title}</h4>
-              <p style={{ margin: "0", fontSize: "1rem" }}>{item.description}</p>
-            </div>
-          </motion.div>
-        ))}
+              <div className="relative overflow-hidden bg-slate-100 h-56 flex items-center justify-center p-4">
+                <span className="absolute top-3 left-3 z-10 text-[11px] font-bold text-slate-700 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-md border border-slate-200 shadow-2xs">
+                  {item.categoryLabel}
+                </span>
+
+                <img
+                  src={item.imgSrc}
+                  alt={item.title}
+                  className="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+
+              <div className="p-6 space-y-3 flex flex-col flex-grow justify-between">
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed font-normal">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

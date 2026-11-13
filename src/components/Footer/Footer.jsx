@@ -1,109 +1,137 @@
-// import React from "react";
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
-import FooterBg from "../../assets/footer.jpeg";
+import { Link } from "react-router-dom";
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaTwitter, FaFacebook } from "react-icons/fa";
+import Logo from "../../assets/gitechlogo1.png";
 
-const UsefulLinks = [
-  { title: "Home", link: "/#" },
-  { title: "About us", link: "/#about" },
-  { title: "Services", link: "/#services" },
-  { title: "Terms of service", link: "/#terms" },
-  { title: "Privacy policy", link: "/#privacy" },
+const quickLinks = [
+  { name: "Home", path: "/" },
+  { name: "Products & Drives", path: "/#products" },
+  { name: "Industry Solutions", path: "/#industries" },
+  { name: "Engineering Services", path: "/service" },
+  { name: "Project Portfolio", path: "/projects" },
+  { name: "About GiTech", path: "/about" },
+  { name: "Contact Us", path: "/contact" },
 ];
 
-const OurServices = [
-  { title: "Web Design", link: "/#web-design" },
-  { title: "Web Development", link: "/#web-development" },
-  { title: "Product Management", link: "/#product-management" },
-  { title: "Marketing", link: "/#marketing" },
-  { title: "Graphic Design", link: "/#graphic-design" },
+const brandLinks = [
+  { name: "Invertek Drives (VFDs)", path: "/#products" },
+  { name: "Aucom Soft Starters", path: "/#products" },
+  { name: "KEB Motion Control", path: "/#products" },
+  { name: "Kendrion Intorq Brakes", path: "/#products" },
+  { name: "Vogel Lubrication Systems", path: "/#products" },
 ];
 
-const bgImage = {
-  backgroundImage: `url(${FooterBg})`,
-  backgroundPosition: "center",
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "cover",
-  minHeight: "400px",
-  width: "100%",
-};
+const industries = [
+  { name: "Manufacturing & Process", path: "/automation" },
+  { name: "Building Management (BMS)", path: "/automation" },
+  { name: "Water & Wastewater Plants", path: "/automation" },
+  { name: "HVAC Energy Optimization", path: "/automation" },
+  { name: "Material Handling & Logistics", path: "/automation" },
+];
 
 const Footer = () => {
   return (
-    <footer style={bgImage} className="text-white relative">
-      <div className="bg-black/40 min-h-[400px]">
-        <div className="container mx-auto py-12 grid lg:grid-cols-4 gap-8">
-          {/* Company details */}
-          <div className="footer-about">
-            <a href="#" className="logo flex items-center mb-6">
-              <span className="text-3xl font-bold tracking-widest">GI Tech</span>
-            </a>
-            <p className="mb-4">Crafted, Cozy Vibes, Unforgettable Moments – Your Perfect Destination</p>
-            <div className="footer-contact mb-6">
-              <p>A108 Adam Street</p>
-              <p>New York, NY 535022</p>
-              <p className="mt-3"><strong>Phone:</strong> +1 5589 55488 55</p>
-              <p><strong>Email:</strong> info@example.com</p>
-            </div>
-            <div className="social-links flex space-x-4 mt-4">
-              <a href="#" className="text-gray-300 hover:text-primary"><FaTwitter /></a>
-              <a href="#" className="text-gray-300 hover:text-primary"><FaFacebook /></a>
-              <a href="#" className="text-gray-300 hover:text-primary"><FaInstagram /></a>
-              <a href="#" className="text-gray-300 hover:text-primary"><FaLinkedin /></a>
-            </div>
-          </div>
-
-          {/* Useful Links */}
-          <div className="footer-links">
-            <h4 className="text-xl font-semibold mb-4">Useful Links</h4>
-            <ul className="space-y-3">
-              {UsefulLinks.map((link, index) => (
-                <li key={index} className="flex items-center">
-                  <i className="bi bi-chevron-right mr-2"></i>
-                  <a href={link.link} className="text-gray-300 hover:text-primary">
-                    {link.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Our Services */}
-          <div className="footer-links">
-            <h4 className="text-xl font-semibold mb-4">Our Services</h4>
-            <ul className="space-y-3">
-              {OurServices.map((link, index) => (
-                <li key={index} className="flex items-center">
-                  <i className="bi bi-chevron-right mr-2"></i>
-                  <a href={link.link} className="text-gray-300 hover:text-primary">
-                    {link.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div className="footer-newsletter">
-            <h4 className="text-xl font-semibold mb-4">Our Newsletter</h4>
-            <p className="mb-4">Subscribe to our newsletter and receive the latest news about our products and services!</p>
-            <form action="forms/newsletter.php" method="post" className="space-y-3">
-              <div className="newsletter-form flex items-center">
-                <input type="email" name="email" placeholder="Your Email" className="p-3 flex-1 border border-gray-300 rounded-l-lg bg-white text-black" />
-                <input type="submit" value="Subscribe" className="p-3 bg-primary text-black rounded-r-lg cursor-pointer hover:bg-opacity-80" />
+    <footer className="bg-slate-950 text-slate-400 border-t border-slate-800 text-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+          {/* Company Bio */}
+          <div className="lg:col-span-2 space-y-4">
+            <Link to="/" className="inline-block bg-white/95 p-2 rounded-lg">
+              <img src={Logo} alt="GiTech" className="h-9 w-auto" />
+            </Link>
+            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
+              GiTech is your trusted partner in Industrial and Building
+              Automation. We deliver precision-engineered solutions backed by
+              global brands and expert support.
+            </p>
+            <div className="pt-2 space-y-2 text-xs text-slate-400">
+              <div className="flex items-center gap-2.5">
+                <FaMapMarkerAlt className="text-primary shrink-0" />
+                <span>Industrial Area 1, Tech Park Avenue</span>
               </div>
-              <div className="loading hidden">Loading</div>
-              <div className="error-message hidden">There was an error.</div>
-              <div className="sent-message hidden">Your subscription request has been sent. Thank you!</div>
-            </form>
+              <div className="flex items-center gap-2.5">
+                <FaPhoneAlt className="text-primary shrink-0" />
+                <span>+91 98765 43210 / +1 (800) 555-0199</span>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <FaEnvelope className="text-primary shrink-0" />
+                <span>sales@gitechautomation.com</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-white">
+              Navigation
+            </h4>
+            <ul className="space-y-2 text-xs">
+              {quickLinks.map((link, idx) => (
+                <li key={idx}>
+                  <Link
+                    to={link.path}
+                    className="hover:text-white transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Brand Solutions */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-white">
+              Our Brands
+            </h4>
+            <ul className="space-y-2 text-xs">
+              {brandLinks.map((item, idx) => (
+                <li key={idx}>
+                  <Link
+                    to={item.path}
+                    className="hover:text-white transition-colors"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Industries */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-white">
+              Industries
+            </h4>
+            <ul className="space-y-2 text-xs">
+              {industries.map((item, idx) => (
+                <li key={idx}>
+                  <Link
+                    to={item.path}
+                    className="hover:text-white transition-colors"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      </div>
 
-      <div className="bg-black/60 py-6">
-        <div className="container mx-auto text-center text-gray-300">
-          <p>© <strong>GI Tech</strong> All Rights Reserved</p>
-          <div className="credits mt-2">
-            Designed by <a href="https://bootstrapmade.com/" className="text-primary">GI TECH</a>
+        {/* Bottom Bar */}
+        <div className="mt-12 pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <p>© {new Date().getFullYear()} GiTech Automation. All Rights Reserved.</p>
+          <div className="flex items-center gap-4">
+            <span className="hover:text-slate-400 transition-colors cursor-pointer">
+              Privacy Policy
+            </span>
+            <span>•</span>
+            <span className="hover:text-slate-400 transition-colors cursor-pointer">
+              Terms of Service
+            </span>
+            <span>•</span>
+            <span className="hover:text-slate-400 transition-colors cursor-pointer">
+              ISO 9001 Compliant
+            </span>
           </div>
         </div>
       </div>

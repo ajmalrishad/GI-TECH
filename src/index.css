@@ -1,79 +1,38 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Sriracha&display=swap"); */
-/* @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Sriracha&display=swap"); */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-  
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+:root {
+  --primary-color: #0066cc;
+  --accent-color: #0066cc;
+  --heading-color: #0f172a;
+  --default-color: #475569;
+  --background-color: #ffffff;
+  --contrast-color: #ffffff;
+  --border-color: #e2e8f0;
 }
 
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-30px);
-  }
-  60% {
-    transform: translateY(-15px);
-  }
-}
-
-@keyframes zoomIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.spin {
-  animation: spin 40s linear infinite;
-}
-
-/* smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', 'Roboto', sans-serif;
+  color: #334155;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Custom slick slider styling for modern minimal look */
+.slick-dots li button:before {
+  font-size: 10px !important;
+  color: #94a3b8 !important;
+  opacity: 0.5 !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #0066cc !important;
+  opacity: 1 !important;
 }

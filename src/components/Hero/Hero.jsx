@@ -2,68 +2,65 @@ import { motion } from "framer-motion";
 import circuitBg from "../../assets/office3.jpg";
 
 const Hero = () => {
-  const handleScrollToProducts = () => {
-    const element = document.getElementById("products");
+  const handleScroll = (id) => {
+    const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <div 
-      className="relative min-h-screen flex items-center justify-center text-white overflow-hidden bg-cover bg-center"
-      style={{ 
-        backgroundImage: `linear-gradient(to right, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.75)), url(${circuitBg})` 
+    <div
+      className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center justify-center text-white overflow-hidden bg-slate-950 bg-cover bg-center"
+      style={{
+        backgroundImage: `linear-gradient(135deg, rgba(11, 17, 32, 0.94) 0%, rgba(15, 23, 42, 0.88) 100%), url(${circuitBg})`,
       }}
     >
-      {/* Decorative Blur Elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full filter blur-[120px] opacity-20 animate-pulse"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500 rounded-full filter blur-[150px] opacity-20"></div>
+      {/* Subtle modern ambient background orbs */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-blue-600/15 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute bottom-10 right-10 w-[260px] h-[260px] bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none"></div>
 
-      <div className="container mx-auto px-4 z-10 text-center max-w-4xl py-24 sm:py-32">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 relative z-10 text-center max-w-4xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           className="space-y-6 sm:space-y-8"
         >
           {/* Badge */}
-          <motion.span 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wider uppercase bg-blue-500/10 text-blue-400 border border-blue-500/20 backdrop-blur-sm"
-          >
-            ⚡ 15 Years of Industrial Excellence
-          </motion.span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/25 text-blue-300 text-xs sm:text-sm font-medium tracking-wide backdrop-blur-sm">
+            <span>⚡ 15 Years of Industrial Excellence</span>
+          </div>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none bg-gradient-to-r from-white via-gray-100 to-gray-400 bg-clip-text text-transparent">
-            Empowering Automation <br className="hidden sm:inline" />
-            <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
-              Across Industries
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            “Empowering Automation <br className="hidden sm:inline" />
+            <span className="bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent">
+              Across Industries”
             </span>
           </h1>
 
           {/* Description */}
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed font-light">
-            GiTech is your trusted partner in Industrial and Building Automation. We deliver precision-engineered solutions backed by global brands and expert support.
+          <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed">
+            GiTech is your trusted partner in Industrial and Building Automation.
+            We deliver precision-engineered solutions backed by global brands and
+            expert support.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 max-w-md mx-auto sm:max-w-none">
+          {/* CTA Buttons - Compact on mobile, comfortable on desktop */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2 sm:pt-4 max-w-xs sm:max-w-none mx-auto">
             <button
-              onClick={handleScrollToProducts}
-              className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold rounded-lg transition duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-blue-500/20 text-center"
+              onClick={() => handleScroll("products")}
+              className="w-full sm:w-auto inline-flex items-center justify-center px-5 py-2.5 sm:px-8 sm:py-4 bg-primary hover:bg-primaryHover text-white font-semibold text-sm sm:text-base rounded-lg transition-all duration-200 shadow-md hover:shadow-blue-500/25 hover:-translate-y-0.5 cursor-pointer text-center"
             >
               Explore Solutions
             </button>
-            <a
-              href="#/contact"
-              className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/15 text-white border border-white/20 hover:border-white/30 font-bold rounded-lg transition duration-300 transform hover:-translate-y-1 backdrop-blur-sm text-center"
+            <button
+              onClick={() => handleScroll("contact")}
+              className="w-full sm:w-auto inline-flex items-center justify-center px-5 py-2.5 sm:px-8 sm:py-4 bg-white/10 hover:bg-white/15 text-white font-semibold text-sm sm:text-base rounded-lg border border-white/20 hover:border-white/30 transition-all duration-200 backdrop-blur-sm hover:-translate-y-0.5 cursor-pointer text-center"
             >
               Request a Quote
-            </a>
+            </button>
           </div>
         </motion.div>
       </div>

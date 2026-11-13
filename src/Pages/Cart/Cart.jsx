@@ -1,360 +1,221 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { FaTrash, FaShoppingCart, FaArrowLeft, FaFileInvoice, FaPlus, FaMinus } from "react-icons/fa";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const navigate = useNavigate();
 
-  // Handle window resize for responsive design
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  // Load cart from localStorage on component mount and when storage changes
   const loadCart = () => {
     try {
-      const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
-      console.log('Loaded cart:', savedCart);
+      const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
       setCartItems(savedCart);
     } catch (error) {
-      console.error('Error loading cart:', error);
+      console.error("Error loading cart:", error);
     }
   };
 
   useEffect(() => {
     loadCart();
-
-    // Listen for storage changes from other tabs/windows
-    window.addEventListener('storage', loadCart);
-    
-    return () => {
-      window.removeEventListener('storage', loadCart);
-    };
+    window.addEventListener("storage", loadCart);
+    return () => window.removeEventListener("storage", loadCart);
   }, []);
 
-  // Reload cart when component comes into focus
-  useEffect(() => {
-    const handleFocus = () => {
-      loadCart();
-    };
-    
-    window.addEventListener('focus', handleFocus);
-    return () => window.removeEventListener('focus', handleFocus);
-  }, []);
+  const saveCart = (items) => {
+    setCartItems(items);
+    localStorage.setItem("cart", JSON.stringify(items));
+    window.dispatchEvent(new Event("cartUpdated"));
+  };
 
-  // Increase item quantity
   const increaseQuantity = (id) => {
-    const updatedCart = cartItems.map(item => 
-      item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+    const updated = cartItems.map((item) =>
+      item.id === id ? { ...item, quantity: (item.quantity || 1) + 1 } : item
     );
-    setCartItems(updatedCart);
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    saveCart(updated);
   };
 
-  // Decrease item quantity
   const decreaseQuantity = (id) => {
-    const updatedCart = cartItems.map(item =>
-      item.id === id ? { ...item, quantity: item.quantity > 1 ? item.quantity - 1 : 1 } : item
+    const updated = cartItems.map((item) =>
+      item.id === id
+        ? { ...item, quantity: Math.max(1, (item.quantity || 1) - 1) }
+        : item
     );
-    setCartItems(updatedCart);
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    saveCart(updated);
   };
 
-  // Remove item from cart
   const removeFromCart = (id) => {
-    const updatedCart = cartItems.filter(item => item.id !== id);
-    setCartItems(updatedCart);
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    const updated = cartItems.filter((item) => item.id !== id);
+    saveCart(updated);
   };
 
-  // Calculate total price
-  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  const clearCart = () => {
+    saveCart([]);
+  };
 
   return (
-    <div style={{ 
-      minHeight: "100vh", 
-      backgroundColor: "#f1f3f4", 
-      paddingTop: "120px", 
-      paddingBottom: "40px" 
-    }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
-        {/* Header */}
-        <div style={{ marginBottom: "30px" }}>
-          <h1 style={{ 
-            fontSize: "28px", 
-            fontWeight: "bold", 
-            color: "#0f1111", 
-            margin: "0 0 10px 0" 
-          }}>
-            Shopping Cart
-          </h1>
-          <p style={{ 
-            color: "#565959", 
-            fontSize: "14px", 
-            margin: 0 
-          }}>
-            {cartItems.length === 0 ? "Your cart is empty" : `${cartItems.length} item${cartItems.length > 1 ? 's' : ''} in your cart`}
-          </p>
+    <div className="bg-slate-50 min-h-screen py-12">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header Breadcrumb */}
+        <div className="mb-8 flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-3">
+              <FaShoppingCart className="text-primary" />
+              <span>Project Inquiry List</span>
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-500 mt-1">
+              Review selected automation products and request an official technical quote.
+            </p>
+          </div>
+
+          <button
+            onClick={() => navigate("/#products")}
+            className="hidden sm:inline-flex items-center gap-2 text-xs font-semibold text-primary hover:underline"
+          >
+            <FaArrowLeft size={10} /> Back to Products
+          </button>
         </div>
 
         {cartItems.length === 0 ? (
-          <div style={{ 
-            backgroundColor: "white", 
-            borderRadius: "8px", 
-            padding: "60px 40px", 
-            textAlign: "center",
-            boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
-          }}>
-            <div style={{ fontSize: "48px", marginBottom: "20px" }}>🛒</div>
-            <h2 style={{ 
-              fontSize: "24px", 
-              color: "#0f1111", 
-              margin: "0 0 10px 0" 
-            }}>
-              Your cart is empty
+          <div className="bg-white rounded-2xl border border-slate-200/80 p-12 text-center shadow-2xs space-y-4">
+            <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto text-slate-400">
+              <FaShoppingCart size={28} />
+            </div>
+            <h2 className="text-xl font-bold text-slate-800">
+              Your inquiry list is empty
             </h2>
-            <p style={{ 
-              color: "#565959", 
-              margin: "0 0 30px 0", 
-              fontSize: "16px" 
-            }}>
-              Add items to your cart to see them here
+            <p className="text-xs sm:text-sm text-slate-500 max-w-md mx-auto">
+              Explore our range of Invertek VFDs, Aucom soft starters, KEB motion
+              controllers, Kendrion brakes, and Vogel lubrication systems.
             </p>
-            <button 
-              onClick={() => navigate('/')}
-              style={{ 
-                background: "#ffd814", 
-                color: "#0f1111", 
-                padding: "12px 24px", 
-                borderRadius: "8px", 
-                cursor: "pointer", 
-                fontSize: "16px",
-                fontWeight: "bold",
-                border: "none",
-                boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
-              }}
-            >
-              Continue Shopping
-            </button>
+            <div className="pt-2">
+              <Link
+                to="/#products"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primaryHover text-white text-xs sm:text-sm font-semibold rounded-lg shadow-sm"
+              >
+                Browse Products
+              </Link>
+            </div>
           </div>
         ) : (
-          <div style={{ display: "flex", gap: "20px", flexDirection: window.innerWidth < 768 ? "column" : "row" }}>
-            {/* Cart Items */}
-            <div style={{ flex: 1 }}>
-              {cartItems.map((item, index) => (
-                <div key={item.id} style={{ 
-                  backgroundColor: "white", 
-                  borderRadius: "8px", 
-                  marginBottom: "15px",
-                  padding: "20px",
-                  boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-                  border: "1px solid #e7e7e7"
-                }}>
-                  <div style={{ display: "flex", gap: "20px" }}>
-                    {/* Product Image */}
-                    <div style={{ flexShrink: 0 }}>
-                      <img 
-                        src={item.image} 
-                        alt={item.title} 
-                        style={{ 
-                          width: "120px", 
-                          height: "120px", 
-                          objectFit: "contain", 
-                          background: "#fff", 
-                          borderRadius: "4px",
-                          border: "1px solid #e7e7e7"
-                        }} 
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            {/* Cart Items List */}
+            <div className="lg:col-span-8 space-y-4">
+              <div className="bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden">
+                <div className="p-4 sm:p-5 bg-slate-100/60 border-b border-slate-100 flex items-center justify-between text-xs font-bold text-slate-600 uppercase tracking-wider">
+                  <span>Selected Products ({cartItems.length})</span>
+                  <button
+                    onClick={clearCart}
+                    className="text-red-500 hover:text-red-700 font-medium lowercase"
+                  >
+                    clear all
+                  </button>
+                </div>
+
+                <div className="divide-y divide-slate-100">
+                  {cartItems.map((item) => (
+                    <div
+                      key={item.id}
+                      className="p-5 flex flex-col sm:flex-row items-center gap-4 hover:bg-slate-50/50 transition-colors"
+                    >
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-20 h-20 object-contain p-2 bg-slate-50 rounded-xl border border-slate-200/80 shrink-0"
                       />
-                    </div>
 
-                    {/* Product Details */}
-                    <div style={{ flex: 1 }}>
-                      <h3 style={{ 
-                        fontSize: "18px", 
-                        fontWeight: "bold", 
-                        color: "#0f1111", 
-                        margin: "0 0 8px 0",
-                        lineHeight: "1.3"
-                      }}>
-                        {item.title}
-                      </h3>
-                      <p style={{ 
-                        color: "#565959", 
-                        fontSize: "14px", 
-                        margin: "0 0 12px 0" 
-                      }}>
-                        Brand: {item.brand}
-                      </p>
-                      <p style={{ 
-                        color: "#565959", 
-                        fontSize: "14px", 
-                        margin: "0 0 15px 0",
-                        lineHeight: "1.4"
-                      }}>
-                        {item.description}
-                      </p>
+                      <div className="flex-1 text-center sm:text-left space-y-1">
+                        <span className="text-[10px] font-bold text-primary uppercase">
+                          {item.brand}
+                        </span>
+                        <h3 className="text-sm sm:text-base font-bold text-slate-900">
+                          {item.title}
+                        </h3>
+                        <p className="text-xs text-slate-500 line-clamp-2">
+                          {item.description}
+                        </p>
+                      </div>
 
-                      {/* Quantity and Remove */}
-                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                        <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
-                          {/* Quantity Controls */}
-                          <div style={{ display: "flex", alignItems: "center", border: "1px solid #d5d9d9", borderRadius: "8px" }}>
-                            <button 
-                              onClick={() => decreaseQuantity(item.id)} 
-                              style={{ 
-                                padding: "8px 12px", 
-                                cursor: "pointer", 
-                                background: "transparent", 
-                                border: "none",
-                                color: "#007185",
-                                fontSize: "16px",
-                                fontWeight: "bold"
-                              }}
-                            >
-                              −
-                            </button>
-                            <span style={{ 
-                              padding: "8px 16px", 
-                              fontWeight: "bold", 
-                              minWidth: "40px", 
-                              textAlign: "center",
-                              background: "#f7f8f8"
-                            }}>
-                              {item.quantity}
-                            </span>
-                            <button 
-                              onClick={() => increaseQuantity(item.id)} 
-                              style={{ 
-                                padding: "8px 12px", 
-                                cursor: "pointer", 
-                                background: "transparent", 
-                                border: "none",
-                                color: "#007185",
-                                fontSize: "16px",
-                                fontWeight: "bold"
-                              }}
-                            >
-                              +
-                            </button>
-                          </div>
-
-                          {/* Remove Button */}
-                          <button 
-                            onClick={() => removeFromCart(item.id)} 
-                            style={{ 
-                              background: "transparent", 
-                              color: "#007185", 
-                              padding: "8px 0", 
-                              cursor: "pointer", 
-                              border: "none", 
-                              fontSize: "14px",
-                              textDecoration: "underline"
-                            }}
+                      {/* Quantity Controls */}
+                      <div className="flex items-center gap-2">
+                        <div className="flex items-center border border-slate-200 rounded-lg overflow-hidden bg-white">
+                          <button
+                            onClick={() => decreaseQuantity(item.id)}
+                            className="p-2 text-slate-500 hover:bg-slate-100"
+                            title="Decrease Quantity"
                           >
-                            Delete
+                            <FaMinus size={10} />
+                          </button>
+                          <span className="px-3 text-xs font-bold text-slate-800">
+                            {item.quantity || 1}
+                          </span>
+                          <button
+                            onClick={() => increaseQuantity(item.id)}
+                            className="p-2 text-slate-500 hover:bg-slate-100"
+                            title="Increase Quantity"
+                          >
+                            <FaPlus size={10} />
                           </button>
                         </div>
 
-                        {/* Price */}
-                        <div style={{ textAlign: "right" }}>
-                          <p style={{ 
-                            fontSize: "18px", 
-                            fontWeight: "bold", 
-                            color: "#0f1111", 
-                            margin: 0 
-                          }}>
-                            ${(item.price * item.quantity).toFixed(2)}
-                          </p>
-                          {item.quantity > 1 && (
-                            <p style={{ 
-                              fontSize: "12px", 
-                              color: "#565959", 
-                              margin: "2px 0 0 0" 
-                            }}>
-                              (${item.price.toFixed(2)} each)
-                            </p>
-                          )}
-                        </div>
+                        <button
+                          onClick={() => removeFromCart(item.id)}
+                          className="p-2 text-slate-400 hover:text-red-500 transition-colors"
+                          title="Remove item"
+                        >
+                          <FaTrash size={14} />
+                        </button>
                       </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
 
-            {/* Order Summary */}
-            <div style={{ width: window.innerWidth < 768 ? "100%" : "300px", flexShrink: 0 }}>
-              <div style={{ 
-                backgroundColor: "white", 
-                borderRadius: "8px", 
-                padding: "20px",
-                boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-                border: "1px solid #e7e7e7",
-                position: "sticky",
-                top: "140px"
-              }}>
-                <h3 style={{ 
-                  fontSize: "18px", 
-                  fontWeight: "bold", 
-                  color: "#0f1111", 
-                  margin: "0 0 20px 0" 
-                }}>
-                  Order Summary
+            {/* Inquiry Summary Side Panel */}
+            <div className="lg:col-span-4 space-y-4">
+              <div className="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-2xs space-y-4">
+                <h3 className="text-base font-bold text-slate-900 border-b border-slate-100 pb-3">
+                  Inquiry Summary
                 </h3>
 
-                <div style={{ borderBottom: "1px solid #e7e7e7", paddingBottom: "15px", marginBottom: "15px" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
-                    <span style={{ color: "#565959" }}>Items ({cartItems.length}):</span>
-                    <span style={{ fontWeight: "bold" }}>${totalPrice.toFixed(2)}</span>
+                <div className="space-y-2 text-xs text-slate-600">
+                  <div className="flex justify-between">
+                    <span>Total Items:</span>
+                    <span className="font-bold text-slate-800">
+                      {cartItems.reduce((acc, curr) => acc + (curr.quantity || 1), 0)}
+                    </span>
                   </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
-                    <span style={{ color: "#565959" }}>Shipping:</span>
-                    <span style={{ color: "#007600", fontWeight: "bold" }}>FREE</span>
+                  <div className="flex justify-between">
+                    <span>Engineering Review:</span>
+                    <span className="text-emerald-600 font-medium">Included (Complimentary)</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Datasheet Package:</span>
+                    <span className="text-emerald-600 font-medium">PDF Generated</span>
                   </div>
                 </div>
 
-                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "20px" }}>
-                  <span style={{ fontSize: "18px", fontWeight: "bold", color: "#0f1111" }}>Order Total:</span>
-                  <span style={{ fontSize: "18px", fontWeight: "bold", color: "#0f1111" }}>${totalPrice.toFixed(2)}</span>
+                <div className="pt-4 border-t border-slate-100 space-y-3">
+                  <button
+                    onClick={() => navigate("/contact")}
+                    className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 bg-primary hover:bg-primaryHover text-white font-semibold text-xs sm:text-sm rounded-lg shadow-sm"
+                  >
+                    <FaFileInvoice size={14} />
+                    <span>Submit for Official Quote</span>
+                  </button>
+
+                  <button
+                    onClick={() => navigate("/#products")}
+                    className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium text-xs rounded-lg transition-colors"
+                  >
+                    <span>Continue Browsing</span>
+                  </button>
                 </div>
+              </div>
 
-                <button 
-                  style={{ 
-                    width: "100%",
-                    background: "#ffd814", 
-                    color: "#0f1111", 
-                    padding: "14px", 
-                    borderRadius: "8px", 
-                    cursor: "pointer", 
-                    fontSize: "16px",
-                    fontWeight: "bold",
-                    border: "none",
-                    marginBottom: "12px",
-                    boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
-                  }}
-                >
-                  Proceed to Checkout
-                </button>
-
-                <button 
-                  onClick={() => navigate('/')}
-                  style={{ 
-                    width: "100%",
-                    background: "transparent", 
-                    color: "#007185", 
-                    padding: "12px", 
-                    borderRadius: "8px", 
-                    cursor: "pointer", 
-                    fontSize: "14px",
-                    border: "1px solid #007185",
-                    fontWeight: "bold"
-                  }}
-                >
-                  Continue Shopping
-                </button>
+              <div className="p-4 bg-blue-50/70 rounded-xl border border-blue-100 text-xs text-blue-900 leading-relaxed">
+                <strong>Need custom sizing or power ratings?</strong> Include your
+                motor horsepower/kW and ambient voltage in the quote request.
               </div>
             </div>
           </div>

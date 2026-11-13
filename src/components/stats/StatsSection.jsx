@@ -1,135 +1,150 @@
-import { useEffect } from 'react';
-import 'bootstrap-icons/font/bootstrap-icons.css'; // Bootstrap Icons CSS
-import 'aos/dist/aos.css'; // AOS CSS
-import AOS from 'aos';
-import PureCounter from '@srexi/purecounterjs'; // Install react-purecounter for PureCounter
+import { useEffect } from "react";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import PureCounter from "@srexi/purecounterjs";
 import stat from "../../assets/interaction.png";
+import { FaCheckCircle, FaAward, FaUsers, FaProjectDiagram, FaHeadset } from "react-icons/fa";
 
 const StatsSection = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000 });
     new PureCounter();
   }, []);
 
-  const styles = {
-    section: {
-      padding: '60px 0',
-      backgroundColor: '#f4f4f4',
-    },
-    container: {
-      maxWidth: '1200px',
-      margin: '0 auto',
-      padding: '0 2rem',
-    },
-    row: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-    },
-    colImg: {
-      flex: '1 1 45%',
-      marginRight: '2rem',
-    },
-    colText: {
-      flex: '1 1 45%',
-      textAlign: 'left',
-      minWidth: '300px',
-    },
-    heading: {
-      fontSize: '2rem',
-      fontWeight: 'bold',
-      marginBottom: '1rem',
-      color: '#333',
-    },
-    paragraph: {
-      fontSize: '1rem',
-      lineHeight: '1.6',
-      marginBottom: '2rem',
-      color: '#555',
-    },
-    statsItem: {
-      display: 'flex',
-      alignItems: 'center',
-      padding: '10px',
-    },
-    icon: {
-      fontSize: '44px',
-      color: 'var(--accent-color)',
-      lineHeight: '0',
-      marginRight: '15px',
-    },
-    purecounter: {
-      color: 'var(--heading-color)',
-      fontSize: '40px',
-      display: 'block',
-      fontWeight: '700',
-      lineHeight: '40px',
-    },
-    statsText: {
-      color: 'color-mix(in srgb, var(--default-color), transparent 40%)',
-      padding: '15px 0 0 0',
-      margin: '0',
-      fontFamily: 'var(--heading-font)',
-      fontSize: '14px',
-    },
-  };
-
   return (
-    <section id="stats" style={styles.section}>
-      <div className="container" style={styles.container} data-aos="fade-up" data-aos-delay="100">
-        <div style={styles.row}>
-          <div className="col-lg-5" style={styles.colImg}>
-            <img src={stat} alt="" className="img-fluid" />
+    <section id="who-we-are" className="py-20 bg-slate-50 border-y border-slate-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Left Column: Visual graphic */}
+          <div className="lg:col-span-5 order-2 lg:order-1 flex justify-center">
+            <div className="relative w-full max-w-md">
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-2xl blur-lg"></div>
+              <div className="relative bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80">
+                <img
+                  src={stat}
+                  alt="GiTech Automation Technologies"
+                  className="w-full h-auto object-contain max-h-[360px] mx-auto"
+                />
+                <div className="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                  <span className="flex items-center gap-1.5 font-medium text-slate-700">
+                    <FaAward className="text-primary" /> Founded in 2011
+                  </span>
+                  <span className="font-medium text-primary">ISO Compliant Standards</span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="col-lg-6" style={styles.colText}>
-            <h3 style={styles.heading}>Voluptatem dignissimos provident quasi</h3>
-            <p style={styles.paragraph}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+          {/* Right Column: Who We Are Content */}
+          <div className="lg:col-span-7 order-1 lg:order-2 space-y-6">
+            <div className="space-y-2">
+              <span className="inline-block text-xs uppercase tracking-widest font-bold text-primary">
+                About GiTech
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                Who We Are
+              </h2>
+            </div>
+
+            <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+              GiTech is a total solution provider specializing in automation
+              technologies for industrial and commercial environments. With deep
+              expertise across multiple verticals, we offer tailored systems that
+              drive efficiency, safety, and sustainability.
             </p>
 
-            <div style={styles.row}>
-              <div className="col-lg-6">
-                <div className="stats-item" style={styles.statsItem}>
-                  <i className="bi bi-emoji-smile" style={styles.icon}></i>
-                  <div>
-                    <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" className="purecounter" style={styles.purecounter}></span>
-                    <p style={styles.statsText}><strong>Happy Clients</strong> <span>consequuntur quae</span></p>
-                  </div>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              Founded in 2011, GiTech delivers end-to-end engineering excellence
+              spanning variable frequency drives, soft starters, motion control,
+              and centralized lubrication systems. Our certified automation
+              engineers work alongside plant operators and facility managers to
+              modernize legacy workflows and deploy reliable, energy-conscious
+              automation solutions.
+            </p>
+
+            {/* Value checklist */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              <div className="flex items-center gap-2 text-sm text-slate-700">
+                <FaCheckCircle className="text-emerald-500 shrink-0" />
+                <span>Multi-vertical industrial expertise</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-slate-700">
+                <FaCheckCircle className="text-emerald-500 shrink-0" />
+                <span>Turnkey engineering & commissioning</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-slate-700">
+                <FaCheckCircle className="text-emerald-500 shrink-0" />
+                <span>Global brand partnerships & sourcing</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-slate-700">
+                <FaCheckCircle className="text-emerald-500 shrink-0" />
+                <span>24/7 technical lifecycle support</span>
+              </div>
+            </div>
+
+            {/* Numerical Stats Counters */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-slate-200">
+              <div className="p-3 bg-white rounded-xl border border-slate-200/70 shadow-2xs text-center sm:text-left">
+                <div className="flex items-center justify-center sm:justify-start gap-1.5 text-primary mb-1">
+                  <FaUsers size={16} />
+                  <span
+                    data-purecounter-start="0"
+                    data-purecounter-end="250"
+                    data-purecounter-duration="1.5"
+                    className="purecounter text-2xl font-extrabold text-slate-900"
+                  >
+                    250
+                  </span>
+                  <span className="text-primary font-bold text-lg">+</span>
                 </div>
+                <p className="text-xs text-slate-500 font-medium">Happy Clients</p>
               </div>
 
-              <div className="col-lg-6">
-                <div className="stats-item" style={styles.statsItem}>
-                  <i className="bi bi-journal-richtext" style={styles.icon}></i>
-                  <div>
-                    <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" className="purecounter" style={styles.purecounter}></span>
-                    <p style={styles.statsText}><strong>Projects</strong> <span>adipisci atque cum quia aut</span></p>
-                  </div>
+              <div className="p-3 bg-white rounded-xl border border-slate-200/70 shadow-2xs text-center sm:text-left">
+                <div className="flex items-center justify-center sm:justify-start gap-1.5 text-primary mb-1">
+                  <FaProjectDiagram size={16} />
+                  <span
+                    data-purecounter-start="0"
+                    data-purecounter-end="520"
+                    data-purecounter-duration="1.5"
+                    className="purecounter text-2xl font-extrabold text-slate-900"
+                  >
+                    520
+                  </span>
+                  <span className="text-primary font-bold text-lg">+</span>
                 </div>
+                <p className="text-xs text-slate-500 font-medium">Projects Done</p>
               </div>
 
-              <div className="col-lg-6">
-                <div className="stats-item" style={styles.statsItem}>
-                  <i className="bi bi-headset" style={styles.icon}></i>
-                  <div>
-                    <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" className="purecounter" style={styles.purecounter}></span>
-                    <p style={styles.statsText}><strong>Hours Of Support</strong> <span>aut commodi quaerat</span></p>
-                  </div>
+              <div className="p-3 bg-white rounded-xl border border-slate-200/70 shadow-2xs text-center sm:text-left">
+                <div className="flex items-center justify-center sm:justify-start gap-1.5 text-primary mb-1">
+                  <FaHeadset size={16} />
+                  <span
+                    data-purecounter-start="0"
+                    data-purecounter-end="1400"
+                    data-purecounter-duration="1.5"
+                    className="purecounter text-2xl font-extrabold text-slate-900"
+                  >
+                    1400
+                  </span>
+                  <span className="text-primary font-bold text-lg">+</span>
                 </div>
+                <p className="text-xs text-slate-500 font-medium">Support Hours</p>
               </div>
 
-              <div className="col-lg-6">
-                <div className="stats-item" style={styles.statsItem}>
-                  <i className="bi bi-people" style={styles.icon}></i>
-                  <div>
-                    <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" className="purecounter" style={styles.purecounter}></span>
-                    <p style={styles.statsText}><strong>Hard Workers</strong> <span>rerum asperiores dolor</span></p>
-                  </div>
+              <div className="p-3 bg-white rounded-xl border border-slate-200/70 shadow-2xs text-center sm:text-left">
+                <div className="flex items-center justify-center sm:justify-start gap-1.5 text-primary mb-1">
+                  <FaAward size={16} />
+                  <span
+                    data-purecounter-start="0"
+                    data-purecounter-end="15"
+                    data-purecounter-duration="1.5"
+                    className="purecounter text-2xl font-extrabold text-slate-900"
+                  >
+                    15
+                  </span>
+                  <span className="text-primary font-bold text-lg">+</span>
                 </div>
+                <p className="text-xs text-slate-500 font-medium">Years Active</p>
               </div>
-
             </div>
           </div>
         </div>

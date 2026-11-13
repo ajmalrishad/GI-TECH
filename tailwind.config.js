@@ -5,28 +5,35 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Roboto", "sans-serif"],
-        cursive: ["Roboto", "sans-serif"],  // Update any other font families to Roboto
-        cursive2: ["Roboto", "sans-serif"],
+        sans: ["Inter", "Roboto", "system-ui", "-apple-system", "sans-serif"],
       },
       colors: {
-        // primary: "#854d3d",
-        // secondary: "#4a1e1b",
-        // brandDark: "#270c03",
-        // dark: "#1e1e1e",
-        // light: "#f5f5f5",
-        primary: "#ffffff",  // White
-        secondary: "#ffffff",  // Blue
-        brandDark: "black",  // Darker Blue
-        dark: "#000099",  // Even Darker Blue
-        light: "#f5f5f5"  // Light color, keeping the same if needed
-        
+        brand: {
+          50: "#f0f7ff",
+          100: "#e0effe",
+          200: "#bae0fd",
+          300: "#7cc4fb",
+          400: "#36a5f7",
+          500: "#0b88e8",
+          600: "#0066cc",
+          700: "#0052a8",
+          800: "#044588",
+          900: "#093b70",
+          950: "#06254a",
+        },
+        primary: "#0066cc",
+        primaryHover: "#0052a8",
+        secondary: "#0f172a",
+        brandDark: "#0b1120",
+        dark: "#0f172a",
+        light: "#f8fafc",
       },
       container: {
         center: true,
         padding: {
           DEFAULT: "1rem",
-          sm: "3rem",
+          sm: "1.5rem",
+          lg: "2rem",
         },
       },
       animation: {
@@ -35,5 +42,4 @@ export default {
     },
   },
   plugins: [],
-  
 };

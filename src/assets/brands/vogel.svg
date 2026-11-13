@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60" fill="none">
+  <g transform="translate(10, 10)">
+    <!-- Vogel Lubrication Droplet Gear Mark -->
+    <path d="M18 4 C18 4, 30 17, 30 25 C30 32, 24.6 37, 18 37 C11.4 37, 6 32, 6 25 C6 17, 18 4, 18 4 Z" fill="#0066cc" />
+    <circle cx="18" cy="25" r="5" fill="#ffffff" />
+    <path d="M18 16 L18 20 M18 30 L18 34 M10 25 L14 25 M22 25 L26 25" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+    <!-- Typography -->
+    <text x="44" y="24" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="22" fill="#0f172a" letter-spacing="1.5">VOGEL</text>
+    <text x="45" y="35" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="8" fill="#0066cc" letter-spacing="1.2">CENTRALIZED LUBRICATION</text>
+  </g>
+</svg>

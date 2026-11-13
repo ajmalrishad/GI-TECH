@@ -1,168 +1,122 @@
-// import React from "react";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { FaQuoteLeft, FaStar } from "react-icons/fa";
 
-const TestimonialData = [
+const testimonialList = [
   {
     id: 1,
-    name: "Dilshad",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "https://picsum.photos/101/101",
+    name: "Rajesh Sharma",
+    role: "Plant Operations Head, Process Manufacturing",
+    feedback:
+      "GiTech engineered our multi-line VFD retrofit with Invertek drives. Commissioning was flawless, and we achieved a 22% drop in energy consumption across our pumping circuits.",
+    rating: 5,
   },
   {
     id: 2,
-    name: "Sabir ali",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "https://picsum.photos/102/102",
+    name: "David Miller",
+    role: "Facility Technical Director, Commercial BMS",
+    feedback:
+      "Their BMS integration team delivered turnkey HVAC and access automation for our 14-story commercial tower. The ongoing technical support has been responsive and proactive.",
+    rating: 5,
   },
   {
     id: 3,
-    name: "Dipankar kumar",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "https://picsum.photos/104/104",
+    name: "Ahmed Al-Mansoor",
+    role: "Chief Engineer, Water & Wastewater Utility",
+    feedback:
+      "We rely on GiTech for Aucom soft starters and SCADA telemetry across our remote pumping stations. Equipment stress has drastically decreased and pump life has doubled.",
+    rating: 5,
   },
   {
-    id: 5,
-    name: "Satya Narayan",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
-    img: "https://picsum.photos/103/103",
+    id: 4,
+    name: "Kavita Patel",
+    role: "Lead Automation Engineer, Packaging Systems",
+    feedback:
+      "From KEB motion drives to Vogel lubrication systems, GiTech provides genuine parts with deep application engineering know-how. Highly recommended partner.",
+    rating: 5,
   },
 ];
 
 const Testimonials = () => {
-  var settings = {
+  const settings = {
     dots: true,
     arrows: false,
     infinite: true,
     speed: 500,
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
-    cssEase: "linear",
+    autoplaySpeed: 3500,
     pauseOnHover: true,
-    pauseOnFocus: true,
     responsive: [
       {
-        breakpoint: 10000,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-        },
-      },
-      {
         breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          initialSlide: 2,
-        },
+        settings: { slidesToShow: 2, slidesToScroll: 1 },
       },
       {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
+        breakpoint: 768,
+        settings: { slidesToShow: 1, slidesToScroll: 1 },
       },
     ],
   };
-  const sectionTitleStyles = {
-    paddingBottom: "60px",
-    position: "relative",
-  };
-
-  const h2Styles = {
-    fontSize: "14px",
-    fontWeight: 500,
-    padding: 0,
-    lineHeight: "1px",
-    margin: 0,
-    letterSpacing: "1.5px",
-    textTransform: "uppercase",
-    color: "color-mix(in srgb, var(--default-color), transparent 50%)",
-    position: "relative",
-  };
-
-  const h2AfterStyles = {
-    content: '""',
-    width: "160px",
-    height: "3px",
-    display: "inline-block",
-    background: "#006",
-    margin: "4px 10px",
-  };
-
-  const pStyles = {
-    color: "var(--heading-color)",
-    margin: 0,
-    fontSize: "36px",
-    fontWeight: 700,
-    textTransform: "uppercase",
-  };
 
   return (
-    <div className="py-10 mb-10">
-      <div className="container">
-        <div
-          className="section-title"
-          style={sectionTitleStyles}
-          data-aos="fade-up"
-        >
-          <div className="flex">
-            <h2 style={h2Styles}>Testimonials</h2>
-            <span className="h2AfterStyles" style={h2AfterStyles}></span>
-          </div>
-          <p style={pStyles}>Check our Testimonials</p>
+    <section className="py-20 bg-slate-50 border-t border-slate-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <span className="inline-block text-xs uppercase tracking-widest font-bold text-primary mb-2">
+            Proven Customer Trust
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Client Testimonials
+          </h2>
+          <div className="w-16 h-1 bg-primary mx-auto my-3 rounded-full"></div>
+          <p className="text-sm sm:text-base text-slate-600">
+            Hear from industry leaders and plant engineers who trust GiTech for
+            reliable automation, motor control, and technical support.
+          </p>
         </div>
-        {/* header section */}
-        {/* <div className="mb-10">
-          <h1
-            data-aos="fade-up"
-            className="text-center text-4xl font-bold font-cursive"
-          >
-            Testimonials
-            <p style={{ fontSize: "1.0rem", color: "#777" }}>Check our Testimonials</p>
-          </h1>
-          
-        </div> */}
 
-        {/* Testimonial cards */}
-        <div data-aos="zoom-in">
+        {/* Carousel */}
+        <div className="pb-8">
           <Slider {...settings}>
-            {TestimonialData.map((data) => (
-              <>
-                <div className="my-6">
-                  <div
-                    key={data.id}
-                    className="flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl  bg-primary/10 relative"
-                  >
-                    <div className="mb-4">
-                      <img
-                        src={data.img}
-                        alt=""
-                        className="rounded-full w-20 h-20"
-                      />
-                    </div>
-                    {/* content section */}
-                    <div className="flex flex-col items-center gap-4">
-                      <div className="space-y-3">
-                        <p className="text-xs text-gray-500">{data.text}</p>
-                        <h1 className="text-xl font-bold text-black/80  font-cursive2">
-                          {data.name}
-                        </h1>
+            {testimonialList.map((item) => (
+              <div key={item.id} className="p-3">
+                <div className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between h-full min-h-[260px]">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <FaQuoteLeft className="text-primary/30 text-2xl" />
+                      <div className="flex gap-1 text-amber-400">
+                        {[...Array(item.rating)].map((_, i) => (
+                          <FaStar key={i} size={14} />
+                        ))}
                       </div>
                     </div>
-                    <p className="text-black/20 text-9xl font-serif absolute top-0 right-0">
-                      ,,
+                    <p className="text-sm text-slate-700 leading-relaxed italic">
+                      "{item.feedback}"
                     </p>
                   </div>
+
+                  <div className="pt-5 mt-5 border-t border-slate-100 flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center text-sm">
+                      {item.name.charAt(0)}
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-slate-900">
+                        {item.name}
+                      </h4>
+                      <p className="text-xs text-slate-500">{item.role}</p>
+                    </div>
+                  </div>
                 </div>
-              </>
+              </div>
             ))}
           </Slider>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

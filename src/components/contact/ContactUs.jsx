@@ -1,365 +1,294 @@
-import { useState, useRef } from "react";
-import emailjs from "emailjs-com";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { FaArrowRight, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import {
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaClock,
+  FaPaperPlane,
+  FaCheckCircle,
+  FaMap,
+} from "react-icons/fa";
 
 const ContactUs = () => {
-  const formRef = useRef();
-  const [form, setForm] = useState({
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    phone: "",
+    interest: "Invertek Drives (VFDs)",
+    message: "",
   });
-  const [error, setError] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const [showMap, setShowMap] = useState(false);
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    emailjs.sendForm(
-      'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-      'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
-      formRef.current,
-      'YOUR_USER_ID' // Replace with your EmailJS user ID
-    )
-      .then((response) => {
-        console.log('SUCCESS!', response.status, response.text);
-        setSuccess(true);
-        setError(false);
-        setForm({
-          name: "",
-          email: "",
-          message: ""
-        });
-      })
-      .catch((err) => {
-        console.log('FAILED...', err);
-        setError(true);
-        setSuccess(false);
+    // Simulate submission
+    setSubmitted(true);
+    setTimeout(() => {
+      setSubmitted(false);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        interest: "Invertek Drives (VFDs)",
+        message: "",
       });
-  };
-
-  const styles = {
-    section: {
-    //   background: 'linear-gradient(135deg, #f5f7fa, #c3cfe2)',
-      background: '#0000',
-      color: '#333',
-      padding: '5rem 0',
-      position: 'relative',
-      overflow: 'hidden'
-    },
-    header: {
-      textAlign: 'center',
-      marginBottom: '2rem'
-    },
-    title: {
-      fontSize: '2.5rem',
-      margin: '0',
-      color: '#333'
-    },
-    subtitle: {
-      fontSize: '1.2rem',
-      color: '#666'
-    },
-    container: {
-      maxWidth: '1200px',
-      margin: '0 auto',
-      padding: '0 1rem',
-      display: 'flex',
-      flexWrap: 'wrap'
-    },
-    infoItem: {
-      display: 'flex',
-      alignItems: 'center',
-      marginBottom: '40px',
-      cursor: 'pointer'
-    },
-    icon: {
-      color: 'var(--contrast-color)',
-      background: 'var(--accent-color)',
-      fontSize: '20px',
-      width: '44px',
-      height: '44px',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      borderRadius: '4px',
-      transition: 'all 0.3s ease-in-out',
-      marginRight: '15px'
-    },
-    infoText: {
-      margin: '0'
-    },
-    infoTitle: {
-      padding: '0',
-      fontSize: '18px',
-      fontWeight: '700',
-      marginBottom: '5px'
-    },
-    infoDescription: {
-      padding: '0',
-      marginBottom: '0',
-      fontSize: '14px'
-    },
-    form: {
-      flex: '1 1 45%',
-      padding: '2rem',
-      backgroundColor: '#fff',
-      boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
-      borderRadius: '10px',
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '1rem',
-      minWidth: '300px'
-    },
-    input: {
-        fontSize: '14px',
-        padding: '10px 15px',
-        boxShadow: 'none',
-        borderRadius: '0',
-        color: 'var(--default-color)',
-        backgroundColor: 'rgba(var(--background-color), 0.5)',
-        border: '1px solid var(--border-color)', // Example using CSS variable for border color
-        marginBottom: '1rem'
-      },
-    inputFocus: {
-      borderColor: 'var(--accent-color)'
-    },
-    placeholder: {
-      color: 'rgba(var(--default-color), 0.7)'
-    },
-    button: {
-      color: 'var(--contrast-color)',
-      background: 'var(--accent-color)',
-      border: '0',
-      padding: '10px 30px',
-      transition: '0.4s',
-      borderRadius: '4px',
-      cursor: 'pointer',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      gap: '0.5rem'
-    },
-    buttonHover: {
-      background: 'rgba(var(--accent-color), 0.2)'
-    },
-    errorMessage: {
-      color: 'red',
-      textAlign: 'center',
-      marginTop: '1rem'
-    },
-    successMessage: {
-      color: 'green',
-      textAlign: 'center',
-      marginTop: '1rem'
-    }
-  };
-  const sectionTitleStyles = {
-    paddingBottom: '60px',
-    position: 'relative',
-    marginLeft:'7rem',
-    marginTop:'3rem'
-  };
-
-  const h2Styles = {
-    fontSize: '14px',
-    fontWeight: 500,
-    padding: 0,
-    lineHeight: '1px',
-    margin: 0,
-    letterSpacing: '1.5px',
-    textTransform: 'uppercase',
-    color: 'color-mix(in srgb, var(--default-color), transparent 50%)',
-    position: 'relative',
-  };
-
-  const h2AfterStyles = {
-    content: '""',
-    width: '160px',
-    height: '3px',
-    display: 'inline-block',
-    background: '#006',
-    margin: '4px 10px',
-  };
-
-  const pStyles = {
-    color: 'var(--heading-color)',
-    margin: 0,
-    fontSize: '36px',
-    fontWeight: 700,
-    textTransform: 'uppercase',
+    }, 4000);
   };
 
   return (
-    <>
-    <div className="section-title" style={sectionTitleStyles} data-aos="fade-up">
-            <div className='flex'><h2 style={h2Styles}> Contact</h2><span className="h2AfterStyles" style={h2AfterStyles} ></span></div>
-            <p style={pStyles}> Contact Us</p>
+    <section id="contact" className="py-20 bg-slate-50 border-t border-slate-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <span className="inline-block text-xs uppercase tracking-widest font-bold text-primary mb-2">
+            Let's Collaborate
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Contact Us
+          </h2>
+          <div className="w-16 h-1 bg-primary mx-auto my-3 rounded-full"></div>
+          <p className="text-sm sm:text-base text-slate-600">
+            Have an automation project, need replacement drives, or looking for a
+            custom solution? Reach out to our technical team for immediate support.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left: Contact Info */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-2xs space-y-6">
+              <h3 className="text-xl font-bold text-slate-900">
+                Engineering & Sales Office
+              </h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Connect with our certified automation engineers to explore tailored
+                drives, braking systems, and turnkey panel architectures.
+              </p>
+
+              <div className="space-y-4 pt-2">
+                <div className="flex items-start gap-3.5">
+                  <div className="p-2.5 bg-blue-50 text-primary rounded-xl shrink-0 mt-0.5">
+                    <FaMapMarkerAlt size={16} />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                      Location
+                    </h4>
+                    <p className="text-sm font-semibold text-slate-800">
+                      GiTech Industrial Automation Hub
+                    </p>
+                    <p className="text-xs text-slate-500">
+                      Industrial Area 1, Tech Park Avenue
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3.5">
+                  <div className="p-2.5 bg-blue-50 text-primary rounded-xl shrink-0 mt-0.5">
+                    <FaPhoneAlt size={16} />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                      Direct Support Line
+                    </h4>
+                    <p className="text-sm font-semibold text-slate-800">
+                      +91 98765 43210 / +1 (800) 555-0199
+                    </p>
+                    <p className="text-xs text-slate-500">24/7 Breakdown Hotline Available</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3.5">
+                  <div className="p-2.5 bg-blue-50 text-primary rounded-xl shrink-0 mt-0.5">
+                    <FaEnvelope size={16} />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                      Email Inquiries
+                    </h4>
+                    <p className="text-sm font-semibold text-slate-800">
+                      sales@gitechautomation.com
+                    </p>
+                    <p className="text-xs text-slate-500">
+                      support@gitechautomation.com
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3.5">
+                  <div className="p-2.5 bg-blue-50 text-primary rounded-xl shrink-0 mt-0.5">
+                    <FaClock size={16} />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                      Working Hours
+                    </h4>
+                    <p className="text-sm font-semibold text-slate-800">
+                      Mon – Sat: 8:30 AM – 6:30 PM
+                    </p>
+                    <p className="text-xs text-slate-500">Emergency support round the clock</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <button
+                  type="button"
+                  onClick={() => setShowMap(!showMap)}
+                  className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 text-xs font-bold text-primary bg-blue-50 hover:bg-blue-100 rounded-xl transition-colors"
+                >
+                  <FaMap size={13} />
+                  <span>{showMap ? "Hide Map View" : "View Interactive Map"}</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Embedded Map Toggle */}
+            {showMap && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm"
+              >
+                <iframe
+                  title="GiTech Location"
+                  className="w-full h-56 border-0"
+                  src="https://maps.google.com/maps?q=Technopark&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  loading="lazy"
+                ></iframe>
+              </motion.div>
+            )}
           </div>
 
-    <motion.section
-      id="contact"
-      style={styles.section}
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-         
-      <div style={styles.container}>
-     
-        <motion.div
-          style={{
-            flex: '1 1 45%',
-            marginRight: '2rem',
-            textAlign: 'left',
-            minWidth: '300px',
-            marginBottom: '2rem'
-          }}
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.3 }}
-        >
-          {/* <motion.h2
-            style={{
-              fontSize: '2rem',
-              fontWeight: 'bold',
-              marginBottom: '1rem',
-              color: '#333'
-            }}
-          >
-            Contact Us
-          </motion.h2> */}
-          <motion.p
-            style={{
-              fontSize: '1rem',
-              lineHeight: '1.6',
-              marginBottom: '2rem',
-              color: '#555'
-            }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
-            Have questions or want to work with us? Fill out the form below and we will get back to you as soon as possible.
-          </motion.p>
-          <motion.div
-            style={styles.infoItem}
-            onClick={() => setShowMap(!showMap)}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.7 }}
-          >
-            <FaMapMarkerAlt style={styles.icon} />
-            <div style={styles.infoText}>
-              <h3 style={styles.infoTitle}>Our Address</h3>
-              <p style={styles.infoDescription}>A108 Adam Street, New York, NY 535022</p>
+          {/* Right: Modern Form */}
+          <div className="lg:col-span-7">
+            <div className="bg-white p-7 sm:p-9 rounded-2xl border border-slate-200/80 shadow-2xs">
+              <h3 className="text-xl font-bold text-slate-900 mb-2">
+                Request a Quote / Project Inquiry
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 mb-6">
+                Fill in the details below and an automation specialist will get
+                back to you within 24 hours with product datasheets and pricing.
+              </p>
+
+              {submitted ? (
+                <div className="p-8 text-center bg-emerald-50 rounded-xl border border-emerald-200 space-y-3">
+                  <FaCheckCircle className="text-emerald-500 text-4xl mx-auto" />
+                  <h4 className="text-lg font-bold text-emerald-900">
+                    Thank You for Contacting GiTech!
+                  </h4>
+                  <p className="text-sm text-emerald-700">
+                    Your inquiry has been received. Our application engineering team
+                    will review your requirements and respond promptly.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                        Your Full Name *
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        required
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="e.g. John Doe"
+                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-800 focus:outline-none focus:border-primary focus:bg-white transition-all"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                        Corporate Email *
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="john@company.com"
+                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-800 focus:outline-none focus:border-primary focus:bg-white transition-all"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                        Phone Number *
+                      </label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        required
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="+91 98765 43210"
+                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-800 focus:outline-none focus:border-primary focus:bg-white transition-all"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                        Product / Solution of Interest
+                      </label>
+                      <select
+                        name="interest"
+                        value={formData.interest}
+                        onChange={handleChange}
+                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-800 focus:outline-none focus:border-primary focus:bg-white transition-all"
+                      >
+                        <option value="Invertek Drives (VFDs)">Invertek Drives (VFDs)</option>
+                        <option value="Aucom Soft Starters">Aucom Soft Starters</option>
+                        <option value="KEB Automation Systems">KEB Automation Systems</option>
+                        <option value="Kendrion Intorq Brakes & Clutches">Kendrion Intorq Brakes & Clutches</option>
+                        <option value="Vogel Lubrication Systems">Vogel Lubrication Systems</option>
+                        <option value="Turnkey BMS / Industrial Automation Panels">Turnkey BMS / Industrial Automation Panels</option>
+                        <option value="VFD Repair & Commissioning Services">VFD Repair & Commissioning Services</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                      Project Requirements / Message *
+                    </label>
+                    <textarea
+                      name="message"
+                      rows="4"
+                      required
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Please share motor power (kW/HP), voltage, application details, or project scope..."
+                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-800 focus:outline-none focus:border-primary focus:bg-white transition-all resize-none"
+                    ></textarea>
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 bg-primary hover:bg-primaryHover text-white font-semibold text-sm rounded-lg shadow-sm hover:shadow transition-all duration-200"
+                  >
+                    <FaPaperPlane size={13} />
+                    <span>Send Project Inquiry</span>
+                  </button>
+                </form>
+              )}
             </div>
-          </motion.div>
-          <motion.div
-            style={styles.infoItem}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.9 }}
-          >
-            <FaPhoneAlt style={styles.icon} />
-            <div style={styles.infoText}>
-              <h3 style={styles.infoTitle}>Call Us</h3>
-              <p style={styles.infoDescription}>+1 5589 55488 55</p>
-            </div>
-          </motion.div>
-          <motion.div
-            style={styles.infoItem}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.1 }}
-          >
-            <FaEnvelope style={styles.icon} />
-            <div style={styles.infoText}>
-              <h3 style={styles.infoTitle}>Email Us</h3>
-              <p style={styles.infoDescription}>info@example.com</p>
-            </div>
-          </motion.div>
-        </motion.div>
-        {showMap ? (
-          <div
-            style={{
-              flex: '1 1 45%',
-              padding: '2rem',
-              backgroundColor: '#fff',
-              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
-              borderRadius: '10px',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '1rem',
-              minWidth: '300px'
-            }}
-          >
-            <iframe
-              style={{ border: 0, width: '100%', height: '400px', borderRadius: '10px' }}
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus"
-              frameBorder="0"
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
           </div>
-        ) : (
-          <motion.form
-            ref={formRef}
-            onSubmit={handleSubmit}
-            style={styles.form}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-          >
-            <input
-              type="text"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              placeholder="Your Name"
-              required
-              style={styles.input}
-            />
-            <input
-              type="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              placeholder="Your Email"
-              required
-              style={styles.input}
-            />
-            <textarea
-              name="message"
-              value={form.message}
-              onChange={handleChange}
-              rows="5"
-              placeholder="Your Message"
-              required
-              style={styles.input}
-            />
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              type="submit"
-              style={styles.button}
-            >
-              Send Message <FaArrowRight />
-            </motion.button>
-            {error && <p style={styles.errorMessage}>Something went wrong. Please try again later.</p>}
-            {success && <p style={styles.successMessage}>Your message was sent successfully!</p>}
-          </motion.form>
-        )}
+        </div>
       </div>
-    </motion.section>
-    </>
+    </section>
   );
 };
 
