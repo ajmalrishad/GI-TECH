@@ -91,18 +91,18 @@ const industriesData = [
 
 const Services = () => {
   return (
-    <section id="industries" className="py-20 bg-white">
+    <section id="industries" className="py-20 bg-white w-full overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block text-xs uppercase tracking-widest font-bold text-primary mb-2">
+          <span className="inline-block text-xs sm:text-sm uppercase tracking-widest font-bold text-primary mb-2">
             Tailored Industry Expertise
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
             Industries We Serve
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto my-3 rounded-full"></div>
-          <p className="text-base sm:text-lg text-slate-600">
+          <p className="text-base sm:text-xl text-slate-600">
             GiTech delivers end-to-end automation and control architectures across
             demanding industrial, municipal, and commercial sectors.
           </p>
@@ -111,14 +111,14 @@ const Services = () => {
         {/* Flagship Industry Solutions - 3 Key Highlights */}
         <div className="mb-16">
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-xl font-bold text-slate-900 tracking-tight">
+            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
               Flagship Industry Solutions
             </h3>
             <Link
               to="/automation"
-              className="text-xs sm:text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1.5"
+              className="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1.5"
             >
-              Explore all automation solutions <FaArrowRight size={11} />
+              Explore all automation solutions <FaArrowRight size={12} />
             </Link>
           </div>
 
@@ -133,31 +133,31 @@ const Services = () => {
                   className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white p-7 rounded-2xl shadow-lg border border-slate-700/60 relative overflow-hidden group"
                 >
                   <div className="absolute top-0 right-0 w-36 h-36 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all"></div>
-                  
+
                   <div className="relative z-10 space-y-4">
                     <div className="flex items-center justify-between">
                       <div className="p-3 bg-blue-500/20 text-blue-400 rounded-xl border border-blue-400/20">
                         <IconComp size={24} />
                       </div>
-                      <span className="text-[11px] font-semibold tracking-wider uppercase text-blue-300 bg-blue-500/10 px-2.5 py-1 rounded-full border border-blue-400/20">
+                      <span className="text-xs font-semibold tracking-wider uppercase text-blue-300 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-400/20">
                         {sol.badge}
                       </span>
                     </div>
 
-                    <h4 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors">
+                    <h4 className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-300 transition-colors">
                       {sol.title}
                     </h4>
 
-                    <p className="text-sm text-slate-300 leading-relaxed font-light">
+                    <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-light">
                       {sol.description}
                     </p>
 
                     <div className="pt-2">
                       <Link
                         to={sol.link}
-                        className="inline-flex items-center gap-2 text-xs font-semibold text-blue-400 group-hover:text-blue-300 transition-colors"
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-blue-400 group-hover:text-blue-300 transition-colors"
                       >
-                        Learn more <FaArrowRight size={11} />
+                        Learn more <FaArrowRight size={12} />
                       </Link>
                     </div>
                   </div>
@@ -174,7 +174,7 @@ const Services = () => {
               key={item.id}
               whileHover={{ y: -4 }}
               transition={{ duration: 0.2 }}
-              className="bg-slate-50 hover:bg-white rounded-2xl p-6 border border-slate-200/80 hover:border-slate-300 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+              className="bg-slate-50 hover:bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/80 hover:border-slate-300 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
             >
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
@@ -185,19 +185,19 @@ const Services = () => {
                       className="w-10 h-10 object-contain"
                     />
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
                     {item.name}
                   </h3>
                 </div>
 
-                <p className="text-sm text-slate-600 leading-relaxed">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
                   {item.description}
                 </p>
               </div>
 
-              <div className="pt-4 mt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-semibold text-primary">
+              <div className="pt-4 mt-4 border-t border-slate-200/60 flex items-center justify-between text-sm font-semibold text-primary">
                 <span>Tailored Integration</span>
-                <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
               </div>
             </motion.div>
           ))}

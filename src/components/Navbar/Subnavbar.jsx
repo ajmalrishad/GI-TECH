@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-import Logo from "../../assets/gitechlogo1.png";
+import Logo from "../../assets/GiTechlogo1.png";
 import "./subnavbar.css";
 
 const Menu = [
@@ -42,7 +42,7 @@ const Menu = [
     id: 5,
     name: "Projects",
     link: "/projects",
-    subItems: [ "HVAC Panels", "Motor Control Centers", "Sewage Treatment Plants" ],
+    subItems: ["HVAC Panels", "Motor Control Centers", "Sewage Treatment Plants"],
   },
   { id: 6, name: "Contact", link: "/contact" },
   { id: 7, name: "About", link: "/about" },

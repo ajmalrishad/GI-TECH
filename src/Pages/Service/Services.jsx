@@ -17,11 +17,11 @@ const services = [
     tag: "Power Quality",
   },
   {
-    title: "VFD and Servo Drives Repairing",
+    title: "VFD Repairs Dubai & Drive Servicing",
     description:
-      "Component-level repair, IGBT testing, capacitor refurbishment, and dynamic load testing of Variable Frequency Drives (VFDs) and servo systems from leading global brands.",
+      "Certified 24/7 VFD repairs in Dubai, Sharjah, and UAE. Component-level diagnostics, IGBT module replacement, gate driver testing, capacitor refurbishment, and dynamic full-load testing of Variable Frequency Drives (VFDs) and AC frequency inverters.",
     image: serviceImg2,
-    tag: "Drive Diagnostics",
+    tag: "VFD Repairs Dubai",
   },
   {
     title: "Commissioning of Control Panels",
@@ -55,16 +55,15 @@ const TechnicalServices = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <span className="inline-block text-xs uppercase tracking-widest font-bold text-blue-400 mb-2">
-            Engineering Lifecycle Support
+            Engineering Lifecycle & VFD Repairs Dubai • UAE
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-            Technical & Field Services
+            Technical Services & VFD Repairs in Dubai
           </h1>
           <div className="w-16 h-1 bg-blue-500 mx-auto my-4 rounded-full"></div>
           <p className="text-slate-300 max-w-2xl mx-auto text-sm sm:text-base font-light leading-relaxed">
-            GiTech provides dedicated engineering support, component-level repair,
-            and specialized testing services to keep your automation infrastructure
-            operating at peak performance.
+            GI. Tech provides certified engineering support, harmonic power analysis, control panel
+            commissioning, and fast-response VFD repairs across Dubai, Sharjah, and all UAE emirates.
           </p>
         </div>
       </div>

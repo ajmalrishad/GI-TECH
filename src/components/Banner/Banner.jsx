@@ -31,7 +31,7 @@ const reasons = [
 
 const Banner = () => {
   return (
-    <section id="why-gitech" className="py-20 bg-slate-900 text-white relative overflow-hidden">
+    <section id="why-GiTech" className="py-20 bg-slate-900 text-white relative overflow-hidden">
       {/* Ambient background glow */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none"></div>
@@ -59,14 +59,14 @@ const Banner = () => {
           {/* Right Content */}
           <div className="lg:col-span-7 space-y-6 order-1 lg:order-2">
             <div>
-              <span className="inline-block text-xs uppercase tracking-widest font-bold text-blue-400 mb-2">
+              <span className="inline-block text-xs sm:text-sm uppercase tracking-widest font-bold text-blue-400 mb-2">
                 Our Competitive Advantage
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white">
                 Why GiTech?
               </h2>
               <div className="w-16 h-1 bg-blue-500 my-3 rounded-full"></div>
-              <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-light mt-3">
+              <p className="text-base sm:text-xl text-slate-300 leading-relaxed font-light mt-3">
                 GiTech is your trusted partner in industrial and commercial
                 automation. We combine engineering excellence with global brand
                 sourcing to deliver reliable, energy-saving, and future-proof systems.
@@ -84,17 +84,17 @@ const Banner = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: idx * 0.1 }}
-                    className="p-5 bg-slate-800/80 rounded-2xl border border-slate-700/60 hover:border-blue-500/40 transition-all duration-300 space-y-2.5"
+                    className="p-5 sm:p-6 bg-slate-800/80 rounded-2xl border border-slate-700/60 hover:border-blue-500/40 transition-all duration-300 space-y-2.5"
                   >
                     <div className="flex items-center gap-3">
                       <div className="p-2.5 bg-blue-500/10 text-blue-400 rounded-xl border border-blue-500/20 shrink-0">
-                        <Icon size={18} />
+                        <Icon size={20} />
                       </div>
-                      <h4 className="text-sm font-bold text-white leading-snug">
+                      <h4 className="text-base sm:text-lg font-bold text-white leading-snug">
                         {r.title}
                       </h4>
                     </div>
-                    <p className="text-xs text-slate-400 leading-relaxed">
+                    <p className="text-sm text-slate-300 leading-relaxed">
                       {r.description}
                     </p>
                   </motion.div>
@@ -103,18 +103,18 @@ const Banner = () => {
             </div>
 
             {/* Quick summary checkmarks */}
-            <div className="pt-2 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-slate-300">
-              <span className="flex items-center gap-1.5">
-                <FaCheck className="text-emerald-400" /> End-to-end technical support
+            <div className="pt-2 flex flex-wrap items-center gap-y-2.5 gap-x-6 text-sm text-slate-200">
+              <span className="flex items-center gap-2">
+                <FaCheck className="text-emerald-400 shrink-0" /> End-to-end technical support
               </span>
-              <span className="flex items-center gap-1.5">
-                <FaCheck className="text-emerald-400" /> Competitive sourcing and procurement
+              <span className="flex items-center gap-2">
+                <FaCheck className="text-emerald-400 shrink-0" /> Competitive sourcing and procurement
               </span>
-              <span className="flex items-center gap-1.5">
-                <FaCheck className="text-emerald-400" /> Custom integration and commissioning
+              <span className="flex items-center gap-2">
+                <FaCheck className="text-emerald-400 shrink-0" /> Custom integration and commissioning
               </span>
-              <span className="flex items-center gap-1.5">
-                <FaCheck className="text-emerald-400" /> Proven reliability across projects
+              <span className="flex items-center gap-2">
+                <FaCheck className="text-emerald-400 shrink-0" /> Proven reliability across projects
               </span>
             </div>
           </div>

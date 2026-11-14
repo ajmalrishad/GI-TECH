@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FaCheckCircle, FaAward, FaCogs, FaUsers, FaHistory } from "react-icons/fa";
-import logo from "../../assets/gitechlogo1.png";
+import { FaCheckCircle, FaAward, FaCogs, FaUsers, FaHistory, FaMapMarkerAlt } from "react-icons/fa";
+import logo from "../../assets/GiTechlogo1.png";
+import aboutImg from "../../assets/about-robotics.jpg";
 import projectImg1 from "../../assets/project1.png";
 import projectImg2 from "../../assets/project2.png";
 import projectImg3 from "../../assets/project3.png";
-import officeImg from "../../assets/office3.jpg";
+import officeImg from "../../assets/about-gitech-facility.jpg";
 
 const galleryImages = [
   { src: projectImg1, alt: "Industrial Control Panels", tag: "Control Panels" },
@@ -85,16 +86,28 @@ const AboutUs = () => {
             </div>
 
             <div className="lg:col-span-4 flex justify-center">
-              <div className="p-8 bg-slate-50 rounded-2xl border border-slate-200 text-center space-y-4 max-w-sm w-full">
-                <img
-                  src={logo}
-                  alt="GiTech Logo"
-                  className="max-h-16 w-auto mx-auto object-contain"
-                />
-                <div className="pt-2 border-t border-slate-200 text-xs text-slate-500 space-y-1">
-                  <p className="font-bold text-slate-800">GiTech Automation Ltd.</p>
-                  <p>Industrial & Commercial Systems</p>
-                  <p className="text-primary font-semibold">15+ Years Active in Industry</p>
+              <div className="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden shadow-sm max-w-sm w-full">
+                <div className="relative aspect-[4/3] bg-slate-900 overflow-hidden">
+                  <img
+                    src={aboutImg}
+                    alt="GI. Tech Industrial Automation Engineering"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-2 left-2 bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-lg text-[11px] font-bold text-slate-800">
+                    SAIF Zone, Sharjah
+                  </div>
+                </div>
+                <div className="p-5 text-center space-y-2">
+                  <img
+                    src={logo}
+                    alt="GI Tech Logo"
+                    className="h-12 sm:h-14 w-auto mx-auto object-contain"
+                  />
+                  <div className="pt-2 border-t border-slate-200 text-xs text-slate-600 space-y-1">
+                    <p className="font-bold text-slate-900">GI. Tech FZE</p>
+                    <p className="text-slate-500 text-[11px]">Sharjah Airport International Freezone, UAE</p>
+                    <p className="text-primary font-bold">15+ Years Active in Industry</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -114,11 +127,10 @@ const AboutUs = () => {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 px-6 py-4 text-sm font-semibold border-b-2 transition-all cursor-pointer ${
-                    activeTab === tab.id
-                      ? "border-primary text-primary"
-                      : "border-transparent text-slate-500 hover:text-slate-800"
-                  }`}
+                  className={`flex items-center gap-2 px-6 py-4 text-sm font-semibold border-b-2 transition-all cursor-pointer ${activeTab === tab.id
+                    ? "border-primary text-primary"
+                    : "border-transparent text-slate-500 hover:text-slate-800"
+                    }`}
                 >
                   <TabIcon size={14} />
                   <span>{tab.label}</span>
@@ -169,11 +181,10 @@ const AboutUs = () => {
                 </p>
               </div>
               <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-2">
-                <h4 className="text-base font-bold text-slate-900">Centralized Lubrication</h4>
+                <h4 className="text-base font-bold text-slate-900">Precision Gearboxes & Drives</h4>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Automated lubrication delivery systems (Vogel) engineered to
-                  eliminate manual greasing risks and prevent bearing failure on
-                  continuous assembly lines.
+                  German-engineered planetary and spiral bevel gearboxes (VOGEL Antriebstechnik)
+                  providing low backlash, maximum torque density, and up to 98% efficiency.
                 </p>
               </div>
               <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-2">
@@ -182,6 +193,13 @@ const AboutUs = () => {
                   Electromagnetic holding and emergency brakes (Kendrion Intorq)
                   integrated for hoists, passenger elevators, and crane traverse
                   safety systems.
+                </p>
+              </div>
+              <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-2">
+                <h4 className="text-base font-bold text-slate-900">Solar Pumping Solutions</h4>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  High-efficiency solar water pumping systems and inverters (Solartech)
+                  engineered for sustainable agriculture, irrigation, and off-grid water conservancy.
                 </p>
               </div>
               <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-2">

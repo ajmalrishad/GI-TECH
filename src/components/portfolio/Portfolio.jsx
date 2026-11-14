@@ -71,33 +71,32 @@ const Portfolio = () => {
       : portfolioItems.filter((item) => item.category === activeFilter);
 
   return (
-    <section id="projects-section" className="py-20 bg-white border-t border-slate-100">
+    <section id="projects-section" className="py-20 bg-white border-t border-slate-100 w-full overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="inline-block text-xs uppercase tracking-widest font-bold text-primary mb-2">
+          <span className="inline-block text-xs sm:text-sm uppercase tracking-widest font-bold text-primary mb-2">
             Engineering Portfolio
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
             Our Work & Installations
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto my-3 rounded-full"></div>
-          <p className="text-sm sm:text-base text-slate-600">
+          <p className="text-base sm:text-lg text-slate-600">
             A glimpse into custom panels, drive retrofits, and smart building
             systems engineered and commissioned by GiTech.
           </p>
 
           {/* Filter Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
+          <div className="flex items-center gap-2.5 mt-8 overflow-x-auto pb-2 sm:pb-0 sm:flex-wrap sm:justify-center no-scrollbar">
             {filters.map((f) => (
               <button
                 key={f.key}
                 onClick={() => setActiveFilter(f.key)}
-                className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
-                  activeFilter === f.key
-                    ? "bg-primary text-white shadow-sm"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                }`}
+                className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-sm sm:text-base font-semibold transition-all cursor-pointer shrink-0 whitespace-nowrap ${activeFilter === f.key
+                  ? "bg-primary text-white shadow-sm"
+                  : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                  }`}
               >
                 {f.name}
               </button>
@@ -117,7 +116,7 @@ const Portfolio = () => {
               className="bg-white rounded-2xl border border-slate-200/80 shadow-2xs hover:shadow-xl hover:border-slate-300 transition-all duration-300 overflow-hidden group flex flex-col justify-between"
             >
               <div className="relative overflow-hidden bg-slate-100 h-56 flex items-center justify-center p-4">
-                <span className="absolute top-3 left-3 z-10 text-[11px] font-bold text-slate-700 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-md border border-slate-200 shadow-2xs">
+                <span className="absolute top-3 left-3 z-10 text-xs font-bold text-slate-700 bg-white/95 backdrop-blur-xs px-3 py-1 rounded-md border border-slate-200 shadow-2xs">
                   {item.categoryLabel}
                 </span>
 
@@ -130,10 +129,10 @@ const Portfolio = () => {
 
               <div className="p-6 space-y-3 flex flex-col flex-grow justify-between">
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors">
+                  <h3 className="text-xl font-bold text-slate-900 group-hover:text-primary transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed font-normal">
+                  <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed font-normal">
                     {item.description}
                   </p>
                 </div>

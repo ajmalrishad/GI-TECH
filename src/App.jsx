@@ -15,10 +15,12 @@ import Portfolio from "./components/portfolio/Portfolio";
 import StatsSection from "./components/stats/StatsSection";
 import Moto from "./components/Moto/Moto";
 import Loader from "./components/Loader/Loader";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import Contact from "./Pages/Contact/ContactUs";
 import AutomationServices from "./Pages/Automation/Automation";
 import Cart from "./Pages/Cart/Cart";
 import ProductSection from "./Pages/Products/Products";
+import ApplicationsSection from "./components/Applications/ApplicationsSection";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -36,6 +38,7 @@ const App = () => {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="bg-white text-slate-800 min-h-screen antialiased selection:bg-blue-600 selection:text-white">
         <Routes>
           <Route
@@ -43,9 +46,10 @@ const App = () => {
             element={
               <Layout>
                 <Hero />
-                <StatsSection />
                 <GlobalPartners />
+                <StatsSection />
                 <ProductSection />
+                <ApplicationsSection />
                 <Services />
                 <Banner />
                 <Moto />
@@ -61,6 +65,7 @@ const App = () => {
           <Route path="/projects" element={<Layout><ProjectSection /></Layout>} />
           <Route path="/automation" element={<Layout><AutomationServices /></Layout>} />
           <Route path="/products" element={<Layout><ProductSection /></Layout>} />
+          <Route path="/applications" element={<Layout><ApplicationsSection /></Layout>} />
           <Route path="/partner" element={<Layout><PartnerDetails /></Layout>} />
           <Route path="/cart" element={<Layout><Cart /></Layout>} />
         </Routes>

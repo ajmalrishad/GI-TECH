@@ -20,7 +20,7 @@ const Contact = () => {
         </div>
       </div>
 
-      <ContactUs />
+      <ContactUs isPage={true} />
     </div>
   );
 };

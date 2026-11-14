@@ -90,15 +90,15 @@ const AutomationServices = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <span className="inline-block text-xs uppercase tracking-widest font-bold text-blue-400 mb-2">
-            Turnkey Systems Architecture
+            Turnkey Systems Architecture • UAE & Dubai
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-            Industry Solutions
+            Automation Solutions in Dubai & UAE
           </h1>
           <div className="w-16 h-1 bg-blue-500 mx-auto my-4 rounded-full"></div>
           <p className="text-slate-300 max-w-2xl mx-auto text-sm sm:text-base font-light leading-relaxed">
-            Scalable automation architectures engineered for industrial plants,
-            smart building facilities, and municipal utility networks.
+            GI. Tech provides premier industrial and building automation solutions in Dubai,
+            integrating VFDs, frequency inverters, PLC systems, SCADA, and smart BMS architectures across the UAE.
           </p>
         </div>
       </div>
