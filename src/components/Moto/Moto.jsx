@@ -14,7 +14,7 @@ const Moto = () => {
             Our Mission & Vision
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto my-3 rounded-full"></div>
-          <p className="text-justify text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+          <p className="text-center text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
             Driving technological transformation, energy sustainability, and
             engineering excellence across the UAE and global industrial sectors.
           </p>

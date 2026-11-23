@@ -116,7 +116,7 @@ const StatsSection = () => {
                   </span>
                   <span className="text-primary font-bold text-lg sm:text-xl">+</span>
                 </div>
-                <p className="text-justify text-sm text-slate-600 font-medium">Happy Clients</p>
+                <p className="text-sm text-slate-600 font-medium">Happy Clients</p>
               </div>
 
               <div className="p-3 bg-white rounded-xl border border-slate-200/70 shadow-2xs text-center sm:text-left">
@@ -132,7 +132,7 @@ const StatsSection = () => {
                   </span>
                   <span className="text-primary font-bold text-lg sm:text-xl">+</span>
                 </div>
-                <p className="text-justify text-sm text-slate-600 font-medium">Projects Done</p>
+                <p className="text-sm text-slate-600 font-medium">Projects Done</p>
               </div>
 
               <div className="p-3 bg-white rounded-xl border border-slate-200/70 shadow-2xs text-center sm:text-left">
@@ -148,7 +148,7 @@ const StatsSection = () => {
                   </span>
                   <span className="text-primary font-bold text-lg sm:text-xl">+</span>
                 </div>
-                <p className="text-justify text-sm text-slate-600 font-medium">Support Hours</p>
+                <p className="text-sm text-slate-600 font-medium">Support Hours</p>
               </div>
 
               <div className="p-3 bg-white rounded-xl border border-slate-200/70 shadow-2xs text-center sm:text-left">
@@ -164,7 +164,7 @@ const StatsSection = () => {
                   </span>
                   <span className="text-primary font-bold text-lg sm:text-xl">+</span>
                 </div>
-                <p className="text-justify text-sm text-slate-600 font-medium">Years Active</p>
+                <p className="text-sm text-slate-600 font-medium">Years Active</p>
               </div>
             </div>
           </div>

@@ -33,7 +33,7 @@ const Hero = () => {
           </div>
 
           {/* Headline - Primary Target Keywords: VFD UAE, Variable Frequency Drives Dubai, Automation Solution Dubai */}
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight break-words">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
             VFD & Automation Solutions <br className="hidden sm:inline" />
             <span className="bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent">
               Empowering Industries Across Gulf Region
@@ -41,10 +41,8 @@ const Hero = () => {
           </h1>
 
           {/* Description - Secondary Target Keywords: Frequency Inverters Dubai, VFD Repairs Dubai */}
-          <p className="text-justify text-base sm:text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto font-normal leading-relaxed px-1 sm:px-0">
-            GI Tech is a trusted engineering partner for Variable Frequency
-            Drives (VFD),
-            high-performance frequency inverters, turnkey automation solutions, and rapid 24/7 VFD repairs across the GCC region.
+          <p className="text-center text-base sm:text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto font-normal leading-relaxed px-1 sm:px-0">
+            GI Tech is a trusted engineering partner for Variable Frequency Drives (VFD), high-performance frequency inverters, turnkey automation solutions, and rapid 24/7 VFD repairs across the GCC region.
           </p>
 
           {/* CTA Buttons - Full width expandable on mobile, comfortable on desktop */}

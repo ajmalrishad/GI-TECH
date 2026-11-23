@@ -365,7 +365,7 @@ const ApplicationsSection = () => {
             Applications &amp; Engineered Solutions
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto my-3 rounded-full"></div>
-          <p className="text-justify text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+          <p className="text-center text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
             VFD and automation solutions for HVAC systems, water treatment pumps,
             industrial fans, conveyors, cranes, and high-speed turbomachinery across Dubai and UAE.
             Engineered with Invertek Optidrive, KEB COMBIVERT &amp; Aucom soft starters for maximum uptime.

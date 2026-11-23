@@ -32,7 +32,7 @@ const AboutUs = () => {
             About GI Tech
           </h1>
           <div className="w-16 h-1 bg-blue-500 mx-auto my-4 rounded-full"></div>
-          <p className="text-justify text-slate-300 max-w-2xl mx-auto text-sm sm:text-base font-light leading-relaxed">
+          <p className="text-center text-slate-300 max-w-2xl mx-auto text-sm sm:text-base font-light leading-relaxed">
             Total solution provider specializing in automation technologies for
             industrial and commercial environments.
           </p>
@@ -102,8 +102,8 @@ const AboutUs = () => {
                     className="h-12 sm:h-14 w-auto mx-auto object-contain"
                   />
                   <div className="pt-2 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p className="text-justify font-bold text-slate-900">GI Tech</p>
-                    <p className="text-justify text-slate-500 text-[11px]">Sharjah Airport International Freezone, UAE</p>
+                    <p className="font-bold text-slate-900">GI Tech</p>
+                    <p className="text-slate-500 text-[11px]">Sharjah Airport International Freezone, UAE</p>
                     <p className="text-primary font-bold">15+ Years Active in Industry</p>
                   </div>
                 </div>

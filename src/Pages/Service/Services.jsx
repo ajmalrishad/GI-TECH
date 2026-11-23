@@ -61,7 +61,7 @@ const TechnicalServices = () => {
             Technical Services & VFD Repairs in Dubai
           </h1>
           <div className="w-16 h-1 bg-blue-500 mx-auto my-4 rounded-full"></div>
-          <p className="text-justify text-slate-300 max-w-2xl mx-auto text-sm sm:text-base font-light leading-relaxed">
+          <p className="text-center text-slate-300 max-w-2xl mx-auto text-sm sm:text-base font-light leading-relaxed">
             GI Tech provides certified engineering support, harmonic power analysis, control panel
             commissioning, and fast-response VFD repairs across Dubai, Sharjah, and all UAE emirates.
           </p>

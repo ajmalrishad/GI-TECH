@@ -96,7 +96,7 @@ const AutomationServices = () => {
             Automation Solutions in Dubai & UAE
           </h1>
           <div className="w-16 h-1 bg-blue-500 mx-auto my-4 rounded-full"></div>
-          <p className="text-justify text-slate-300 max-w-2xl mx-auto text-sm sm:text-base font-light leading-relaxed">
+          <p className="text-center text-slate-300 max-w-2xl mx-auto text-sm sm:text-base font-light leading-relaxed">
             GI Tech provides premier industrial and building automation solutions in Dubai,
             integrating VFDs, frequency inverters, PLC systems, SCADA, and smart BMS architectures across the UAE.
           </p>

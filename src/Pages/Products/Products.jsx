@@ -122,7 +122,7 @@ const ProductSection = () => {
             Our Products
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto my-3 rounded-full"></div>
-          <p className="text-justify text-base sm:text-lg text-slate-600 font-normal">
+          <p className="text-center text-base sm:text-lg text-slate-600 font-normal">
             Official UAE distributor of Invertek Optidrive, KEB COMBIVERT & Aucom —
             premium Variable Frequency Drives (VFD) in Dubai & UAE (0.37kW–355kW), high-efficiency
             frequency inverters & frequency converters, servo systems, intelligent soft starters,

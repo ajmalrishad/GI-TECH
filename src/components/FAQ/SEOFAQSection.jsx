@@ -67,7 +67,7 @@ const SEOFAQSection = () => {
             Frequently Asked Questions
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto my-3 rounded-full"></div>
-          <p className="text-justify text-base sm:text-lg text-slate-600 leading-relaxed">
+          <p className="text-center text-base sm:text-lg text-slate-600 leading-relaxed">
             Essential technical insights on sourcing, sizing, applications, and certified repairs for
             Variable Frequency Drives (VFD) and frequency inverters in Dubai and the UAE.
           </p>

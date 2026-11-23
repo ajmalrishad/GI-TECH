@@ -4,13 +4,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Strictly prevent word hyphenation or cutting words in half */
+/* Strictly prevent word hyphenation or cutting words in half anywhere */
 *,
+*::before,
+*::after,
+html,
+body,
 p,
 h1, h2, h3, h4, h5, h6,
 span, a, div {
   hyphens: none !important;
   -webkit-hyphens: none !important;
+  -moz-hyphens: none !important;
+  -ms-hyphens: none !important;
   word-break: normal;
   overflow-wrap: normal;
 }

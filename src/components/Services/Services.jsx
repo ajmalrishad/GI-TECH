@@ -102,7 +102,7 @@ const Services = () => {
             Industries We Serve
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto my-3 rounded-full"></div>
-          <p className="text-justify text-base sm:text-xl text-slate-600">
+          <p className="text-center text-base sm:text-xl text-slate-600">
             GI Tech delivers end-to-end automation and control architectures across
             demanding industrial, municipal, and commercial sectors.
           </p>
