@@ -9,7 +9,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "deploy:hostinger": "npm run build && gh-pages -d dist -b deploy",
-    "build": "vite build",
+    "build": "vite build && cp -r dist/* .",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
