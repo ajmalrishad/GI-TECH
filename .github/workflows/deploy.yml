@@ -3,7 +3,8 @@ name: Deploy to Hostinger
 on:
   push:
     branches:
-      - main # change to your deployment branch (e.g., main or dev)
+      - main
+      - dev
 
 jobs:
   build-and-deploy:
