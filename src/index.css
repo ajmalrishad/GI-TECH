@@ -1,8 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap');
+/* Font loaded via preconnected link in index.html for zero render blocking */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Strictly prevent word hyphenation or cutting words in half */
+*,
+p,
+h1, h2, h3, h4, h5, h6,
+span, a, div {
+  hyphens: none !important;
+  -webkit-hyphens: none !important;
+  word-break: normal;
+  overflow-wrap: normal;
+}
 
 :root {
   --primary-color: #0066cc;

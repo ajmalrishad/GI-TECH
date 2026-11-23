@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import projectImg1 from "../../assets/project1.png";
-import projectImg2 from "../../assets/project2.png";
-import projectImg3 from "../../assets/project3.png";
+import projectImg1 from "../../assets/projects/project1.png";
+import projectImg2 from "../../assets/projects/project2.png";
+import projectImg3 from "../../assets/projects/project3.png";
 
 const portfolioItems = [
   {
@@ -71,7 +71,7 @@ const Portfolio = () => {
       : portfolioItems.filter((item) => item.category === activeFilter);
 
   return (
-    <section id="projects-section" className="py-20 bg-white border-t border-slate-100 w-full overflow-hidden">
+    <section id="projects-section" className="py-20 bg-slate-50 border-t border-slate-200/80 w-full overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
@@ -82,9 +82,9 @@ const Portfolio = () => {
             Our Work & Installations
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto my-3 rounded-full"></div>
-          <p className="text-base sm:text-lg text-slate-600">
+          <p className="text-justify text-base sm:text-lg text-slate-600">
             A glimpse into custom panels, drive retrofits, and smart building
-            systems engineered and commissioned by GiTech.
+            systems engineered and commissioned by GI Tech.
           </p>
 
           {/* Filter Buttons */}
@@ -120,7 +120,7 @@ const Portfolio = () => {
                   {item.categoryLabel}
                 </span>
 
-                <img
+                <img loading="lazy" decoding="async"
                   src={item.imgSrc}
                   alt={item.title}
                   className="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-500"
@@ -132,7 +132,7 @@ const Portfolio = () => {
                   <h3 className="text-xl font-bold text-slate-900 group-hover:text-primary transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed font-normal">
+                  <p className="text-justify text-sm sm:text-base text-slate-600 mt-2 leading-relaxed font-normal">
                     {item.description}
                   </p>
                 </div>

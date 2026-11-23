@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaCheckCircle, FaAward, FaCogs, FaUsers, FaHistory, FaMapMarkerAlt } from "react-icons/fa";
-import logo from "../../assets/GiTechlogo1.png";
-import aboutImg from "../../assets/about-robotics.jpg";
-import projectImg1 from "../../assets/project1.png";
-import projectImg2 from "../../assets/project2.png";
-import projectImg3 from "../../assets/project3.png";
-import officeImg from "../../assets/about-gitech-facility.jpg";
+import logo from "../../assets/logos/gitech-logo.png";
+import aboutImg from "../../assets/about/about-robotics.jpg";
+import projectImg1 from "../../assets/projects/project1.png";
+import projectImg2 from "../../assets/projects/project2.png";
+import projectImg3 from "../../assets/projects/project3.png";
+import officeImg from "../../assets/about/about-gitech-facility.jpg";
 
 const galleryImages = [
   { src: projectImg1, alt: "Industrial Control Panels", tag: "Control Panels" },
@@ -29,10 +29,10 @@ const AboutUs = () => {
             Company Background
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-            About GiTech
+            About GI Tech
           </h1>
           <div className="w-16 h-1 bg-blue-500 mx-auto my-4 rounded-full"></div>
-          <p className="text-slate-300 max-w-2xl mx-auto text-sm sm:text-base font-light leading-relaxed">
+          <p className="text-justify text-slate-300 max-w-2xl mx-auto text-sm sm:text-base font-light leading-relaxed">
             Total solution provider specializing in automation technologies for
             industrial and commercial environments.
           </p>
@@ -50,19 +50,17 @@ const AboutUs = () => {
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
                 Precision-Engineered Automation Backed by Global Brands
               </h2>
-              <p className="text-base text-slate-700 leading-relaxed font-normal">
-                GiTech is a total solution provider specializing in automation
-                technologies for industrial and commercial environments. With deep
-                expertise across multiple verticals, we offer tailored systems that
-                drive efficiency, safety, and sustainability. Started in 2011, we
-                deliver precision-engineered solutions backed by global brands and
-                expert support.
+              <p className="text-justify text-base text-slate-700 leading-relaxed font-normal">
+                GI Tech is a total solution provider and premier authorized supplier of Variable Frequency Drives (VFD) in Dubai & UAE,
+                high-performance frequency inverters and frequency converters, and turnkey automation solutions.
+                With deep expertise across HVAC, pumps, fans, and manufacturing sectors, we deliver precision systems that
+                cut energy consumption by up to 50% while maximizing operational reliability. Started in 2011 in the UAE,
+                we provide certified engineering backed by world-class brands with local stock and fast GCC dispatch.
               </p>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                From low-voltage variable frequency drives and intelligent motor
-                starters to German-engineered motion control and dynamic safety
-                brakes, our multidisciplinary team of engineers solves complex
-                industrial challenges with turnkey accountability.
+              <p className="text-justify text-sm text-slate-600 leading-relaxed font-normal">
+                From low-voltage variable frequency drives (0.37kW to 355kW), dedicated CE-certified single-phase input &amp; output VFDs,
+                and intelligent soft starters to KEB COMBIVERT F5 to F6 conversion engineering and certified 24/7 VFD repairs in Dubai &amp; Sharjah,
+                our multidisciplinary team of engineers delivers turnkey accountability for plants across Dubai and the UAE.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3">
@@ -88,9 +86,9 @@ const AboutUs = () => {
             <div className="lg:col-span-4 flex justify-center">
               <div className="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden shadow-sm max-w-sm w-full">
                 <div className="relative aspect-[4/3] bg-slate-900 overflow-hidden">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={aboutImg}
-                    alt="GI. Tech Industrial Automation Engineering"
+                    alt="GI Tech Industrial Automation Engineering"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute top-2 left-2 bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-lg text-[11px] font-bold text-slate-800">
@@ -98,14 +96,14 @@ const AboutUs = () => {
                   </div>
                 </div>
                 <div className="p-5 text-center space-y-2">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={logo}
                     alt="GI Tech Logo"
                     className="h-12 sm:h-14 w-auto mx-auto object-contain"
                   />
                   <div className="pt-2 border-t border-slate-200 text-xs text-slate-600 space-y-1">
-                    <p className="font-bold text-slate-900">GI. Tech FZE</p>
-                    <p className="text-slate-500 text-[11px]">Sharjah Airport International Freezone, UAE</p>
+                    <p className="text-justify font-bold text-slate-900">GI Tech</p>
+                    <p className="text-justify text-slate-500 text-[11px]">Sharjah Airport International Freezone, UAE</p>
                     <p className="text-primary font-bold">15+ Years Active in Industry</p>
                   </div>
                 </div>
@@ -143,7 +141,7 @@ const AboutUs = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-2xs space-y-3">
                 <h3 className="text-lg font-bold text-slate-900">Precision First</h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <p className="text-justify text-xs sm:text-sm text-slate-600 leading-relaxed">
                   Every control panel and drive sizing adheres to stringent
                   international standards, ensuring reliable operation under high
                   thermal and vibrational industrial loads.
@@ -152,7 +150,7 @@ const AboutUs = () => {
 
               <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-2xs space-y-3">
                 <h3 className="text-lg font-bold text-slate-900">Energy Stewardship</h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <p className="text-justify text-xs sm:text-sm text-slate-600 leading-relaxed">
                   We specialize in VFD and harmonic mitigation strategies that
                   curb electrical demand charges and substantially lower plant kWh
                   expenditures.
@@ -161,7 +159,7 @@ const AboutUs = () => {
 
               <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-2xs space-y-3">
                 <h3 className="text-lg font-bold text-slate-900">Reliable Partnership</h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <p className="text-justify text-xs sm:text-sm text-slate-600 leading-relaxed">
                   Long-term client relationships anchored in transparent
                   technical consultation, genuine OEM parts, and dependable
                   lifecycle assistance.
@@ -174,7 +172,7 @@ const AboutUs = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-2">
                 <h4 className="text-base font-bold text-slate-900">Drive & Motor Control</h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <p className="text-justify text-xs sm:text-sm text-slate-600 leading-relaxed">
                   Sizing, parameterization, and integration of Variable Frequency
                   Drives (Invertek) and soft starters (Aucom) across municipal
                   pumps, cooling towers, and heavy extruders.
@@ -182,14 +180,14 @@ const AboutUs = () => {
               </div>
               <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-2">
                 <h4 className="text-base font-bold text-slate-900">Precision Gearboxes & Drives</h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <p className="text-justify text-xs sm:text-sm text-slate-600 leading-relaxed">
                   German-engineered planetary and spiral bevel gearboxes (VOGEL Antriebstechnik)
                   providing low backlash, maximum torque density, and up to 98% efficiency.
                 </p>
               </div>
               <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-2">
                 <h4 className="text-base font-bold text-slate-900">Safety Braking & Motion</h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <p className="text-justify text-xs sm:text-sm text-slate-600 leading-relaxed">
                   Electromagnetic holding and emergency brakes (Kendrion Intorq)
                   integrated for hoists, passenger elevators, and crane traverse
                   safety systems.
@@ -197,14 +195,14 @@ const AboutUs = () => {
               </div>
               <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-2">
                 <h4 className="text-base font-bold text-slate-900">Solar Pumping Solutions</h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  High-efficiency solar water pumping systems and inverters (Solartech)
+                <p className="text-justify text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  High-efficiency solar water pumping systems and inverters
                   engineered for sustainable agriculture, irrigation, and off-grid water conservancy.
                 </p>
               </div>
               <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-2">
                 <h4 className="text-base font-bold text-slate-900">Turnkey Panel Assembly</h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <p className="text-justify text-xs sm:text-sm text-slate-600 leading-relaxed">
                   In-house design, CAD schematics, panel fabrication, wiring,
                   testing, and site commissioning for PLC/SCADA and MCC panels.
                 </p>
@@ -217,7 +215,7 @@ const AboutUs = () => {
               {galleryImages.map((img, i) => (
                 <div key={i} className="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-2xs group">
                   <div className="h-48 overflow-hidden bg-slate-100 p-2">
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={img.src}
                       alt={img.alt}
                       className="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"

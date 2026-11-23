@@ -10,6 +10,7 @@ import {
   FaCheckCircle,
   FaShoppingCart,
   FaFileAlt,
+  FaSolarPanel,
 } from "react-icons/fa";
 import { brandDetailsData } from "../../data/brandDetails";
 
@@ -57,7 +58,7 @@ const PartnerDetails = () => {
         </div>
       </div>
 
-      {/* Brand Partners Grid: 1. Invertek, 2. KEB, 3. Aucom, 4. Kendrion, 5. Vogel, 6. Solartech */}
+      {/* Brand Partners Grid: 1. Invertek, 2. KEB, 3. Aucom, 4. Kendrion, 5. Vogel, 6. Solar Pumping Solutions */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {brandDetailsData.map((brand) => (
@@ -70,11 +71,18 @@ const PartnerDetails = () => {
               <div className="space-y-4">
                 <div className="h-16 flex items-center justify-between pb-3 border-b border-slate-100">
                   <div className="h-12 flex items-center">
-                    <img
-                      src={brand.logo}
-                      alt={brand.name}
-                      className="max-h-11 w-auto object-contain"
-                    />
+                    {brand.logo ? (
+                      <img
+                        src={brand.logo}
+                        alt={brand.name}
+                        className="max-h-11 w-auto object-contain"
+                      />
+                    ) : (
+                      <div className="flex items-center gap-2 text-primary font-bold">
+                        <FaSolarPanel className="text-2xl text-amber-500" />
+                        <span className="text-slate-800 text-xs uppercase font-extrabold tracking-wider">Solar Systems</span>
+                      </div>
+                    )}
                   </div>
                   <span className="text-[11px] font-semibold text-primary bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">
                     Official Partner
@@ -151,13 +159,19 @@ const PartnerDetails = () => {
 
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-100">
                 <div className="flex items-center gap-4">
-                  <div className="w-20 h-20 rounded-2xl bg-slate-50 border border-slate-200 p-2.5 flex items-center justify-center shrink-0">
-                    <img
-                      src={activePartnerModal.logo}
-                      alt={activePartnerModal.name}
-                      className="max-h-12 w-auto object-contain"
-                    />
-                  </div>
+                  {activePartnerModal.logo ? (
+                    <div className="w-20 h-20 rounded-2xl bg-slate-50 border border-slate-200 p-2.5 flex items-center justify-center shrink-0">
+                      <img
+                        src={activePartnerModal.logo}
+                        alt={activePartnerModal.name}
+                        className="max-h-12 w-auto object-contain"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-amber-50 to-blue-50 border border-blue-200 p-2.5 flex items-center justify-center shrink-0">
+                      <FaSolarPanel size={32} className="text-amber-500" />
+                    </div>
+                  )}
                   <div>
                     <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
                       {activePartnerModal.name}
@@ -168,15 +182,17 @@ const PartnerDetails = () => {
                   </div>
                 </div>
 
-                <a
-                  href={activePartnerModal.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-primary hover:text-white text-slate-700 text-xs sm:text-sm font-bold transition-all shrink-0"
-                >
-                  <span>Visit Brand Website</span>
-                  <FaExternalLinkAlt size={12} />
-                </a>
+                {activePartnerModal.website && (
+                  <a
+                    href={activePartnerModal.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-primary hover:text-white text-slate-700 text-xs sm:text-sm font-bold transition-all shrink-0"
+                  >
+                    <span>Visit Brand Website</span>
+                    <FaExternalLinkAlt size={12} />
+                  </a>
+                )}
               </div>
 
               {/* Description */}

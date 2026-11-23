@@ -11,6 +11,7 @@ import {
   FaIndustry,
   FaArrowRight,
   FaGlobe,
+  FaSolarPanel,
 } from "react-icons/fa";
 import { brandDetailsData } from "../../data/brandDetails";
 
@@ -90,7 +91,7 @@ const GlobalPartners = () => {
           </p>
         </div>
 
-        {/* Brand Cards Grid - Exact Order: Invertek, KEB, Aucom, Kendrion, Vogel, Solartech */}
+        {/* Brand Cards Grid - Exact Order: Invertek, KEB, Aucom, Kendrion, Vogel, Solar Pumping Solutions */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {brandDetailsData.map((brand) => (
             <motion.div
@@ -110,13 +111,24 @@ const GlobalPartners = () => {
                   </span>
                 </div>
 
-                <div className="h-20 flex items-center justify-center mb-4 bg-white p-3 rounded-xl border border-slate-200/60 shadow-2xs group-hover:border-primary/30 transition-colors">
-                  <img
-                    src={brand.logo}
-                    alt={brand.name}
-                    className="max-h-12 w-auto object-contain transition-transform group-hover:scale-105"
-                  />
-                </div>
+                {brand.logo ? (
+                  <div className="h-20 flex items-center justify-center mb-4 bg-white p-3 rounded-xl border border-slate-200/60 shadow-2xs group-hover:border-primary/30 transition-colors">
+                    <img loading="lazy" decoding="async"
+                      src={brand.logo}
+                      alt={brand.name}
+                      className="max-h-12 w-auto object-contain transition-transform group-hover:scale-105"
+                    />
+                  </div>
+                ) : (
+                  <div className="h-20 flex items-center justify-center mb-4 bg-gradient-to-r from-blue-50 to-sky-50 p-3 rounded-xl border border-blue-200/60 shadow-2xs group-hover:border-primary/30 transition-colors">
+                    <div className="flex items-center gap-2.5 text-primary">
+                      <FaSolarPanel className="text-2xl text-amber-500" />
+                      <span className="text-xs uppercase tracking-wider font-extrabold text-slate-800">
+                        Solar Pumping Systems
+                      </span>
+                    </div>
+                  </div>
+                )}
 
                 <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-primary transition-colors">
                   {brand.name}
@@ -149,7 +161,7 @@ const GlobalPartners = () => {
                   onClick={() => setActiveBrandModal(brand)}
                   className="bg-white p-3 rounded-xl border border-slate-200/80 flex items-center justify-center h-20 shadow-2xs hover:border-primary/40 cursor-pointer transition-all"
                 >
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={brand.logo}
                     alt={brand.name}
                     className="max-h-12 w-auto object-contain"
@@ -176,13 +188,19 @@ const GlobalPartners = () => {
               {/* Modal Top Header */}
               <div className="p-5 sm:p-7 border-b border-slate-100 flex items-start justify-between bg-slate-50/80 rounded-t-3xl sticky top-0 z-20 backdrop-blur-sm">
                 <div className="flex items-center gap-4">
-                  <div className="h-14 w-28 sm:w-36 bg-white p-2.5 rounded-xl border border-slate-200/80 flex items-center justify-center shadow-2xs shrink-0">
-                    <img
-                      src={activeBrandModal.logo}
-                      alt={activeBrandModal.name}
-                      className="max-h-10 w-auto object-contain"
-                    />
-                  </div>
+                  {activeBrandModal.logo ? (
+                    <div className="h-14 w-28 sm:w-36 bg-white p-2.5 rounded-xl border border-slate-200/80 flex items-center justify-center shadow-2xs shrink-0">
+                      <img loading="lazy" decoding="async"
+                        src={activeBrandModal.logo}
+                        alt={activeBrandModal.name}
+                        className="max-h-10 w-auto object-contain"
+                      />
+                    </div>
+                  ) : (
+                    <div className="h-14 w-14 bg-gradient-to-br from-amber-50 to-blue-50 rounded-xl border border-blue-200 flex items-center justify-center shadow-2xs shrink-0">
+                      <FaSolarPanel className="text-2xl text-amber-500" />
+                    </div>
+                  )}
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="text-xs font-bold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full">
@@ -313,16 +331,23 @@ const GlobalPartners = () => {
 
               {/* Modal Bottom Actions */}
               <div className="p-5 sm:p-7 border-t border-slate-100 bg-slate-50/90 rounded-b-3xl flex flex-col sm:flex-row items-center justify-between gap-3 sticky bottom-0 z-20">
-                <a
-                  href={activeBrandModal.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white hover:bg-slate-100 text-slate-800 font-bold text-sm border border-slate-200 shadow-2xs transition-colors"
-                >
-                  <FaGlobe size={15} className="text-primary" />
-                  <span>Visit {activeBrandModal.name} Official Website</span>
-                  <FaExternalLinkAlt size={11} className="text-slate-400" />
-                </a>
+                {activeBrandModal.website ? (
+                  <a
+                    href={activeBrandModal.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white hover:bg-slate-100 text-slate-800 font-bold text-sm border border-slate-200 shadow-2xs transition-colors"
+                  >
+                    <FaGlobe size={15} className="text-primary" />
+                    <span>Visit {activeBrandModal.name} Official Website</span>
+                    <FaExternalLinkAlt size={11} className="text-slate-400" />
+                  </a>
+                ) : (
+                  <div className="flex items-center gap-2 text-slate-500 text-xs font-semibold py-2">
+                    <FaSolarPanel className="text-amber-500" size={14} />
+                    <span>GI Tech Engineering & Distributed Systems</span>
+                  </div>
+                )}
 
                 <div className="w-full sm:w-auto flex items-center gap-3">
                   <button

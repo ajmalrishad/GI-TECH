@@ -6,16 +6,16 @@ import {
   FaFax,
   FaMobileAlt,
 } from "react-icons/fa";
-import LogoWhite from "../../assets/GiTechlogo-white.png";
+import LogoWhite from "../../assets/logos/gitech-logo-white.png";
 
 const quickLinks = [
   { name: "Home", path: "/" },
   { name: "Products & Drives", path: "/#products" },
-  { name: "KEB & Lenze Applications", path: "/#applications" },
+  { name: "Applications & Solutions", path: "/#applications" },
   { name: "Industry Solutions", path: "/#industries" },
   { name: "Engineering Services", path: "/service" },
   { name: "Project Portfolio", path: "/projects" },
-  { name: "About GI. Tech", path: "/about" },
+  { name: "About GI Tech", path: "/about" },
   { name: "Contact Us", path: "/contact" },
 ];
 
@@ -25,7 +25,7 @@ const brandLinks = [
   { name: "Aucom Soft Starters", path: "/#products" },
   { name: "Kendrion Intorq Brakes", path: "/#products" },
   { name: "VOGEL Precision Gearboxes", path: "/#products" },
-  { name: "Solartech Pumping Systems", path: "/#products" },
+  { name: "Solar Pumping Solutions", path: "/#products" },
 ];
 
 const industries = [
@@ -47,8 +47,8 @@ const Footer = () => {
             <Link to="/" className="inline-block group">
               <img src={LogoWhite} alt="GI Tech" className="h-11 sm:h-13 w-auto object-contain transition-transform group-hover:scale-105" />
             </Link>
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              <strong>GI. Tech FZE</strong> is your authorized engineering partner for
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal">
+              GI Tech is your authorized engineering partner for
               industrial automation, variable frequency drives, soft starters, precision
               gearboxes, and solar pumping solutions across the UAE and Middle East.
             </p>
@@ -58,7 +58,7 @@ const Footer = () => {
               <div className="flex items-start gap-2.5">
                 <FaMapMarkerAlt className="text-primary mt-1 shrink-0" size={15} />
                 <span className="leading-snug">
-                  <strong>GI. Tech FZE</strong>, Q4-158, Sharjah International Airport Freezone,
+                  GI Tech, Q4-158, Sharjah International Airport Freezone,
                   Sharjah, United Arab Emirates
                 </span>
               </div>
@@ -153,29 +153,35 @@ const Footer = () => {
             Core UAE Automation & Drive Solutions:
           </p>
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-slate-400">
-            <Link to="/#products" className="hover:text-primary transition-colors">VFD UAE</Link>
+            <Link to="/#products" className="hover:text-primary transition-colors">VFD Dubai</Link>
             <span>•</span>
             <Link to="/#products" className="hover:text-primary transition-colors">Variable Frequency Drives Dubai</Link>
             <span>•</span>
+            <Link to="/#products" className="hover:text-primary transition-colors">VFD UAE</Link>
+            <span>•</span>
             <Link to="/#products" className="hover:text-primary transition-colors">Frequency Inverters Dubai</Link>
             <span>•</span>
-            <Link to="/automation" className="hover:text-primary transition-colors">Automation Solution Dubai</Link>
+            <Link to="/#products" className="hover:text-primary transition-colors">Frequency Converters Dubai</Link>
+            <span>•</span>
+            <Link to="/#products" className="hover:text-primary transition-colors">VFD Supplier UAE</Link>
             <span>•</span>
             <Link to="/service" className="hover:text-primary transition-colors">VFD Repairs Dubai</Link>
             <span>•</span>
-            <Link to="/#products" className="hover:text-primary transition-colors">Invertek Drives UAE</Link>
+            <Link to="/automation" className="hover:text-primary transition-colors">Automation Solution Dubai</Link>
             <span>•</span>
-            <Link to="/#products" className="hover:text-primary transition-colors">KEB Motion Controllers</Link>
+            <Link to="/#products" className="hover:text-primary transition-colors">Invertek Optidrive UAE</Link>
             <span>•</span>
-            <Link to="/service" className="hover:text-primary transition-colors">Control Panel Commissioning</Link>
+            <Link to="/#products" className="hover:text-primary transition-colors">KEB COMBIVERT Drives</Link>
             <span>•</span>
-            <Link to="/#applications" className="hover:text-primary transition-colors">FAN & Ventilation Drives</Link>
+            <Link to="/#applications" className="hover:text-primary transition-colors">HVAC, Pump & Fan VFDs</Link>
+            <span>•</span>
+            <Link to="/#faq" className="hover:text-primary transition-colors">VFD FAQ Dubai</Link>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="mt-8 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} GI. Tech FZE. All Rights Reserved. Sharjah, UAE.</p>
+          <p>© {new Date().getFullYear()} GI Tech. All Rights Reserved. Sharjah, UAE.</p>
           <div className="flex items-center gap-4">
             <span className="hover:text-slate-400 transition-colors cursor-pointer">
               Privacy Policy

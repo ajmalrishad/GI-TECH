@@ -14,7 +14,7 @@ const Moto = () => {
             Our Mission & Vision
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto my-3 rounded-full"></div>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+          <p className="text-justify text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
             Driving technological transformation, energy sustainability, and
             engineering excellence across the UAE and global industrial sectors.
           </p>
@@ -42,7 +42,7 @@ const Moto = () => {
               <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
                 Our Mission
               </h3>
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal pt-1">
+              <p className="text-justify text-base sm:text-lg text-slate-600 leading-relaxed font-normal pt-1">
                 To empower industries through cutting-edge solutions in Power
                 Transmission, Automation, and Robotics, driving efficiency,
                 sustainability, and innovation. We are committed to delivering
@@ -73,7 +73,7 @@ const Moto = () => {
               <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
                 Our Vision
               </h3>
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal pt-1">
+              <p className="text-justify text-base sm:text-lg text-slate-600 leading-relaxed font-normal pt-1">
                 To be the leading provider of innovative automation and robotics
                 solutions that drive industry transformation, sustainability, and
                 excellence. We envision a future where intelligent technologies

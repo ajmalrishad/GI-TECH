@@ -3,10 +3,10 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { FaCheckCircle } from "react-icons/fa";
 
-import project1Img1 from "../../assets/project1.png";
-import project1Img2 from "../../assets/project2.png";
-import project2Img1 from "../../assets/project3.png";
-import project2Img2 from "../../assets/project1.png";
+import project1Img1 from "../../assets/projects/project1.png";
+import project1Img2 from "../../assets/projects/project2.png";
+import project2Img1 from "../../assets/projects/project3.png";
+import project2Img2 from "../../assets/projects/project1.png";
 
 const projectsList = [
   {
@@ -71,7 +71,7 @@ const Projects = () => {
                 >
                   {project.images.map((img, i) => (
                     <div key={i} className="h-56">
-                      <img
+                      <img loading="lazy" decoding="async"
                         src={img}
                         alt={`${project.title} - ${i}`}
                         className="w-full h-full object-cover"

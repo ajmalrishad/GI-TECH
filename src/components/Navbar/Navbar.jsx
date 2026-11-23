@@ -16,7 +16,7 @@ import {
   FaPaperPlane,
   FaWhatsapp,
 } from "react-icons/fa";
-import Logo from "../../assets/GiTechlogo1.png";
+import Logo from "../../assets/logos/gitech-logo.png";
 
 const menuItems = [
   { name: "Home", path: "/", icon: FaHome },
@@ -27,7 +27,7 @@ const menuItems = [
     path: "/automation",
     icon: FaIndustry,
     subItems: [
-      { name: "KEB & Lenze Applications", path: "section:applications" },
+      { name: "Applications & Solutions", path: "section:applications" },
       { name: "All Industry Solutions", path: "/automation" },
       { name: "Industrial Automation", path: "/automation" },
       { name: "Building Automation (BMS)", path: "/automation" },

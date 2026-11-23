@@ -10,6 +10,7 @@ import {
   FaCogs,
   FaIndustry,
   FaCheckCircle,
+  FaSolarPanel,
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { brandDetailsData } from "../../data/brandDetails";
@@ -121,10 +122,11 @@ const ProductSection = () => {
             Our Products
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto my-3 rounded-full"></div>
-          <p className="text-base sm:text-lg text-slate-600">
-            Official distributor of premium <strong>Variable Frequency Drives (VFD) in Dubai & UAE</strong>,
-            high-efficiency <strong>frequency inverters</strong>, servo systems, intelligent soft starters,
-            electromagnetic safety brakes, and precision planetary gearboxes. Click any brand card for detailed product lines and engineering specs.
+          <p className="text-justify text-base sm:text-lg text-slate-600 font-normal">
+            Official UAE distributor of Invertek Optidrive, KEB COMBIVERT & Aucom —
+            premium Variable Frequency Drives (VFD) in Dubai & UAE (0.37kW–355kW), high-efficiency
+            frequency inverters & frequency converters, servo systems, intelligent soft starters,
+            and precision gearboxes. UAE stock available — fast dispatch across GCC. Click any brand for full product lines & specs.
           </p>
 
           {/* Filter Pills */}
@@ -151,7 +153,7 @@ const ProductSection = () => {
           </div>
         </div>
 
-        {/* Products Grid: 1. Invertek, 2. KEB, 3. Aucom, 4. Kendrion, 5. Vogel, 6. Solartech */}
+        {/* Products Grid: 1. Invertek, 2. KEB, 3. Aucom, 4. Kendrion, 5. Vogel, 6. Solar Pumping Solutions */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredBrands.map((brand) => (
             <motion.div
@@ -165,15 +167,22 @@ const ProductSection = () => {
               {/* Product Image Area */}
               <div className="relative bg-gradient-to-b from-slate-50 to-slate-100/70 p-6 h-64 flex items-center justify-center overflow-hidden border-b border-slate-100">
                 {/* Brand Logo Badge */}
-                <div className="absolute top-4 left-4 z-10 bg-white/95 backdrop-blur-xs p-1.5 px-3 rounded-lg border border-slate-200/80 shadow-2xs max-w-[140px] h-8 flex items-center justify-center">
-                  <img
-                    src={brand.logo}
-                    alt={brand.name}
-                    className="max-h-6 w-auto object-contain"
-                  />
-                </div>
+                {brand.logo ? (
+                  <div className="absolute top-4 left-4 z-10 bg-white/95 backdrop-blur-xs p-1.5 px-3 rounded-lg border border-slate-200/80 shadow-2xs max-w-[140px] h-8 flex items-center justify-center">
+                    <img loading="lazy" decoding="async"
+                      src={brand.logo}
+                      alt={brand.name}
+                      className="max-h-6 w-auto object-contain"
+                    />
+                  </div>
+                ) : (
+                  <div className="absolute top-4 left-4 z-10 bg-white/95 backdrop-blur-xs p-1 px-3 rounded-lg border border-blue-200/80 shadow-2xs h-8 flex items-center gap-1.5 text-xs font-bold text-primary">
+                    <FaSolarPanel size={13} className="text-amber-500" />
+                    <span>Solar Pumping</span>
+                  </div>
+                )}
 
-                <img
+                <img loading="lazy" decoding="async"
                   src={brand.image}
                   alt={brand.name}
                   className="max-h-48 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
@@ -197,14 +206,14 @@ const ProductSection = () => {
                   <h3 className="text-xl sm:text-2xl font-bold text-slate-900 group-hover:text-primary transition-colors">
                     {brand.name}
                   </h3>
-                  <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed font-normal line-clamp-3">
+                  <p className="text-justify text-sm sm:text-base text-slate-600 mt-2 leading-relaxed font-normal line-clamp-3">
                     {brand.description}
                   </p>
                 </div>
 
                 {/* Highlights List */}
                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                  <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-500 mb-2">
+                  <p className="text-justify text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-500 mb-2">
                     Key Features & Solutions:
                   </p>
                   <ul className="space-y-1.5">
@@ -259,13 +268,19 @@ const ProductSection = () => {
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-100">
                   <div className="flex items-center gap-4">
-                    <div className="w-20 h-20 rounded-2xl bg-slate-50 border border-slate-200 p-2.5 flex items-center justify-center shrink-0">
-                      <img
-                        src={activeModalBrand.logo}
-                        alt={activeModalBrand.name}
-                        className="max-h-12 w-auto object-contain"
-                      />
-                    </div>
+                    {activeModalBrand.logo ? (
+                      <div className="w-20 h-20 rounded-2xl bg-slate-50 border border-slate-200 p-2.5 flex items-center justify-center shrink-0">
+                        <img loading="lazy" decoding="async"
+                          src={activeModalBrand.logo}
+                          alt={activeModalBrand.name}
+                          className="max-h-12 w-auto object-contain"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-amber-50 to-blue-50 border border-blue-200 p-2.5 flex items-center justify-center shrink-0">
+                        <FaSolarPanel size={32} className="text-amber-500" />
+                      </div>
+                    )}
                     <div>
                       <div className="flex items-center gap-2">
                         <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
@@ -281,20 +296,22 @@ const ProductSection = () => {
                     </div>
                   </div>
 
-                  <a
-                    href={activeModalBrand.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-primary hover:text-white text-slate-700 text-xs sm:text-sm font-bold transition-all shrink-0"
-                  >
-                    <span>Visit Official Website</span>
-                    <FaExternalLinkAlt size={12} />
-                  </a>
+                  {activeModalBrand.website && (
+                    <a
+                      href={activeModalBrand.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-primary hover:text-white text-slate-700 text-xs sm:text-sm font-bold transition-all shrink-0"
+                    >
+                      <span>Visit Official Website</span>
+                      <FaExternalLinkAlt size={12} />
+                    </a>
+                  )}
                 </div>
 
                 {/* Description */}
                 <div className="py-5">
-                  <p className="text-base text-slate-700 leading-relaxed font-normal">
+                  <p className="text-justify text-base text-slate-700 leading-relaxed font-normal">
                     {activeModalBrand.description}
                   </p>
                 </div>
@@ -335,7 +352,7 @@ const ProductSection = () => {
                             {prod.headline}
                           </span>
                         </div>
-                        <p className="text-sm text-slate-600 font-normal leading-relaxed mb-3">
+                        <p className="text-justify text-sm text-slate-600 font-normal leading-relaxed mb-3">
                           {prod.details}
                         </p>
                         {prod.specs && (

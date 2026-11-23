@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import projectImg1 from "../../assets/project1.png";
-import projectImg2 from "../../assets/project2.png";
-import projectImg3 from "../../assets/project3.png";
+import projectImg1 from "../../assets/projects/project1.png";
+import projectImg2 from "../../assets/projects/project2.png";
+import projectImg3 from "../../assets/projects/project3.png";
 
 const galleryList = [
   { src: projectImg1, label: "Control Panel Assembly" },
@@ -34,7 +34,7 @@ const Gallery = () => {
             className="group relative rounded-2xl overflow-hidden bg-white border border-slate-200/80 shadow-2xs"
           >
             <div className="h-56 bg-slate-100 overflow-hidden">
-              <img
+              <img loading="lazy" decoding="async"
                 src={item.src}
                 alt={item.label}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -45,7 +45,7 @@ const Gallery = () => {
                 {item.label}
               </span>
               <span className="text-[11px] font-medium text-primary">
-                GiTech Engineering
+                GI Tech Engineering
               </span>
             </div>
           </motion.div>

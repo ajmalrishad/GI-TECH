@@ -247,7 +247,7 @@ export const applicationsData = [
       "Sleep and wake-up mode based on transducer pressure",
       "Seamless integration with solar pumping hybrid controllers",
     ],
-    recommendedHardware: "Invertek Optidrive Eco / Solartech PB-G4 / Aucom EMX4",
+    recommendedHardware: "Invertek Optidrive Eco / Solar Pumping Inverters / Aucom EMX4",
     typicalSectors: "Municipal water authorities, wastewater plants, chemical processing, district cooling",
   },
   {
@@ -348,7 +348,7 @@ const ApplicationsSection = () => {
 
   const handleWhatsAppInquiry = (app) => {
     const text = encodeURIComponent(
-      `*GI. Tech Automation - Application Inquiry*\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n🎯 *Application:* ${app.name}\n⚙️ *Recommended Hardware:* ${app.recommendedHardware}\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n*Inquiry:* Hello GI. Tech team, I would like to inquire about drive and automation solutions for ${app.name}. Please share technical specifications, availability, and pricing.`
+      `*GI Tech Automation - Application Inquiry*\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n🎯 *Application:* ${app.name}\n⚙️ *Recommended Hardware:* ${app.recommendedHardware}\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n*Inquiry:* Hello GI Tech team, I would like to inquire about drive and automation solutions for ${app.name}. Please share technical specifications, availability, and pricing.`
     );
     window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${text}`, "_blank");
   };
@@ -358,17 +358,17 @@ const ApplicationsSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-primary text-xs sm:text-sm font-bold tracking-wide uppercase mb-3">
-            <span>KEB & LENZE AUTOMATION SOLUTIONS</span>
-          </div>
+          <span className="inline-block text-xs uppercase tracking-widest font-bold text-primary mb-2">
+            Drive &amp; Motion Applications • HVAC, Pumps, Fans, Conveyors &amp; More
+          </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Applications & Engineered Solutions
+            Applications &amp; Engineered Solutions
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto my-3 rounded-full"></div>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-            From heavy material handling, robotics, and commercial e-mobility to industrial
-            ventilation fans and high-speed turbomachinery. Explore our engineered drive and motion
-            solutions across key industrial application domains.
+          <p className="text-justify text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+            VFD and automation solutions for HVAC systems, water treatment pumps,
+            industrial fans, conveyors, cranes, and high-speed turbomachinery across Dubai and UAE.
+            Engineered with Invertek Optidrive, KEB COMBIVERT &amp; Aucom soft starters for maximum uptime.
           </p>
 
           {/* Category Filter Pills */}
@@ -422,13 +422,13 @@ const ApplicationsSection = () => {
                     {app.tagline}
                   </p>
 
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mb-5 line-clamp-3">
+                  <p className="text-justify text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mb-5 line-clamp-3">
                     {app.summary}
                   </p>
 
                   {/* Highlights Bullet List */}
                   <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 mb-5">
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-2">
+                    <p className="text-justify text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-2">
                       Core Drive Engineering:
                     </p>
                     <ul className="space-y-1.5">
@@ -493,14 +493,14 @@ const ApplicationsSection = () => {
                     <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
                       {activeModalApp.name}
                     </h3>
-                    <p className="text-xs sm:text-sm font-medium text-slate-500 mt-0.5">
+                    <p className="text-justify text-xs sm:text-sm font-medium text-slate-500 mt-0.5">
                       {activeModalApp.tagline}
                     </p>
                   </div>
                 </div>
 
                 <div className="py-5 space-y-4">
-                  <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
+                  <p className="text-justify text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
                     {activeModalApp.summary}
                   </p>
 
@@ -523,7 +523,7 @@ const ApplicationsSection = () => {
                       <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wide block mb-1">
                         Recommended Hardware
                       </span>
-                      <p className="text-xs sm:text-sm font-bold text-slate-800">
+                      <p className="text-justify text-xs sm:text-sm font-bold text-slate-800">
                         {activeModalApp.recommendedHardware}
                       </p>
                     </div>
@@ -532,7 +532,7 @@ const ApplicationsSection = () => {
                       <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wide block mb-1">
                         Typical Sectors & Deployments
                       </span>
-                      <p className="text-xs sm:text-sm font-semibold text-slate-700">
+                      <p className="text-justify text-xs sm:text-sm font-semibold text-slate-700">
                         {activeModalApp.typicalSectors}
                       </p>
                     </div>

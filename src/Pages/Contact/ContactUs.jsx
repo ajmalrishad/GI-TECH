@@ -8,7 +8,7 @@ const Contact = () => {
         <div className="absolute top-0 right-0 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <span className="inline-block text-xs uppercase tracking-widest font-bold text-blue-400 mb-2">
-            Connect With GiTech
+            Connect With GI Tech
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
             Contact & Technical Inquiries

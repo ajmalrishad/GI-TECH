@@ -1,4 +1,4 @@
-# Robots.txt for GI. Tech FZE - VFD UAE & Automation Solutions Dubai
+# Robots.txt for GI Tech - VFD UAE & Automation Solutions Dubai
 # https://gitek.ae
 
 User-agent: *

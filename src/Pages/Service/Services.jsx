@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaCheckCircle, FaWrench, FaBolt, FaArrowRight, FaShieldAlt } from "react-icons/fa";
 
-import serviceImg1 from "../../assets/air.png";
-import serviceImg2 from "../../assets/mobility.png";
-import serviceImg3 from "../../assets/manufacturing.png";
-import serviceImg4 from "../../assets/building.png";
-import serviceImg5 from "../../assets/wastewatertreatment.png";
+import serviceImg1 from "../../assets/services/air.png";
+import serviceImg2 from "../../assets/services/mobility.png";
+import serviceImg3 from "../../assets/services/manufacturing.png";
+import serviceImg4 from "../../assets/services/building.png";
+import serviceImg5 from "../../assets/services/wastewatertreatment.png";
 
 const services = [
   {
@@ -61,8 +61,8 @@ const TechnicalServices = () => {
             Technical Services & VFD Repairs in Dubai
           </h1>
           <div className="w-16 h-1 bg-blue-500 mx-auto my-4 rounded-full"></div>
-          <p className="text-slate-300 max-w-2xl mx-auto text-sm sm:text-base font-light leading-relaxed">
-            GI. Tech provides certified engineering support, harmonic power analysis, control panel
+          <p className="text-justify text-slate-300 max-w-2xl mx-auto text-sm sm:text-base font-light leading-relaxed">
+            GI Tech provides certified engineering support, harmonic power analysis, control panel
             commissioning, and fast-response VFD repairs across Dubai, Sharjah, and all UAE emirates.
           </p>
         </div>
@@ -82,7 +82,7 @@ const TechnicalServices = () => {
                   <span className="absolute top-3 left-3 text-[11px] font-bold text-primary bg-white/95 px-2.5 py-1 rounded-md border border-slate-200">
                     {service.tag}
                   </span>
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={service.image}
                     alt={service.title}
                     className="max-h-36 w-auto object-contain"
@@ -93,7 +93,7 @@ const TechnicalServices = () => {
                   <h3 className="text-lg font-bold text-slate-900 leading-snug">
                     {service.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  <p className="text-justify text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                     {service.description}
                   </p>
                 </div>
@@ -121,7 +121,7 @@ const TechnicalServices = () => {
             <h3 className="text-xl sm:text-2xl font-bold text-white">
               Emergency Breakdown Support Available
             </h3>
-            <p className="text-xs sm:text-sm text-slate-400 max-w-xl">
+            <p className="text-justify text-xs sm:text-sm text-slate-400 max-w-xl">
               Our service engineers are equipped with calibrated test equipment
               and loaner drives to minimize unplanned production interruptions.
             </p>

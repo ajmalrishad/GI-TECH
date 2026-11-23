@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import WhatsAppSticky from "../WhatsAppChat/WhatsAppSticky";
 
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -14,6 +15,7 @@ const Layout = ({ children }) => {
         {children}
       </main>
       <Footer />
+      <WhatsAppSticky />
     </div>
   );
 };

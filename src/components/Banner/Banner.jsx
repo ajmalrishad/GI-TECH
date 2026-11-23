@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FaHeadset, FaShoppingBag, FaCogs, FaAward, FaCheck } from "react-icons/fa";
-import Img2 from "../../assets/features.png";
+import Img2 from "../../assets/features/features.png";
 
 const reasons = [
   {
@@ -31,7 +31,7 @@ const reasons = [
 
 const Banner = () => {
   return (
-    <section id="why-GiTech" className="py-20 bg-slate-900 text-white relative overflow-hidden">
+    <section id="why-gi-tech" className="py-20 bg-slate-900 text-white relative overflow-hidden">
       {/* Ambient background glow */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none"></div>
@@ -48,9 +48,9 @@ const Banner = () => {
           >
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-3xl blur-xl"></div>
-              <img
+              <img loading="lazy" decoding="async"
                 src={Img2}
-                alt="Why Choose GiTech Automation"
+                alt="Why Choose GI Tech Automation"
                 className="relative max-w-sm sm:max-w-md w-full h-auto drop-shadow-2xl mx-auto"
               />
             </div>
@@ -63,11 +63,11 @@ const Banner = () => {
                 Our Competitive Advantage
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white">
-                Why GiTech?
+                Why GI Tech?
               </h2>
               <div className="w-16 h-1 bg-blue-500 my-3 rounded-full"></div>
-              <p className="text-base sm:text-xl text-slate-300 leading-relaxed font-light mt-3">
-                GiTech is your trusted partner in industrial and commercial
+              <p className="text-justify text-base sm:text-xl text-slate-300 leading-relaxed font-light mt-3">
+                GI Tech is your trusted partner in industrial and commercial
                 automation. We combine engineering excellence with global brand
                 sourcing to deliver reliable, energy-saving, and future-proof systems.
               </p>
@@ -94,7 +94,7 @@ const Banner = () => {
                         {r.title}
                       </h4>
                     </div>
-                    <p className="text-sm text-slate-300 leading-relaxed">
+                    <p className="text-justify text-sm text-slate-300 leading-relaxed">
                       {r.description}
                     </p>
                   </motion.div>

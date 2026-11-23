@@ -9,7 +9,7 @@ const testimonialList = [
     name: "Rajesh Sharma",
     role: "Plant Operations Head, Process Manufacturing",
     feedback:
-      "GiTech engineered our multi-line VFD retrofit with Invertek drives. Commissioning was flawless, and we achieved a 22% drop in energy consumption across our pumping circuits.",
+      "GI Tech engineered our multi-line VFD retrofit with Invertek drives. Commissioning was flawless, and we achieved a 22% drop in energy consumption across our pumping circuits.",
     rating: 5,
   },
   {
@@ -25,7 +25,7 @@ const testimonialList = [
     name: "Ahmed Al-Mansoor",
     role: "Chief Engineer, Water & Wastewater Utility",
     feedback:
-      "We rely on GiTech for Aucom soft starters and SCADA telemetry across our remote pumping stations. Equipment stress has drastically decreased and pump life has doubled.",
+      "We rely on GI Tech for Aucom soft starters and SCADA telemetry across our remote pumping stations. Equipment stress has drastically decreased and pump life has doubled.",
     rating: 5,
   },
   {
@@ -33,7 +33,7 @@ const testimonialList = [
     name: "Kavita Patel",
     role: "Lead Automation Engineer, Packaging Systems",
     feedback:
-      "From KEB motion drives to VOGEL precision gearboxes, GiTech provides genuine parts with deep application engineering know-how. Highly recommended partner.",
+      "From KEB motion drives to VOGEL precision gearboxes, GI Tech provides genuine parts with deep application engineering know-how. Highly recommended partner.",
     rating: 5,
   },
 ];
@@ -63,7 +63,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-20 bg-slate-50 border-t border-slate-100 w-full overflow-hidden">
+    <section className="py-20 bg-white border-t border-slate-100 w-full overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
@@ -75,7 +75,7 @@ const Testimonials = () => {
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto my-3 rounded-full"></div>
           <p className="text-base sm:text-lg text-slate-600">
-            Hear from industry leaders and plant engineers who trust GiTech for
+            Hear from industry leaders and plant engineers who trust GI Tech for
             reliable automation, motor control, and technical support.
           </p>
         </div>
@@ -85,7 +85,7 @@ const Testimonials = () => {
           <Slider {...settings}>
             {testimonialList.map((item) => (
               <div key={item.id} className="p-3.5 h-full">
-                <div className="bg-white p-7 sm:p-8 rounded-3xl border border-slate-200/80 shadow-2xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between h-full min-h-[300px]">
+                <div className="bg-slate-50/80 hover:bg-white p-7 sm:p-8 rounded-3xl border border-slate-200/80 shadow-2xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between h-full min-h-[300px]">
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <FaQuoteLeft className="text-primary/30 text-2xl" />

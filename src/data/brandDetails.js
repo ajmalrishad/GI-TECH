@@ -26,11 +26,23 @@ export const brandDetailsData = [
       "World-class variable frequency drives engineered for precision motor speed control, maximum energy efficiency, and reliable operation across HVAC, pumping, and industrial machinery.",
     highlights: [
       "Compact footprint with rugged IP20 & IP66 outdoor enclosures",
+      "Dedicated CE / CEE certified single-phase input and single-phase output VFD solutions",
       "Sensorless vector control for Induction, PM, Brushless DC, and SynRM motors",
       "Built-in EMC filters, Modbus RTU, BACnet, and energy-saving algorithms",
       "Rapid parameter setup with Bluetooth / PC tools and intuitive diagnostics",
     ],
     products: [
+      {
+        series: "Optidrive E3 Single Phase",
+        headline: "Dedicated 1-Phase Input & 1-Phase Output VFD (0.37kW - 1.1kW)",
+        details:
+          "Dedicated CE / CEE certified variable frequency drive engineered specifically for direct speed control of single-phase motors (Permanent Split Capacitor & Shaded Pole) without motor replacement.",
+        specs: [
+          "Power: 110V - 240V 1-phase input & 1-phase output (0.5HP - 1.5HP)",
+          "Certification: Fully CE / CEE certified industrial motor controller",
+          "Applications: Single-phase domestic & industrial pumps, fans, and blowers",
+        ],
+      },
       {
         series: "Optidrive E3",
         headline: "General Purpose Micro Drive (0.37kW - 37kW)",
@@ -81,11 +93,23 @@ export const brandDetailsData = [
       "Precision motion control systems, servo drives, geared motors, and industrial control architectures engineered in Germany for complex multi-axis industrial automation.",
     highlights: [
       "High-dynamic drive controllers with integrated functional safety (FSoE, STO, SS1)",
+      "Seamless conversion and turnkey retrofit of legacy KEB COMBIVERT F5 VFD to next-gen COMBIVERT F6",
       "Multi-Ethernet communication (EtherCAT, PROFINET, POWERLINK, Modbus TCP)",
       "Industrial PCs, embedded PLCs, and high-definition HMI touch interfaces",
       "Wide application coverage from machine tools to material flow and high-speed turbomachinery",
     ],
     products: [
+      {
+        series: "KEB COMBIVERT F5 to F6 Conversion",
+        headline: "Turnkey Retrofit & Parameter Migration from Legacy F5 to F6 VFD",
+        details:
+          "Specialized engineering upgrade path converting legacy KEB COMBIVERT F5 drives into modern COMBIVERT F6 drive controllers with 100% parameter migration, mechanical adapter kits, and zero downtime.",
+        specs: [
+          "Migration: Seamless COMBIVIS 6 parameter conversion from legacy F5 to F6",
+          "Hardware: Direct mechanical mounting adapters and encoder board compatibility",
+          "Safety Upgrade: Transition to integrated SIL3 PLe STO / FSoE functional safety",
+        ],
+      },
       {
         series: "COMBIVERT F6 & S6 Drive Controllers",
         headline: "High-Performance Servo Drives & Frequency Inverters (0.75kW - 450kW)",
@@ -344,15 +368,15 @@ export const brandDetailsData = [
   },
   {
     id: "solartech",
-    name: "Solartech",
-    website: "https://www.solartech.cn/",
-    category: "Solar Pumping Solutions",
+    name: "Solar Pumping Solutions",
+    website: "",
+    category: "Off-Grid Water Conservancy & Solar Inverters",
     tag: "Solar Pumping",
-    logo: solartechLogo,
+    logo: null,
     image: solartech1,
-    tagline: "World's Leading Professional Manufacturer of Solar Pumping Systems",
+    tagline: "High-Efficiency Solar Water Pumping & Inverter Solutions",
     description:
-      "Global leaders in solar water conservancy technologies, manufacturing high-efficiency solar water pumping inverters, submersible borehole pumps, and off-grid agricultural irrigation systems.",
+      "Advanced solar water conservancy technologies, engineered with intelligent MPPT solar water pumping inverters, submersible borehole pumps, and off-grid agricultural irrigation systems across the UAE and GCC.",
     highlights: [
       "Patented dynamic MPPT algorithm achieving up to 99% conversion efficiency",
       "Automatic solar / grid dual-power hybrid input switching with zero interruption",

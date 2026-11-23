@@ -6,15 +6,15 @@ import {
   FaEnvelope,
   FaClock,
   FaCheckCircle,
-  FaMap,
   FaWhatsapp,
   FaFax,
-  FaTimes,
   FaBuilding,
   FaShieldAlt,
+  FaExternalLinkAlt,
 } from "react-icons/fa";
 
 const WHATSAPP_NUMBER = "971559241038";
+const GOOGLE_MAPS_SEARCH_URL = "https://www.google.com/search?q=GI.Tech+FZE&kgmid=/g/11c0vkv3r4";
 
 const ContactUs = ({ isPage = false }) => {
   const [formData, setFormData] = useState({
@@ -26,7 +26,6 @@ const ContactUs = ({ isPage = false }) => {
   });
   const [submitted, setSubmitted] = useState(false);
   const [lastWhatsAppUrl, setLastWhatsAppUrl] = useState("");
-  const [showMap, setShowMap] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -36,7 +35,7 @@ const ContactUs = ({ isPage = false }) => {
     e.preventDefault();
 
     // Prepare clear structured lead message for WhatsApp
-    const whatsappMessage = `*GI. Tech Automation - New Technical Inquiry*\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n👤 *Client Name:* ${formData.name.trim()}\n🏢 *Corporate Email:* ${formData.email.trim()}\n📞 *Phone Number:* ${formData.phone.trim()}\n⚙️ *Product / Application:* ${formData.interest}\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n📝 *Project Scope & Requirements:*\n${formData.message.trim()}\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n_Submitted via GI. Tech FZE Official Web Portal_`;
+    const whatsappMessage = `*GI Tech Automation - New Technical Inquiry*\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n👤 *Client Name:* ${formData.name.trim()}\n🏢 *Corporate Email:* ${formData.email.trim()}\n📞 *Phone Number:* ${formData.phone.trim()}\n⚙️ *Product / Application:* ${formData.interest}\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n📝 *Project Scope & Requirements:*\n${formData.message.trim()}\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n_Submitted via GI Tech Official Web Portal_`;
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
     setLastWhatsAppUrl(url);
@@ -60,7 +59,7 @@ const ContactUs = ({ isPage = false }) => {
   return (
     <section
       id="contact"
-      className={`bg-slate-50 border-t border-slate-100 w-full overflow-hidden ${
+      className={`bg-white border-t border-slate-100 w-full overflow-hidden ${
         isPage ? "py-12 sm:py-16" : "py-20"
       }`}
     >
@@ -101,7 +100,7 @@ const ContactUs = ({ isPage = false }) => {
                 </div>
 
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                  GI. Tech FZE
+                  GI Tech
                 </h3>
                 <p className="text-sm text-slate-600 leading-relaxed font-normal mt-1.5 min-h-[44px]">
                   Certified automation engineering, drive retrofit, and control panel integration desk in Sharjah Airport International Freezone.
@@ -120,7 +119,7 @@ const ContactUs = ({ isPage = false }) => {
                       Registered Address
                     </h4>
                     <p className="text-sm font-bold text-slate-900 leading-snug mt-0.5">
-                      GI. Tech FZE, Q4-158
+                      GI Tech, Q4-158
                     </p>
                     <p className="text-xs text-slate-600 mt-0.5">
                       Sharjah International Airport Freezone, Sharjah, United Arab Emirates
@@ -215,27 +214,18 @@ const ContactUs = ({ isPage = false }) => {
               </div>
 
               {/* Bottom Actions of Left Card */}
-              <div className="pt-2 space-y-2.5 border-t border-slate-100">
+              <div className="pt-3 border-t border-slate-100 mt-auto">
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                    "Hello GI. Tech, I would like to inquire about your automation and drive products."
+                    "Hello GI Tech, I would like to inquire about your automation and drive products."
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 text-xs sm:text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl transition-all shadow-sm cursor-pointer"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-5 text-xs sm:text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl transition-all shadow-sm hover:shadow-md cursor-pointer"
                 >
-                  <FaWhatsapp size={17} />
+                  <FaWhatsapp size={18} />
                   <span>Chat Directly on WhatsApp</span>
                 </a>
-
-                <button
-                  type="button"
-                  onClick={() => setShowMap(!showMap)}
-                  className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors cursor-pointer"
-                >
-                  <FaMap size={13} />
-                  <span>{showMap ? "Hide SAIF Zone Map" : "View SAIF Zone Map Location"}</span>
-                </button>
               </div>
             </div>
           </div>
@@ -272,7 +262,7 @@ const ContactUs = ({ isPage = false }) => {
                     Inquiry Ready & WhatsApp Dispatched!
                   </h4>
                   <p className="text-sm text-emerald-800 max-w-md mx-auto leading-relaxed">
-                    Thank you, <strong>{formData.name}</strong>! Your technical requirements have been
+                    Thank you, {formData.name}! Your technical requirements have been
                     prepared for our WhatsApp engineering hotline.
                   </p>
 
@@ -362,7 +352,7 @@ const ContactUs = ({ isPage = false }) => {
                           <option value="Aucom Soft Starters">Aucom Soft Starters</option>
                           <option value="Kendrion Intorq Brakes & Clutches">Kendrion Intorq Brakes & Clutches</option>
                           <option value="VOGEL Precision Gearboxes & Drive Systems">VOGEL Precision Gearboxes & Drive Systems</option>
-                          <option value="Solartech Solar Pumping Solutions">Solartech Solar Pumping Solutions</option>
+                          <option value="Solar Pumping Solutions">Solar Pumping Solutions</option>
                           <option value="FAN (Ventilation equipment & blowers)">FAN (Ventilation equipment & blowers)</option>
                           <option value="Industrial Pumps & Water Flow Systems">Industrial Pumps & Water Flow Systems</option>
                           <option value="Conveying & Warehouse AS/RS Systems">Conveying & Warehouse AS/RS Systems</option>
@@ -399,7 +389,7 @@ const ContactUs = ({ isPage = false }) => {
 
                     <div className="flex items-center justify-center gap-2 text-[11px] text-slate-400 text-center">
                       <FaShieldAlt className="text-emerald-500" size={11} />
-                      <span>Instant connection with GI. Tech senior engineers • No email delay</span>
+                      <span>Instant connection with GI Tech senior engineers • No email delay</span>
                     </div>
                   </div>
                 </form>
@@ -408,37 +398,43 @@ const ContactUs = ({ isPage = false }) => {
           </div>
         </div>
 
-        {/* Collapsible Interactive Map with Smooth Animated Container */}
-        <AnimatePresence>
-          {showMap && (
-            <motion.div
-              initial={{ opacity: 0, height: 0, marginTop: 0 }}
-              animate={{ opacity: 1, height: "auto", marginTop: 32 }}
-              exit={{ opacity: 0, height: 0, marginTop: 0 }}
-              transition={{ duration: 0.3 }}
-              className="rounded-3xl overflow-hidden border border-slate-200 shadow-md bg-white p-2"
-            >
-              <div className="p-3 bg-slate-50 rounded-2xl flex items-center justify-between border-b border-slate-100 mb-2">
-                <div className="flex items-center gap-2 text-xs font-bold text-slate-800">
-                  <FaMapMarkerAlt className="text-primary" />
-                  <span>GI. Tech FZE Location Map — Sharjah Airport International Freezone (SAIF Zone)</span>
-                </div>
-                <button
-                  onClick={() => setShowMap(false)}
-                  className="text-xs font-bold text-slate-500 hover:text-slate-800 p-1 cursor-pointer"
-                >
-                  <FaTimes size={16} />
-                </button>
+        {/* Permanent Interactive Map with Direct Navigation Controls */}
+        <div className="mt-10 sm:mt-12 rounded-3xl overflow-hidden border border-slate-200 shadow-md bg-white p-2 sm:p-3">
+          <div className="p-3 sm:p-4 bg-slate-50 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 mb-2">
+            <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold text-slate-800">
+              <div className="p-2 bg-blue-100 text-primary rounded-xl shrink-0">
+                <FaMapMarkerAlt size={16} />
               </div>
-              <iframe
-                title="GI. Tech FZE Sharjah Location"
-                className="w-full h-72 sm:h-96 rounded-2xl border-0"
-                src="https://maps.google.com/maps?q=Sharjah+Airport+International+Free+Zone&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                loading="lazy"
-              ></iframe>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              <div>
+                <span>GI Tech Facility Location • SAIF Zone, Sharjah, UAE</span>
+                <p className="text-[11px] font-normal text-slate-500">
+                  Building Q4-158, Sharjah Airport International Freezone
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <a
+                href={GOOGLE_MAPS_SEARCH_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2.5 bg-primary hover:bg-primaryHover text-white text-xs sm:text-sm font-bold rounded-xl shadow-xs transition-all cursor-pointer"
+              >
+                <FaExternalLinkAlt size={12} />
+                <span>Open in Google Maps / Directions</span>
+              </a>
+            </div>
+          </div>
+
+          <iframe
+            title="GI Tech SAIF Zone Sharjah Location"
+            className="w-full h-80 sm:h-[420px] rounded-2xl border-0"
+            src="https://maps.google.com/maps?q=GI.Tech+FZE,+Sharjah+Airport+International+Free+Zone&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            loading="lazy"
+            decoding="async"
+            allowFullScreen
+          ></iframe>
+        </div>
       </div>
     </section>
   );

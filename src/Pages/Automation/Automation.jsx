@@ -16,7 +16,7 @@ const coreIndustrySolutions = [
   {
     title: "Industrial Automation",
     description:
-      "From motor control to process optimization, GiTech delivers scalable automation systems tailored to your plant’s needs.",
+      "From motor control to process optimization, GI Tech delivers scalable automation systems tailored to your plant’s needs.",
     icon: FaIndustry,
     badge: "Plant & Process",
     highlights: [
@@ -71,7 +71,7 @@ const specializedSolutions = [
     title: "PLC Programming & Commissioning",
     icon: FaMicrochip,
     description:
-      "Turnkey ladder and structured text programming for Siemens, Allen Bradley, Omron, and Schneider platforms.",
+      "Turnkey ladder and structured text programming for major industrial PLC & PAC architectures, ensuring seamless VFD & drive integration.",
   },
   {
     title: "Telemetry & Remote Monitoring",
@@ -96,8 +96,8 @@ const AutomationServices = () => {
             Automation Solutions in Dubai & UAE
           </h1>
           <div className="w-16 h-1 bg-blue-500 mx-auto my-4 rounded-full"></div>
-          <p className="text-slate-300 max-w-2xl mx-auto text-sm sm:text-base font-light leading-relaxed">
-            GI. Tech provides premier industrial and building automation solutions in Dubai,
+          <p className="text-justify text-slate-300 max-w-2xl mx-auto text-sm sm:text-base font-light leading-relaxed">
+            GI Tech provides premier industrial and building automation solutions in Dubai,
             integrating VFDs, frequency inverters, PLC systems, SCADA, and smart BMS architectures across the UAE.
           </p>
         </div>
@@ -139,12 +139,12 @@ const AutomationServices = () => {
                       {sol.title}
                     </h3>
 
-                    <p className="text-sm text-slate-600 leading-relaxed font-normal">
+                    <p className="text-justify text-sm text-slate-600 leading-relaxed font-normal">
                       {sol.description}
                     </p>
 
                     <div className="pt-3 border-t border-slate-100">
-                      <p className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                      <p className="text-justify text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
                         System Highlights:
                       </p>
                       <ul className="space-y-2 text-xs text-slate-700">
@@ -179,7 +179,7 @@ const AutomationServices = () => {
             <h3 className="text-xl sm:text-2xl font-bold text-slate-900">
               Specialized Automation Modules
             </h3>
-            <p className="text-xs sm:text-sm text-slate-600 mt-2">
+            <p className="text-justify text-xs sm:text-sm text-slate-600 mt-2">
               Modular hardware and software building blocks integrated into your
               facility.
             </p>
@@ -199,7 +199,7 @@ const AutomationServices = () => {
                   <h4 className="text-base font-bold text-slate-900">
                     {item.title}
                   </h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="text-justify text-xs text-slate-600 leading-relaxed">
                     {item.description}
                   </p>
                 </div>

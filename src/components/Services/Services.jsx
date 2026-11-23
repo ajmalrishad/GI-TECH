@@ -2,19 +2,19 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaIndustry, FaBuilding, FaWater, FaFan, FaTruckLoading, FaSolarPanel, FaArrowRight } from "react-icons/fa";
 
-import service1 from "../../assets/manufacturing.png";
-import service2 from "../../assets/building.png";
-import service3 from "../../assets/wastewatertreatment.png";
-import service4 from "../../assets/air.png";
-import service5 from "../../assets/wholesale.png";
-import service6 from "../../assets/mobility.png";
+import service1 from "../../assets/services/manufacturing.png";
+import service2 from "../../assets/services/building.png";
+import service3 from "../../assets/services/wastewatertreatment.png";
+import service4 from "../../assets/services/air.png";
+import service5 from "../../assets/services/wholesale.png";
+import service6 from "../../assets/services/mobility.png";
 
 // The 3 highlighted flagship Industry Solutions from user prompt
 const featuredSolutions = [
   {
     title: "Industrial Automation",
     description:
-      "From motor control to process optimization, GiTech delivers scalable automation systems tailored to your plant’s needs.",
+      "From motor control to process optimization, GI Tech delivers scalable automation systems tailored to your plant’s needs.",
     icon: FaIndustry,
     badge: "Process & Factory",
     link: "/automation",
@@ -102,8 +102,8 @@ const Services = () => {
             Industries We Serve
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto my-3 rounded-full"></div>
-          <p className="text-base sm:text-xl text-slate-600">
-            GiTech delivers end-to-end automation and control architectures across
+          <p className="text-justify text-base sm:text-xl text-slate-600">
+            GI Tech delivers end-to-end automation and control architectures across
             demanding industrial, municipal, and commercial sectors.
           </p>
         </div>
@@ -148,7 +148,7 @@ const Services = () => {
                       {sol.title}
                     </h4>
 
-                    <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-light">
+                    <p className="text-justify text-sm sm:text-base text-slate-300 leading-relaxed font-light">
                       {sol.description}
                     </p>
 
@@ -179,7 +179,7 @@ const Services = () => {
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <div className="w-14 h-14 rounded-xl bg-white border border-slate-200/90 p-2 flex items-center justify-center shadow-2xs">
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={item.img}
                       alt={item.name}
                       className="w-10 h-10 object-contain"
@@ -190,7 +190,7 @@ const Services = () => {
                   </h3>
                 </div>
 
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+                <p className="text-justify text-sm sm:text-base text-slate-600 leading-relaxed">
                   {item.description}
                 </p>
               </div>

@@ -89,8 +89,8 @@ const Cart = () => {
       )
       .join("\n");
 
-    const header = `*GI. Tech Automation - Equipment Inquiry List*\n━━━━━━━━━━━━━━━━━━━━━━━━━━`;
-    const body = `\n📦 *Requested Automation Items (${cartItems.length}):*\n${itemsList}\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n_Hello GI. Tech, please share official quotation, technical datasheets, and delivery timeline for these items._`;
+    const header = `*GI Tech Automation - Equipment Inquiry List*\n━━━━━━━━━━━━━━━━━━━━━━━━━━`;
+    const body = `\n📦 *Requested Automation Items (${cartItems.length}):*\n${itemsList}\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n_Hello GI Tech, please share official quotation, technical datasheets, and delivery timeline for these items._`;
 
     const fullMessage = `${header}${body}`;
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
@@ -131,7 +131,7 @@ const Cart = () => {
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 max-w-md mx-auto">
               Explore our range of Invertek VFDs, KEB motion controllers, Aucom soft starters,
-              Kendrion brakes, VOGEL precision gearboxes, and Solartech solar pumping systems.
+              Kendrion brakes, VOGEL precision gearboxes, and solar pumping systems.
             </p>
             <div className="pt-2">
               <button
@@ -292,9 +292,8 @@ const Cart = () => {
                 </div>
               </div>
 
-              <div className="p-4 bg-blue-50/70 rounded-2xl border border-blue-100 text-xs text-blue-900 leading-relaxed">
-                <strong>Need custom motor ratings?</strong> Click{" "}
-                <strong>Submit Inquiry on WhatsApp</strong> and specify motor
+              <div className="p-4 bg-blue-50/70 rounded-2xl border border-blue-100 text-xs text-blue-900 leading-relaxed font-normal">
+                Need custom motor ratings? Click Submit Inquiry on WhatsApp and specify motor
                 power (kW/HP) or ambient voltage in your chat.
               </div>
             </div>

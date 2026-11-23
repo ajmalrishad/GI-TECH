@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-import Logo from "../../assets/GiTechlogo1.png";
+import Logo from "../../assets/logos/gitech-logo.png";
 import "./subnavbar.css";
 
 const Menu = [
